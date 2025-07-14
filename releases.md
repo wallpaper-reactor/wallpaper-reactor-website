@@ -6,11 +6,15 @@ nav_order: 2
 
 # Official Releases
 
+## Install via App Stores (Automatic Updates)
+
 {% include store-buttons.html %}
 
 {% assign rel = site.data.latest_release %}
 
-## {{ rel.name }} ({{ rel.tag_name }})
+## Other Install Files
+
+### {{ rel.name }} ({{ rel.tag_name }})
 **Published on** {{ rel.published_at | date: "%B %-d, %Y" }}
 
 {{ rel.body | markdownify }}
