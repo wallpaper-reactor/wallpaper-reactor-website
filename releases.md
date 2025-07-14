@@ -6,17 +6,7 @@ nav_order: 2
 
 # Official Releases
 
-<div class="store-buttons">
-  <a href="https://play.google.com/store/apps/details?id=app.wallpaperreactor" target="_blank" rel="noopener">
-    <img src="{{ '/assets/images/google-play-button.png' | relative_url }}" alt="Get it on Google Play">
-  </a>
-  <!-- <a href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" rel="noopener">
-    <img src="{{ '/assets/images/apple-store-button.svg' | relative_url }}" alt="Download on the App Store">
-  </a>
-  <a href="https://www.microsoft.com/store/apps/YOUR_APP_ID" target="_blank" rel="noopener">
-    <img src="{{ '/assets/images/microsoft-store-badge.svg' | relative_url }}" alt="Get it from Microsoft">
-  </a> -->
-</div>
+{% include store-buttons.html %}
 
 {% assign rel = site.data.latest_release %}
 
