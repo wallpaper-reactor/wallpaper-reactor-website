@@ -1,0 +1,11 @@
+.store-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; // space between badges
+    margin-top: 1.5rem; // some breathing room above
+}
+
+.store-buttons img {
+    height: 48px; // keep them uniform
+    display: block;
+}
