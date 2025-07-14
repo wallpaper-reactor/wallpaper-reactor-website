@@ -7,6 +7,9 @@ on:
     # every hour
     - cron: "0 * * * *"
 
+permissions:
+  contents: write
+
 jobs:
   fetch_latest:
     runs-on: ubuntu-latest
