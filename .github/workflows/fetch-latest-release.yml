@@ -19,13 +19,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          # single supported input: full owner/repo in the route
           route: GET /repos/${{ github.repository_owner }}/wallpaper-reactor-website/releases/latest
 
       - name: Write release JSON
+        env:
+          RELEASE_JSON: ${{ steps.release.outputs.data }}
         run: |
           mkdir -p _data
-          echo '${{ steps.release.outputs.data }}' > _data/latest_release.json
+          echo "$RELEASE_JSON" > _data/latest_release.json
 
       - name: Commit & push if changed
         run: |
