@@ -1,0 +1,35 @@
+name: Update latest release data
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # every hour
+    - cron: "0 * * * *"
+
+jobs:
+  fetch_latest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Fetch latest GitHub release
+        uses: octokit/request-action@v2
+        id: release
+        with:
+          route: GET /repos/{OWNER}/{REPO}/releases/latest
+          owner: ${{ github.repository_owner }}
+          repo: wallpaper-reactor-website
+        # GITHUB_TOKEN is automatically provided
+
+      - name: Write release JSON
+        run: |
+          mkdir -p _data
+          echo '${{ steps.release.outputs.data }}' > _data/latest_release.json
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _data/latest_release.json
+          git diff --quiet --staged || (git commit -m "chore: update latest release data" && git push)
