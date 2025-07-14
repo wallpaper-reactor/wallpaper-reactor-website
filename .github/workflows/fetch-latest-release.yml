@@ -1,11 +1,8 @@
 name: Update latest release data
 
 on:
-  push:
-    branches: [main]
-  schedule:
-    # every hour
-    - cron: "0 * * * *"
+  release:
+    types: [published]
 
 permissions:
   contents: write
