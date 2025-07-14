@@ -16,12 +16,11 @@ jobs:
       - name: Fetch latest GitHub release
         uses: octokit/request-action@v2.x
         id: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          route: GET /repos/{OWNER}/{REPO}/releases/latest
-          owner: ${{ github.repository_owner }}
-          repo: wallpaper-reactor-website
-        # GITHUB_TOKEN is automatically provided
+          # single supported input: full owner/repo in the route
+          route: GET /repos/${{ github.repository_owner }}/wallpaper-reactor-website/releases/latest
 
       - name: Write release JSON
         run: |
