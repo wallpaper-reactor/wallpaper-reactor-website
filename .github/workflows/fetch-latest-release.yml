@@ -1,11 +1,8 @@
 name: Update latest release data
 
 on:
-  workflow_dispatch:
-    inputs:
-      trigger:
-        description: "Trigger update after private release"
-        required: true
+  repository_dispatch:
+    types: [release_artifacts_ready]
 
 permissions:
   contents: write
