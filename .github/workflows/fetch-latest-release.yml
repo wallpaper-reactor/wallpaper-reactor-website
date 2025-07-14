@@ -17,6 +17,7 @@ jobs:
         uses: octokit/request-action@v2.x
         id: release
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           route: GET /repos/{OWNER}/{REPO}/releases/latest
           owner: ${{ github.repository_owner }}
           repo: wallpaper-reactor-website
