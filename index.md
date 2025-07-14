@@ -26,3 +26,6 @@ Easily change the performance profile of any wallpaper to maximize FPS, resoluti
 
 ### ☁️ Create Wallpapers Easily (Coming Soon)
 Login to sync wallpapers with the cloud and use them on any device. Share wallpapers with the community or keep them private.
+
+### 🖥️ Multi-Monitor Support
+Support any number of connected monitors easily. You have the option to duplicate the same wallpaper on multiple screens, or select one for each.
