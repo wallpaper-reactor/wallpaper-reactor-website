@@ -36,4 +36,4 @@ Wallpaper Reactor is not intended for children under the age of 13. We do not kn
 We may update this policy from time to time. Any changes will be posted here with a revised **Last updated** date. Please review it periodically.
 
 ### 10. Contact Us
-If you have questions or concerns about this Privacy Policy, you can contact us at [wallpaperreactor@gmail.com](mailto:wallpaperreactor@gmail.com).
+If you have questions or concerns about this Privacy Policy, you can contact us [here](https://x.com/LikeEich).
