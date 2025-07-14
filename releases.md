@@ -12,6 +12,8 @@ nav_order: 2
 
 {% assign rel = site.data.latest_release %}
 
+---
+
 ## Other Install Files
 
 ### {{ rel.name }} ({{ rel.tag_name }})
