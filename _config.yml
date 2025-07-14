@@ -3,8 +3,7 @@ description: A starter template for a Jeykll site using the Just the Docs theme!
 theme: just-the-docs
 color_scheme: dark
 
-url: https://likeich.github.io
-baseurl: "/wallpaper-reactor-website"
+url: https://likeich.github.io/wallpaper-reactor-website
 
 aux_links:
   Releases: /releases/
