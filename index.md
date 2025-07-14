@@ -4,7 +4,7 @@ layout: home
 nav_order: 1
 ---
 
-![Mockup](/assets/images/mockup2.webp){: style="max-height:300px; width:auto; display:block; margin:0 auto;" }
+![Mockup]({{ '/assets/images/mockup2.webp' | relative_url }}){: style="max-height:300px; width:auto; display:block; margin:0 auto;" }
 
 # Wallpaper Reactor
 
