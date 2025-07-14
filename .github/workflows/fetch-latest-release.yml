@@ -11,7 +11,11 @@ jobs:
   fetch_latest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Fetch latest GitHub release
         uses: octokit/request-action@v2.x
@@ -33,4 +37,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add _data/latest_release.json
-          git diff --quiet --staged || (git commit -m "chore: update latest release data" && git push)
+          git diff --quiet --staged || (git commit -m "chore: update latest release data" && git push origin main)
