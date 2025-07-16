@@ -4,7 +4,7 @@ layout: default
 nav_order: 2
 ---
 
-## Privacy Policy
+# Privacy Policy
 
 **Last updated:** June 28, 2025
 

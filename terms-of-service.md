@@ -4,8 +4,9 @@ layout: default
 nav_order: 3
 ---
 
-# Wallpaper Reactor Terms of Service
-_Last updated: July 16, 2025_
+# Terms of Service
+
+**Last updated:** July 16, 2025
 
 These Terms of Service (“**Terms**”) govern your access to and use of the Wallpaper Reactor mobile and desktop applications and any related services (collectively, the “**Service**”) provided by Kyle Andrew Eichlin (“**we**,” “**us**,” or “**our**”). By downloading, installing, or using the Service, you agree to these Terms. If you do not agree, do not use the Service.
 
