@@ -27,10 +27,14 @@ nav_order: 4
   {% case ext %}
     {% when 'apk' %}
       {% assign label = 'Android' %}
-    {% when 'pkg' %}
-      {% assign label = 'macOS' %}
     {% when 'msi' %}
       {% assign label = 'Windows' %}
+    {% when 'zip' %}
+      {% if asset.name contains 'mac-aarch64' or asset.name contains 'mac-amd64' %}
+        {% assign label = 'macOS Experimental' %}
+      {% else %}
+        {% assign label = ext %}
+      {% endif %}
     {% else %}
       {% assign label = ext %}
   {% endcase %}
