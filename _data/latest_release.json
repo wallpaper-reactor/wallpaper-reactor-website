@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/232228880",
-  "assets_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/232228880/assets",
-  "upload_url": "https://uploads.github.com/repos/likeich/wallpaper-reactor-website/releases/232228880/assets{?name,label}",
-  "html_url": "https://github.com/likeich/wallpaper-reactor-website/releases/tag/v0.6.1",
-  "id": 232228880,
+  "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/236665788",
+  "assets_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/236665788/assets",
+  "upload_url": "https://uploads.github.com/repos/likeich/wallpaper-reactor-website/releases/236665788/assets{?name,label}",
+  "html_url": "https://github.com/likeich/wallpaper-reactor-website/releases/tag/v0.7.16",
+  "id": 236665788,
   "author": {
     "login": "likeich",
     "id": 57882701,
@@ -25,21 +25,21 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPMBXsc4N14gQ",
-  "tag_name": "v0.6.1",
+  "node_id": "RE_kwDOPMBXsc4OGzu8",
+  "tag_name": "v0.7.16",
   "target_commitish": "main",
-  "name": "",
+  "name": null,
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2025-07-14T13:31:34Z",
-  "published_at": "2025-07-14T13:32:15Z",
+  "created_at": "2025-07-16T18:20:08Z",
+  "published_at": "2025-07-31T18:26:59Z",
   "assets": [
     {
-      "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/assets/272740643",
-      "id": 272740643,
-      "node_id": "RA_kwDOPMBXsc4QQbEj",
-      "name": "wallpaper-reactor-v0.6.1.apk",
+      "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/assets/278183771",
+      "id": 278183771,
+      "node_id": "RA_kwDOPMBXsc4QlL9b",
+      "name": "wallpaper-reactor-v0.7.16.apk",
       "label": "",
       "uploader": {
         "login": "likeich",
@@ -64,16 +64,15 @@
       },
       "content_type": "application/vnd.android.package-archive",
       "state": "uploaded",
-      "size": 378119599,
-      "digest": "sha256:e1ffeb0b25cb0772163d4da78abc09130f385ff7b8e040a70b45487ad1628242",
+      "size": 379445328,
+      "digest": "sha256:04c289595f820f5ea8d125c279120496589bb12c91f4480935b8908223d59c36",
       "download_count": 0,
-      "created_at": "2025-07-14T13:34:17Z",
-      "updated_at": "2025-07-14T13:34:25Z",
-      "browser_download_url": "https://github.com/likeich/wallpaper-reactor-website/releases/download/v0.6.1/wallpaper-reactor-v0.6.1.apk"
+      "created_at": "2025-07-31T18:26:59Z",
+      "updated_at": "2025-07-31T18:27:10Z",
+      "browser_download_url": "https://github.com/likeich/wallpaper-reactor-website/releases/download/v0.7.16/wallpaper-reactor-v0.7.16.apk"
     }
   ],
-  "tarball_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/tarball/v0.6.1",
-  "zipball_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/zipball/v0.6.1",
-  "body": "## What's Changed\r\n* Add desktop crash reporting and error logging by @likeich in https://github.com/likeich/wallpaper-reactor/pull/119\r\n* Add Scene folder support and improve upload handling by @likeich in https://github.com/likeich/wallpaper-reactor/pull/120\r\n* Refactor config change handling in wallpaper service by @likeich in https://github.com/likeich/wallpaper-reactor/pull/121\r\n\r\n\r\n**Full Changelog**: https://github.com/likeich/wallpaper-reactor/compare/v0.5.3...v0.6.1\n",
-  "mentions_count": 1
+  "tarball_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/tarball/v0.7.16",
+  "zipball_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/zipball/v0.7.16",
+  "body": "**Full Changelog**: https://github.com/likeich/wallpaper-reactor/compare/v0.7.15...v0.7.16\n"
 }
