@@ -1,12 +1,12 @@
 ---
-title: User Types
+title: Features
 layout: default
 nav_order: 1
 parent: Documentation
 has_children: false
 ---
 
-# User Types & Features
+# Features & User Types
 
 Wallpaper Reactor offers different feature sets based on your user type. Here's a complete breakdown of what's available for each tier:
 
