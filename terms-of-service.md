@@ -6,9 +6,9 @@ nav_order: 3
 
 # Terms of Service
 
-**Last updated:** July 16, 2025
+**Last updated:** August 8, 2025
 
-These Terms of Service (“**Terms**”) govern your access to and use of the Wallpaper Reactor mobile and desktop applications and any related services (collectively, the “**Service**”) provided by Kyle Andrew Eichlin (“**we**,” “**us**,” or “**our**”). By downloading, installing, or using the Service, you agree to these Terms. If you do not agree, do not use the Service.
+These Terms of Service (“**Terms**”) govern your access to and use of the Wallpaper Reactor mobile and desktop applications and any related services (collectively, the “**Service**”) provided by Kyle Eichlin (“**we**,” “**us**,” or “**our**”). By downloading, installing, or using the Service, you agree to these Terms. If you do not agree, do not use the Service.
 
 ---
 
@@ -23,23 +23,29 @@ We may modify these Terms at any time. When we do, we will post the updated Term
 ---
 
 ## 3. Description of the Service
-Wallpaper Reactor lets you browse, set, and share live wallpapers—videos, animations, web‑based shaders, and more—across your devices. The basic Service is free and supported by in‑app advertisements; optional paid subscriptions remove ads and unlock premium features.
+Wallpaper Reactor lets you browse, set, and share live wallpapers—videos, animations, web‑based shaders, and more—across your devices. Users may create optional accounts to upload custom content, sync preferences, and access additional features. The basic Service is free and supported by in‑app advertisements; optional paid subscriptions remove ads and unlock premium features.
 
 ---
 
 ## 4. Accounts & User Conduct
-- **Accounts (Optional).** You may use certain features anonymously; creating an account is not required.
+- **Accounts (Optional).** You may use basic features anonymously; creating an account is not required. Accounts are created through OAuth authentication with Google, Apple, or Discord.
+- **Account Security.** You are responsible for maintaining the security of your account and the activities that occur under it.
+- **Account Termination.** You may request account deletion at any time by contacting us. Wallpapers you've uploaded will remain available unless deleted individually.
 - **Prohibited Conduct.** You agree not to:
   - Copy or extract any proprietary assets (e.g., wallpapers, code, data) except as expressly permitted;
   - Upload or distribute malware, infringing content, or material that violates any third‑party rights;
-  - Interfere with the Service’s operation or security.
+  - Interfere with the Service's operation or security;
+  - Create fake accounts or impersonate others;
+  - Upload content that is illegal, harmful, or violates community standards.
 
 ---
 
 ## 5. User‑Generated Content & License
-- **Uploads.** You may upload wallpapers or other content (“**User Content**”).
+- **Uploads.** Account holders may upload wallpapers or other content ("**User Content**").
+- **Your Rights.** You retain ownership of your User Content and represent that you have the right to upload it.
 - **License to Us.** By uploading User Content, you grant us a perpetual, worldwide, royalty‑free, transferable, sublicensable right to use, reproduce, display, distribute, and adapt that content within Wallpaper Reactor and in marketing or future features.
-- **Removal.** You may request removal of your User Content at any time; we will remove it from the Service within a reasonable time but may retain archived copies for fraud prevention and record‑keeping.
+- **Content Standards.** User Content must not violate these Terms, applicable laws, or third-party rights. We reserve the right to remove content that violates these standards.
+- **Removal.** You may delete your User Content at any time through the app interface. We will remove it from public view within a reasonable time but may retain archived copies for fraud prevention and record‑keeping.
 
 ---
 
@@ -86,5 +92,5 @@ These Terms are governed by the laws of the state of New York, USA, without rega
 ## 13. Contact
 For notices or questions, please contact:
 
-Kyle Andrew Eichlin
+Kyle Eichlin
 Email: kyle@ark.place
