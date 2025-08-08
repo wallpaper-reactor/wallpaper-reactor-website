@@ -5,7 +5,6 @@ nav_order: 5
 has_children: true
 redirect_from:
   - /docs/index.html
-  - /docs.html
 ---
 
 # Documentation
