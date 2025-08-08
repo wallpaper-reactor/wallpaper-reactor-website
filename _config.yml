@@ -11,3 +11,6 @@ url: https://wallpaperreactor.app
 ga_tracking: "G-YYB483JREW"
 
 permalink: pretty
+
+plugins:
+  - jekyll-redirect-from

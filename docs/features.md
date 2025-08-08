@@ -4,6 +4,8 @@ layout: default
 nav_order: 1
 parent: Documentation
 has_children: false
+redirect_from:
+  - /docs/features.html
 ---
 
 # Features & User Types

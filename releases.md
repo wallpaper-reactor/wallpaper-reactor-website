@@ -2,6 +2,8 @@
 title: Releases
 layout: default
 nav_order: 4
+redirect_from:
+  - /releases.html
 ---
 
 # Official Releases
