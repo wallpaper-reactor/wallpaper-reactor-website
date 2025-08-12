@@ -47,7 +47,7 @@ redirect_from:
 {% endif %}
 
 {% if macos_assets.size > 0 %}
-#### macOS (Experimental)
+#### macOS
 {% for asset in macos_assets %}
 - [{{ asset.name }}]({{ asset.browser_download_url }})
 {% endfor %}
