@@ -25,40 +25,37 @@ redirect_from:
 
 ### Downloads (Without Automatic Updates)
 {% assign android_assets = "" | split: "," %}
-{% assign mac_assets = "" | split: "," %}
+{% assign macos_assets = "" | split: "," %}
 {% assign windows_assets = "" | split: "," %}
-{% assign other_assets = "" | split: "," %}
 
 {% for asset in rel.assets %}
-  {% assign ext = asset.name | split:'.' | last | downcase %}
-  {% case ext %}
-    {% when 'apk' %}
-      {% assign android_assets = android_assets | push: asset %}
-    {% when 'msi' %}
-      {% assign windows_assets = windows_assets | push: asset %}
-    {% when 'zip' %}
-      {% if asset.name contains 'mac-aarch64' or asset.name contains 'mac-amd64' %}
-        {% assign mac_assets = mac_assets | push: asset %}
-      {% elsif asset.name contains 'windows' %}
-        {% assign windows_assets = windows_assets | push: asset %}
-      {% else %}
-        {% assign other_assets = other_assets | push: asset %}
-      {% endif %}
-    {% else %}
-      {% assign other_assets = other_assets | push: asset %}
-  {% endcase %}
+  {% assign name_lower = asset.name | downcase %}
+  {% if name_lower contains '.apk' or name_lower contains 'android' %}
+    {% assign android_assets = android_assets | push: asset %}
+  {% elsif name_lower contains 'mac' or name_lower contains 'macos' or name_lower contains 'darwin' %}
+    {% assign macos_assets = macos_assets | push: asset %}
+  {% elsif name_lower contains 'windows' or name_lower contains 'win' or name_lower contains '.msi' or name_lower contains '.exe' %}
+    {% assign windows_assets = windows_assets | push: asset %}
+  {% endif %}
 {% endfor %}
 
+{% if android_assets.size > 0 %}
+#### Android
 {% for asset in android_assets %}
-- [{{ asset.name }}]({{ asset.browser_download_url }}) (Android)
+- [{{ asset.name }}]({{ asset.browser_download_url }})
 {% endfor %}
-{% for asset in mac_assets %}
-- [{{ asset.name }}]({{ asset.browser_download_url }}) (macOS Experimental)
+{% endif %}
+
+{% if macos_assets.size > 0 %}
+#### macOS (Experimental)
+{% for asset in macos_assets %}
+- [{{ asset.name }}]({{ asset.browser_download_url }})
 {% endfor %}
+{% endif %}
+
+{% if windows_assets.size > 0 %}
+#### Windows (Experimental)
 {% for asset in windows_assets %}
-- [{{ asset.name }}]({{ asset.browser_download_url }}) (Windows Experimental)
+- [{{ asset.name }}]({{ asset.browser_download_url }})
 {% endfor %}
-{% for asset in other_assets %}
-  {% assign ext = asset.name | split:'.' | last | downcase %}
-- [{{ asset.name }}]({{ asset.browser_download_url }}) ({{ ext }})
-{% endfor %}
+{% endif %}
