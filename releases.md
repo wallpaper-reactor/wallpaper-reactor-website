@@ -39,6 +39,8 @@ redirect_from:
     {% when 'zip' %}
       {% if asset.name contains 'mac-aarch64' or asset.name contains 'mac-amd64' %}
         {% assign mac_assets = mac_assets | push: asset %}
+      {% elsif asset.name contains 'windows' %}
+        {% assign windows_assets = windows_assets | push: asset %}
       {% else %}
         {% assign other_assets = other_assets | push: asset %}
       {% endif %}
@@ -54,7 +56,7 @@ redirect_from:
 - [{{ asset.name }}]({{ asset.browser_download_url }}) (macOS Experimental)
 {% endfor %}
 {% for asset in windows_assets %}
-- [{{ asset.name }}]({{ asset.browser_download_url }}) (Windows)
+- [{{ asset.name }}]({{ asset.browser_download_url }}) (Windows Experimental)
 {% endfor %}
 {% for asset in other_assets %}
   {% assign ext = asset.name | split:'.' | last | downcase %}
