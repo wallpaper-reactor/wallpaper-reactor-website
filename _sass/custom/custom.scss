@@ -9,3 +9,170 @@
     height: 48px; // keep them uniform
     display: block;
 }
+
+// Modern table styling that integrates with Just the Docs dark theme
+table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+thead {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+thead th {
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    
+    &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 60%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.03);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+tbody td {
+    padding: 1rem 1.25rem;
+    vertical-align: middle;
+    position: relative;
+    
+    // First column gets lighter text
+    &:first-child {
+        color: rgba(255, 255, 255, 0.85);
+    }
+    
+    &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+    
+    // Center align emoji cells (columns 2, 3, 4) without any color modifications
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+        text-align: center;
+        font-size: 1.1rem;
+    }
+}
+
+// Special styling for category rows (rows with empty cells in positions 2-4)
+tbody tr {
+    // Category rows have bold styling for first column
+    &:nth-child(3n+1) td:first-child {
+        background: rgba(255, 255, 255, 0.04);
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+}
+
+// Responsive table design
+@media (max-width: 768px) {
+    table {
+        font-size: 0.8rem;
+        margin: 1.5rem 0;
+    }
+    
+    thead th,
+    tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    thead th {
+        font-size: 0.75rem;
+    }
+}
+
+// Alternative: Card-style layout for very small screens
+@media (max-width: 600px) {
+    table.responsive-cards {
+        border: none;
+        background: none;
+        box-shadow: none;
+        
+        thead {
+            display: none;
+        }
+        
+        tbody {
+            display: block;
+        }
+        
+        tbody tr {
+            display: block;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            
+            &:hover {
+                transform: none;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        tbody td {
+            display: block;
+            padding: 0.5rem 0;
+            border: none;
+            
+            &::before {
+                content: attr(data-label) ": ";
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.9);
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                letter-spacing: 0.5px;
+            }
+            
+            &:not(:last-child)::after {
+                display: none;
+            }
+        }
+    }
+}
