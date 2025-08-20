@@ -96,18 +96,6 @@ tbody td {
     }
 }
 
-// Special styling for category rows (rows with empty cells in positions 2-4)
-tbody tr {
-    // Category rows have bold styling for first column
-    &:nth-child(3n+1) td:first-child {
-        background: rgba(255, 255, 255, 0.04);
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-}
 
 // Responsive table design
 @media (max-width: 768px) {

@@ -12,20 +12,21 @@ redirect_from:
 
 Wallpaper Reactor offers different feature sets based on your user type. Here's a complete breakdown of what's available for each tier:
 
-| Feature Category   | Free (Anonymous) | Free (Signed In) | Paid |
+| Feature            | Free (Anonymous) | Free (Signed In) | Paid |
 |--------------------|------------------|------------------|------|
-| Core Wallpapers    |                  |                  |      |
+| **Core Wallpapers**|                  |                  |      |
 | Browse Gallery     |        ✅         |        ✅         |  ✅   |
 | Apply Locally      |        ✅         |        ✅         |  ✅   |
 | Search & Filter    |        ✅         |        ✅         |  ✅   |
-| User Features      |                  |                  |      |
+| **User Features**  |                  |                  |      |
 | User Profile       |        ❌         |        ✅         |  ✅   |
 | Cloud Favorites    |        ❌         |        ✅         |  ✅   |
 | Feedback System    |        ❌         |        ✅         |  ✅   |
-| Premium Features   |                  |                  |      |
+| **Premium Features**|                  |                  |      |
 | Cloud Storage      |        ❌         |        ❌         |  ✅   |
 | Private Wallpapers |        ❌         |        ❌         |  ✅   |
 | Ad-Free Experience |        ❌         |        ❌         |  ✅   |
+| Performance Settings|        ❌         |        ❌         |  ✅   |
 | Priority Support   |        ❌         |        ❌         |  ✅   |
 
 ## User Type Descriptions
@@ -37,4 +38,4 @@ Perfect for trying out Wallpaper Reactor without any commitment. Browse and appl
 Create an account to unlock cloud favorites, user profiles, and participate in the community feedback system.
 
 ### Paid
-Get the full Wallpaper Reactor experience with cloud storage for your custom wallpapers, private wallpapers, ad-free usage, and priority support.
+Get the full Wallpaper Reactor experience with cloud storage for your custom wallpapers, private wallpapers, ad-free usage, adjustable performance settings, and priority support.
