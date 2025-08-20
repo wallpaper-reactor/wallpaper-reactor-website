@@ -1,0 +1,33 @@
+@import "./color_schemes/dark";
+
+// Modern bluish color palette - remove !default to force override
+$blue-000: #4a9eff;
+$blue-100: #3a8eef;
+$blue-200: #2a7edf;
+$blue-300: #1a6ecf;
+
+$grey-dk-000: #0f1419; // Deep blue-gray background
+$grey-dk-100: #1a1f2e; // Sidebar background  
+$grey-dk-200: #2d3748; // Border color
+$grey-dk-300: #4a5568; // Muted elements
+
+$body-background-color: $grey-dk-000;
+$sidebar-color: $grey-dk-100;
+$search-background-color: $grey-dk-100;
+$table-background-color: $grey-dk-100;
+$code-background-color: $grey-dk-100;
+
+// Link colors using our blue palette
+$link-color: $blue-000;
+$btn-primary-color: $blue-000;
+
+// Border colors
+$border-color: $grey-dk-200;
+
+// Text colors for good contrast
+$body-text-color: #e1e8f0;
+$body-heading-color: #ffffff;
+$nav-child-link-color: #b8c5d1;
+
+// Search specific colors
+$search-result-preview-color: $grey-dk-200;

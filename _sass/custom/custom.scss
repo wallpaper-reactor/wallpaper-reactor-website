@@ -10,7 +10,7 @@
     display: block;
 }
 
-// Modern table styling that integrates with Just the Docs dark theme
+// Modern table styling that integrates with the bluish dark theme
 table {
     width: 100%;
     margin: 2rem 0;
@@ -18,16 +18,16 @@ table {
     border-spacing: 0;
     font-size: 0.9rem;
     line-height: 1.4;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(26, 31, 46, 0.4);
+    border: 1px solid rgba(74, 158, 255, 0.2);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 thead {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, rgba(74, 158, 255, 0.15), rgba(26, 31, 46, 0.8));
+    border-bottom: 2px solid rgba(74, 158, 255, 0.3);
 }
 
 thead th {

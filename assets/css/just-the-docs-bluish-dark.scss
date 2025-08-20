@@ -1,0 +1,12 @@
+---
+---
+
+@import "./support/support";
+@import "./custom/setup";
+@import "./color_schemes/light";
+// Import our custom bluish-dark scheme
+@import "./color_schemes/bluish-dark";
+// Load all theme components
+@import "./modules";
+// Load custom styles
+@import "./custom/custom";
