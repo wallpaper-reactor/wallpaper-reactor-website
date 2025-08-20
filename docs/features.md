@@ -10,24 +10,11 @@ redirect_from:
 
 # Features & User Types
 
-Wallpaper Reactor offers different feature sets based on your user type. Here's a complete breakdown of what's available for each tier:
+Wallpaper Reactor offers different feature sets based on your user type. Each tier builds upon the previous one:
 
-| Feature            | Free (Anonymous) | Free (Signed In) | Paid |
-|--------------------|------------------|------------------|------|
-| **Core Wallpapers**|                  |                  |      |
-| Browse Gallery     |        ✅         |        ✅         |  ✅   |
-| Apply Locally      |        ✅         |        ✅         |  ✅   |
-| Search & Filter    |        ✅         |        ✅         |  ✅   |
-| **User Features**  |                  |                  |      |
-| User Profile       |        ❌         |        ✅         |  ✅   |
-| Cloud Favorites    |        ❌         |        ✅         |  ✅   |
-| Feedback System    |        ❌         |        ✅         |  ✅   |
-| **Premium Features**|                  |                  |      |
-| Cloud Storage      |        ❌         |        ❌         |  ✅   |
-| Private Wallpapers |        ❌         |        ❌         |  ✅   |
-| Ad-Free Experience |        ❌         |        ❌         |  ✅   |
-| Performance Settings|        ❌         |        ❌         |  ✅   |
-| Priority Support   |        ❌         |        ❌         |  ✅   |
+| 🆓 **Free (Anonymous)** | 👤 **Free (Signed In)** | 💎 **Paid** |
+|-------------------------|-------------------------|--------------|
+| • Browse Gallery<br>• Apply Locally<br>• Search & Filter | *Everything in Free (Anonymous), plus:*<br>• User Profile<br>• Cloud Favorites<br>• Feedback System | *Everything in Free (Signed In), plus:*<br>• Cloud Storage<br>• Private Wallpapers<br>• Ad-Free Experience<br>• Performance Settings<br>• Priority Support |
 
 ## User Type Descriptions
 
