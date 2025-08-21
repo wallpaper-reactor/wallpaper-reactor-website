@@ -1,9 +1,9 @@
 {
-  "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/241523931",
-  "assets_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/241523931/assets",
-  "upload_url": "https://uploads.github.com/repos/likeich/wallpaper-reactor-website/releases/241523931/assets{?name,label}",
-  "html_url": "https://github.com/likeich/wallpaper-reactor-website/releases/tag/v0.12.1",
-  "id": 241523931,
+  "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/241670114",
+  "assets_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/241670114/assets",
+  "upload_url": "https://uploads.github.com/repos/likeich/wallpaper-reactor-website/releases/241670114/assets{?name,label}",
+  "html_url": "https://github.com/likeich/wallpaper-reactor-website/releases/tag/v0.12.4",
+  "id": 241670114,
   "author": {
     "login": "likeich",
     "id": 57882701,
@@ -25,22 +25,22 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "node_id": "RE_kwDOPMBXsc4OZVzb",
-  "tag_name": "v0.12.1",
+  "node_id": "RE_kwDOPMBXsc4OZ5fi",
+  "tag_name": "v0.12.4",
   "target_commitish": "main",
   "name": null,
   "draft": false,
   "immutable": false,
   "prerelease": false,
-  "created_at": "2025-08-20T15:59:12Z",
-  "updated_at": "2025-08-21T13:54:45Z",
-  "published_at": "2025-08-21T13:54:19Z",
+  "created_at": "2025-08-21T13:54:55Z",
+  "updated_at": "2025-08-21T23:18:02Z",
+  "published_at": "2025-08-21T23:17:39Z",
   "assets": [
     {
-      "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/assets/284805256",
-      "id": 284805256,
-      "node_id": "RA_kwDOPMBXsc4Q-ciI",
-      "name": "wallpaper-reactor-v0.12.1-android.apk",
+      "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/assets/284947945",
+      "id": 284947945,
+      "node_id": "RA_kwDOPMBXsc4Q-_Xp",
+      "name": "wallpaper-reactor-v0.12.4-android.apk",
       "label": "",
       "uploader": {
         "login": "likeich",
@@ -66,17 +66,17 @@
       "content_type": "application/vnd.android.package-archive",
       "state": "uploaded",
       "size": 399171962,
-      "digest": "sha256:fca2e871b6009f859a2041b7985e20ff5b877f2cffaf6f3817507b597e2660d0",
+      "digest": "sha256:adea9a44e76a00f9909de2fe9f2e178a7fe6642b2ef0078c89710228b6c6686c",
       "download_count": 0,
-      "created_at": "2025-08-21T13:54:20Z",
-      "updated_at": "2025-08-21T13:54:31Z",
-      "browser_download_url": "https://github.com/likeich/wallpaper-reactor-website/releases/download/v0.12.1/wallpaper-reactor-v0.12.1-android.apk"
+      "created_at": "2025-08-21T23:17:39Z",
+      "updated_at": "2025-08-21T23:17:51Z",
+      "browser_download_url": "https://github.com/likeich/wallpaper-reactor-website/releases/download/v0.12.4/wallpaper-reactor-v0.12.4-android.apk"
     },
     {
-      "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/assets/284805290",
-      "id": 284805290,
-      "node_id": "RA_kwDOPMBXsc4Q-ciq",
-      "name": "wallpaper-reactor-v0.12.1-macos-arm64.zip",
+      "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/assets/284948094",
+      "id": 284948094,
+      "node_id": "RA_kwDOPMBXsc4Q-_Z-",
+      "name": "wallpaper-reactor-v0.12.4-macos-arm64.zip",
       "label": "",
       "uploader": {
         "login": "likeich",
@@ -101,18 +101,18 @@
       },
       "content_type": "application/zip",
       "state": "uploaded",
-      "size": 100770943,
-      "digest": "sha256:a89ef8369d9bd540d05d34d2aa1069dc8c99834c1fac122cc40bcf9279b3c142",
+      "size": 100769556,
+      "digest": "sha256:2e665958cd52be20507b900f284b8075b59bb9b0cc555c773a26e941760ac01d",
       "download_count": 0,
-      "created_at": "2025-08-21T13:54:32Z",
-      "updated_at": "2025-08-21T13:54:35Z",
-      "browser_download_url": "https://github.com/likeich/wallpaper-reactor-website/releases/download/v0.12.1/wallpaper-reactor-v0.12.1-macos-arm64.zip"
+      "created_at": "2025-08-21T23:17:51Z",
+      "updated_at": "2025-08-21T23:17:54Z",
+      "browser_download_url": "https://github.com/likeich/wallpaper-reactor-website/releases/download/v0.12.4/wallpaper-reactor-v0.12.4-macos-arm64.zip"
     },
     {
-      "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/assets/284805306",
-      "id": 284805306,
-      "node_id": "RA_kwDOPMBXsc4Q-ci6",
-      "name": "wallpaper-reactor-v0.12.1-windows-arm64.zip",
+      "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/assets/284948171",
+      "id": 284948171,
+      "node_id": "RA_kwDOPMBXsc4Q-_bL",
+      "name": "wallpaper-reactor-v0.12.4-windows-arm64.zip",
       "label": "",
       "uploader": {
         "login": "likeich",
@@ -137,18 +137,18 @@
       },
       "content_type": "application/zip",
       "state": "uploaded",
-      "size": 137135109,
-      "digest": "sha256:71dd1954435c7f77755d5ad3ea293f8a7ea64f110ebe78acf0428e3b3abc9806",
+      "size": 137133760,
+      "digest": "sha256:61f6b794ab95c4436295fdbfa02c0935bdb21c683323177d767151056f4c1187",
       "download_count": 0,
-      "created_at": "2025-08-21T13:54:36Z",
-      "updated_at": "2025-08-21T13:54:40Z",
-      "browser_download_url": "https://github.com/likeich/wallpaper-reactor-website/releases/download/v0.12.1/wallpaper-reactor-v0.12.1-windows-arm64.zip"
+      "created_at": "2025-08-21T23:17:55Z",
+      "updated_at": "2025-08-21T23:17:59Z",
+      "browser_download_url": "https://github.com/likeich/wallpaper-reactor-website/releases/download/v0.12.4/wallpaper-reactor-v0.12.4-windows-arm64.zip"
     },
     {
-      "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/assets/284805319",
-      "id": 284805319,
-      "node_id": "RA_kwDOPMBXsc4Q-cjH",
-      "name": "wallpaper-reactor-v0.12.1-windows-x64.zip",
+      "url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/releases/assets/284948206",
+      "id": 284948206,
+      "node_id": "RA_kwDOPMBXsc4Q-_bu",
+      "name": "wallpaper-reactor-v0.12.4-windows-x64.zip",
       "label": "",
       "uploader": {
         "login": "likeich",
@@ -173,15 +173,15 @@
       },
       "content_type": "application/zip",
       "state": "uploaded",
-      "size": 151151213,
-      "digest": "sha256:166e9a21d36dfbf971950ffc502a3fcd9c2a0bee11ac9532b2fa02bfe2f85a7f",
+      "size": 151149834,
+      "digest": "sha256:4a87b582ad85658d503bc984ae23c0ffac0a480c842e1a2d7f40a7e2c8d5eda1",
       "download_count": 0,
-      "created_at": "2025-08-21T13:54:41Z",
-      "updated_at": "2025-08-21T13:54:45Z",
-      "browser_download_url": "https://github.com/likeich/wallpaper-reactor-website/releases/download/v0.12.1/wallpaper-reactor-v0.12.1-windows-x64.zip"
+      "created_at": "2025-08-21T23:17:59Z",
+      "updated_at": "2025-08-21T23:18:02Z",
+      "browser_download_url": "https://github.com/likeich/wallpaper-reactor-website/releases/download/v0.12.4/wallpaper-reactor-v0.12.4-windows-x64.zip"
     }
   ],
-  "tarball_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/tarball/v0.12.1",
-  "zipball_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/zipball/v0.12.1",
-  "body": "Release v0.12.1 of Wallpaper Reactor\n\nDownload the latest version of Wallpaper Reactor for your platform.\n"
+  "tarball_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/tarball/v0.12.4",
+  "zipball_url": "https://api.github.com/repos/likeich/wallpaper-reactor-website/zipball/v0.12.4",
+  "body": "Release v0.12.4 of Wallpaper Reactor\n\nDownload the latest version of Wallpaper Reactor for your platform.\n"
 }
