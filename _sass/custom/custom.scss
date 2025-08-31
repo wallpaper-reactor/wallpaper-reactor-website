@@ -3,12 +3,15 @@
     flex-wrap: wrap;
     gap: 1rem; // space between badges
     margin-top: 1.5rem; // some breathing room above
+    align-items: center; // vertically align all buttons
+    justify-content: center; // horizontally center all buttons
 }
 
 .store-buttons img {
-    height: 48px; // keep them uniform
+    height: 60px; // keep them uniform
     display: block;
 }
+
 
 // Modern table styling that integrates with the bluish dark theme
 table {
