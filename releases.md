@@ -31,7 +31,7 @@ redirect_from:
   {% assign name_lower = asset.name | downcase %}
   {% if name_lower contains '.apk' or name_lower contains 'android' %}
     {% assign android_assets = android_assets | push: asset %}
-  {% elsif name_lower contains 'macos' %}
+  {% elsif name_lower contains 'mac' %}
     {% assign macos_assets = macos_assets | push: asset %}
   {% elsif name_lower contains 'windows' %}
     {% assign windows_assets = windows_assets | push: asset %}
