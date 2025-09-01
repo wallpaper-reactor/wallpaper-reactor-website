@@ -8,7 +8,7 @@ redirect_from:
 
 # Official Releases
 
-## Install via App Stores (Automatic Updates)
+## Install via App Stores
 
 {% include store-buttons.html %}
 
