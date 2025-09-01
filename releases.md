@@ -12,7 +12,7 @@ redirect_from:
 
 {% include store-buttons.html %}
 
-**Note:** The Mac App Store version is "Wallpaper Reactor Lite" with limited features. See the [features documentation]({{ site.baseurl }}/docs/features) for more information about version differences.
+**Note:** The Mac App Store version is "Wallpaper Reactor Lite" with limited features. See the [features documentation]({{ site.baseurl }}/docs/features) for more information about version differences, or download the full macOS version below.
 
 {% assign rel = site.data.latest_release %}
 
