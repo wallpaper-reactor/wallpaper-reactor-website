@@ -23,9 +23,6 @@ redirect_from:
 ### {{ rel.name }} ({{ rel.tag_name }})
 **Published on** {{ rel.published_at | date: "%B %-d, %Y" }}
 
-{{ rel.body | markdownify }}
-
-### Downloads (Without Automatic Updates)
 {% assign android_assets = "" | split: "," %}
 {% assign macos_assets = "" | split: "," %}
 {% assign windows_assets = "" | split: "," %}
@@ -34,30 +31,20 @@ redirect_from:
   {% assign name_lower = asset.name | downcase %}
   {% if name_lower contains '.apk' or name_lower contains 'android' %}
     {% assign android_assets = android_assets | push: asset %}
-  {% elsif name_lower contains 'mac' or name_lower contains 'macos' or name_lower contains 'darwin' %}
+  {% elsif name_lower contains 'macos' %}
     {% assign macos_assets = macos_assets | push: asset %}
-  {% elsif name_lower contains 'windows' or name_lower contains 'win' or name_lower contains '.msi' or name_lower contains '.exe' %}
+  {% elsif name_lower contains 'windows' %}
     {% assign windows_assets = windows_assets | push: asset %}
   {% endif %}
 {% endfor %}
 
-{% if android_assets.size > 0 %}
-#### Android
-{% for asset in android_assets %}
-- [{{ asset.name }}]({{ asset.browser_download_url }})
-{% endfor %}
-{% endif %}
-
-{% if macos_assets.size > 0 %}
-#### macOS
-{% for asset in macos_assets %}
-- [{{ asset.name }}]({{ asset.browser_download_url }})
-{% endfor %}
-{% endif %}
-
-{% if windows_assets.size > 0 %}
-#### Windows (Experimental)
-{% for asset in windows_assets %}
-- [{{ asset.name }}]({{ asset.browser_download_url }})
-{% endfor %}
-{% endif %}
+| Operating System | Build | Recommended | Link |
+|-----------------|-------|-------------|------|
+| **🍎 macOS** | Apple Silicon | ✅ | {% for asset in macos_assets %}{% if asset.name contains 'arm64' %}[Download]({{ asset.browser_download_url }}){% endif %}{% endfor %} |
+| | Intel | ✅ | {% for asset in macos_assets %}{% if asset.name contains 'x64' %}[Download]({{ asset.browser_download_url }}){% endif %}{% endfor %} |
+| | Mac App Store | ❌ | <a href="https://apps.apple.com/us/app/wallpaper-reactor-lite/id6751447022" target="_blank" rel="noopener">Mac App Store</a> |
+| **🪟 Windows** | Microsoft Store | ✅ | <a href="https://apps.microsoft.com/detail/9n4302crdqrl" target="_blank" rel="noopener">Microsoft Store</a> |
+| | Intel/AMD | ❌ | {% for asset in windows_assets %}{% if asset.name contains 'x64' %}[Download]({{ asset.browser_download_url }}){% endif %}{% endfor %} |
+| | ARM | ❌ | {% for asset in windows_assets %}{% if asset.name contains 'arm64' %}[Download]({{ asset.browser_download_url }}){% endif %}{% endfor %} |
+| **🤖 Android** | Google Play | ✅ | <a href="https://play.google.com/store/apps/details?id=app.wallpaperreactor" target="_blank" rel="noopener">Google Play</a> |
+| | Universal APK | ❌ | {% for asset in android_assets %}[Download]({{ asset.browser_download_url }}){% break %}{% endfor %} |

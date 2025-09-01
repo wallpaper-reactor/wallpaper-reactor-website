@@ -25,6 +25,6 @@ Wallpaper Reactor offers different feature sets based on your user type. Each ti
 | **Android** | Google Play Store  | Full    | No video upload (mobile hardware limits) |
 |           | Direct Download     | Full    | No video upload; manual updates required |
 | **macOS** | Mac App Store       | Lite    | Free only; no sign-in, cloud sync, performance options, cross-platform info, or paid features |
-|           | Direct Download     | Full    | Manual updates required |
+|           | Direct Download     | Full    | |
 | **Windows** | Microsoft Store   | Full    | No multi-platform info (no cross-platform branding, suggestions, or links) |
-|           | Direct Download     | Full    | Manual updates required |
+|           | Direct Download     | Full    | |
