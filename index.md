@@ -12,11 +12,11 @@ _Transform your desktop and mobile screens with live, reactive wallpapers._
 
 {% include store-buttons.html %}
 
-Wallpaper Reactor is a brand-new cross-platform live wallpaper application for all of your devices! The Android release can be found on the Google Play Store or the releases page, and the macOS version is coming soon.
+Wallpaper Reactor is a brand-new cross-platform live wallpaper application for all of your devices! Available now for Android, macOS, and Windows through the app stores above or on our releases page.
 
 ## Features
 ### 💻📱 Cross-Platform
-Use the same wallpapers across all of your mobile and desktop devices. Wallpaper Reactor supports Android and macOS, with more operating systems coming soon.
+Use the same wallpapers across all of your mobile and desktop devices. Wallpaper Reactor supports Android, macOS, and Windows.
 
 ### 🚀 Advanced Wallpapers
 Wallpaper Reactor supports advanced 3D and 2D wallpapers by utilizing the open-source Godot game engine. Many wallpaper types are supported, including videos, websites, scenes, Rive animations, and more.

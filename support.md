@@ -37,7 +37,7 @@ Follow us for updates, announcements, and quick support.
 
 ## Before Reaching Out
 
-Please check our [Features](/) page for information about app capabilities and requirements.
+Please check our [Features](/docs/features/) page for information about app capabilities and requirements.
 
 ## Feedback & Feature Requests
 
