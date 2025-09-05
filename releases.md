@@ -44,7 +44,7 @@ redirect_from:
 | | Intel | ✅ | {% for asset in macos_assets %}{% if asset.name contains 'amd64' and asset.name contains '.zip' %}[Download]({{ asset.browser_download_url }}){% endif %}{% endfor %} |
 | | Mac App Store<br>(Apple Silicon) | ❌ | <a href="https://apps.apple.com/us/app/wallpaper-reactor-lite/id6751447022" target="_blank" rel="noopener">Mac App Store</a> |
 | **🪟 Windows** | Microsoft Store<br>(Intel/AMD) | ✅ | <a href="https://apps.microsoft.com/detail/9n4302crdqrl" target="_blank" rel="noopener">Microsoft Store</a> |
-| | Intel/AMD | ✅ | {% for asset in windows_assets %}{% if asset.name contains '.x64.msix' %}[Download]({{ asset.browser_download_url }}){% endif %}{% endfor %} |
-| | ARM | ✅ | {% for asset in windows_assets %}{% if asset.name contains '.arm64.msix' %}[Download]({{ asset.browser_download_url }}){% endif %}{% endfor %} |
+| | Intel/AMD | ❌ | {% for asset in windows_assets %}{% if asset.name contains '.x64.msix' %}[Download]({{ asset.browser_download_url }}){% endif %}{% endfor %} |
+| | ARM | ❌ | {% for asset in windows_assets %}{% if asset.name contains '.arm64.msix' %}[Download]({{ asset.browser_download_url }}){% endif %}{% endfor %} |
 | **🤖 Android** | Google Play | ✅ | <a href="https://play.google.com/store/apps/details?id=app.wallpaperreactor" target="_blank" rel="noopener">Google Play</a> |
 | | Universal APK | ❌ | {% for asset in android_assets %}[Download]({{ asset.browser_download_url }}){% break %}{% endfor %} |
