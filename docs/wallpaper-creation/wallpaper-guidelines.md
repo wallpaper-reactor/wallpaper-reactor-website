@@ -1,8 +1,9 @@
 ---
 title: Wallpaper Upload Guidelines
 layout: default
-nav_order: 3
-parent: Documentation
+nav_order: 2
+parent: Wallpaper Creation
+grand_parent: Documentation
 has_children: false
 ---
 
