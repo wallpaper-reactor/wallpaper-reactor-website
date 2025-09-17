@@ -16,7 +16,7 @@ Wallpaper Reactor offers different feature sets based on your user type. Each ti
 
 | 🆓 **Free (Anonymous)** | 👤 **Free (Signed In)** | 💎 **Paid** |
 |-------------------------|-------------------------|--------------|
-| • Browse Gallery<br>• Apply Locally<br>• Search & Filter | *Everything in Free (Anonymous), plus:*<br>• User Profile<br>• Cloud Favorites<br>• Feedback System | *Everything in Free (Signed In), plus:*<br>• Wallpaper Settings Sync<br>• Private Wallpapers<br>• Ad-Free Experience<br>• Performance Settings<br>• Priority Support |
+| • Browse Gallery<br>• Apply Locally<br>• Search & Filter | *Everything in Free (Anonymous), plus:*<br>• User Profile<br>• Cloud Favorites<br>• Feedback System | *Everything in Free (Signed In), plus:*<br>• Wallpaper Settings Sync<br>• Private Wallpapers<br>• Ad-Free Experience<br>• Performance Settings<br>• Large Wallpaper Files<br>• Priority Support |
 
 ## Version Information
 
