@@ -1,22 +1,23 @@
 ---
-title: Features
+title: Features and Pricing
 layout: default
-nav_order: 1
-parent: Documentation
+nav_order: 3
 has_children: false
 redirect_from:
   - /docs/features.html
+  - /docs/features/
+  - /docs/features.md
 ---
 
-# User Features & Version Information
+# Features and Pricing
 
 ## User Features
 
 Wallpaper Reactor offers different feature sets based on your user type. Each tier builds upon the previous one:
 
-| 🆓 **Free (Anonymous)** | 👤 **Free (Signed In)** | 💎 **Paid** |
+| 🆓 **Free (Anonymous)** | 👤 **Free (Signed In)** | 💎 **Paid**<br>$3/month or $10/year |
 |-------------------------|-------------------------|--------------|
-| • Browse Gallery<br>• Apply Locally<br>• Search & Filter | *Everything in Free (Anonymous), plus:*<br>• User Profile<br>• Cloud Favorites<br>• Feedback System | *Everything in Free (Signed In), plus:*<br>• Wallpaper Settings Sync<br>• Private Wallpapers<br>• Ad-Free Experience<br>• Performance Settings<br>• Large Wallpaper Files<br>• Priority Support |
+| • Browse Gallery<br>• Apply Locally<br>• Search & Filter<br>• All wallpapers <50MB | *Everything in Free (Anonymous), plus:*<br>• User Profile<br>• Cloud Favorites<br>• Wallpaper Creation/Upload<br>• Feedback System | *Everything in Free (Signed In), plus:*<br>• Wallpaper Settings Sync<br>• Private Wallpapers<br>• Ad-Free Experience<br>• Performance Settings<br>• Large Wallpaper Files<br>• Priority Support |
 
 ## Version Information
 
