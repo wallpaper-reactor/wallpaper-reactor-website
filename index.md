@@ -22,7 +22,7 @@ Use the same wallpapers across all of your mobile and desktop devices. Wallpaper
 Wallpaper Reactor supports advanced 3D and 2D wallpapers by utilizing the open-source Godot game engine. Many wallpaper types are supported, including videos, websites, scenes, Rive animations, and more.
 
 ### ⚡️ Performance & Battery Life
-Easily change the performance profile of any wallpaper to maximize FPS, resolution, or battery. Out-of-the-box support for automatic pausing when in the background is included to stretch your battery.
+Easily change the performance profile of any wallpaper to maximize FPS, resolution, or battery. Out-of-the-box support for automatic pausing when in the background is included to stretch your battery. Battery options are available for free, no sign-in required.
 
 ### ☁️ Create Wallpapers Easily (Coming Soon)
 Login to sync wallpapers with the cloud and use them on any device. Share wallpapers with the community or keep them private.

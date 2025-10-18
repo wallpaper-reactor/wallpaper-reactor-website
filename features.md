@@ -17,7 +17,7 @@ Wallpaper Reactor offers different feature sets based on your user type. Each ti
 
 | 🆓 **Free (Anonymous)** | 👤 **Free (Signed In)** | 💎 **Paid**<br>$3/month or $10/year |
 |-------------------------|-------------------------|--------------|
-| • Browse Gallery<br>• Apply Locally<br>• Search & Filter<br>• All wallpapers <50MB | *Everything in Free (Anonymous), plus:*<br>• User Profile<br>• Cloud Favorites<br>• Wallpaper Creation/Upload<br>• Feedback System | *Everything in Free (Signed In), plus:*<br>• Wallpaper Settings Sync<br>• Private Wallpapers<br>• Ad-Free Experience<br>• Performance Settings<br>• Large Wallpaper Files<br>• Priority Support |
+| • Browse Gallery<br>• Apply Locally<br>• Search & Filter<br>• Battery Options<br>• All wallpapers <50MB | • User Profile<br>• Cloud Favorites<br>• Wallpaper Creation/Upload<br>• Feedback System | • Wallpaper Settings Sync<br>• Private Wallpapers<br>• Ad-Free Experience<br>• Performance Settings<br>• Large Wallpaper Files<br>• Priority Support |
 
 ## Version Information
 
