@@ -1,0 +1,7 @@
+# robots.txt for wallpaperreactor.app
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://wallpaperreactor.app/sitemap.xml

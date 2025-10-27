@@ -3,10 +3,6 @@ title: Features & Pricing
 layout: default
 nav_order: 2
 has_children: false
-redirect_from:
-  - /docs/features.html
-  - /docs/features/
-  - /docs/features.md
 ---
 
 # Features & Pricing

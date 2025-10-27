@@ -2,8 +2,6 @@
 title: Terms of Service
 layout: default
 nav_order: 6
-redirect_from:
-  - /terms-of-service.html
 ---
 
 # Terms of Service

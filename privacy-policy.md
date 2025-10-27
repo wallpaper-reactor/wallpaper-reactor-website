@@ -2,8 +2,6 @@
 title: Privacy Policy
 layout: default
 nav_order: 5
-redirect_from:
-  - /privacy-policy.html
 ---
 
 # Privacy Policy
