@@ -32,16 +32,56 @@ nav_order: 1
   </div>
 </section>
 
-<!-- Preview Grid Section -->
-<section class="preview-grid-section" markdown="0">
-  <div class="preview-container">
-    <div class="preview-glow"></div>
-    <img src="{{ '/assets/images/preview-grid.png' | relative_url }}" alt="Wallpaper Reactor Preview" class="preview-grid-image" />
+<!-- Video Showcase Section -->
+<section class="video-showcase-section" markdown="0">
+  <div class="video-overlay" id="videoOverlay"></div>
+  <div class="video-showcase-container">
+    <div class="video-grid">
+      <div class="video-item">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="{{ '/assets/videos/halo.mp4' | relative_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="{{ '/assets/videos/star-citizen.mp4' | relative_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="{{ '/assets/videos/synthwave.mp4' | relative_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="{{ '/assets/videos/ps3.mp4' | relative_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item video-item-mobile-hidden">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="{{ '/assets/videos/jake.mp4' | relative_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item video-item-mobile-hidden">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="{{ '/assets/videos/f1.mp4' | relative_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
   </div>
+
 </section>
 
+<script src="{{ '/assets/js/video-expand.js' | relative_url }}"></script>
+
 <!-- Features Section -->
-<section id="features" style="padding: 5rem 0; max-width: 1280px; margin: 0 auto;" markdown="0">
+<section id="features" style="padding: 2rem 0; max-width: 1280px; margin: 0 auto;" markdown="0">
   <div style="padding: 0 1rem;">
     <h2 style="font-size: 1.875rem; font-weight: 600; margin-bottom: 0.5rem;">Everything you need to make your screen alive</h2>
     <p style="color: #a3a3a3; max-width: 42rem; margin-bottom: 2.5rem;">A creator‑friendly pipeline with performance knobs and battery‑aware behavior across Android, Windows, and macOS.</p>
@@ -74,7 +114,7 @@ nav_order: 1
       <article class="feature-card">
         <div class="icon">🖥️</div>
         <h3>Multi‑monitor Ready</h3>
-        <p>Per‑display configs on desktop. Preview on Android.</p>
+        <p>Per‑display configs on desktop and Android.</p>
       </article>
 
       <article class="feature-card">
