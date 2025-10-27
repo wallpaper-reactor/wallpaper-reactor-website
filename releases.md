@@ -6,22 +6,30 @@ redirect_from:
   - /releases.html
 ---
 
-# Official Releases
+<div class="section-header" markdown="0">
+  <h2>Official Releases</h2>
+</div>
 
-## Install via App Stores
-
-{% include store-buttons.html %}
-
-**Note:** The Mac App Store version is "Wallpaper Reactor Lite" with limited features. See the [features documentation](/docs/features/) for more information about version differences, or download the full macOS version below.
+<div class="modern-card" style="text-align: center; margin: 2rem 0;" markdown="0">
+  <h3 style="margin-bottom: 1.5rem; color: #f5f5f5;">Install via App Stores</h3>
+  {% include store-buttons.html %}
+  <p style="color: #a3a3a3; margin-top: 1.5rem; font-size: 0.9rem;">
+    <strong>Note:</strong> The Mac App Store version is "Wallpaper Reactor Lite" with limited features. See the <a href="/docs/features/">features documentation</a> for more information about version differences, or download the full macOS version below.
+  </p>
+</div>
 
 {% assign rel = site.data.latest_release %}
 
----
+<div class="section-header" style="margin-top: 4rem;" markdown="0">
+  <h2>Other Install Files</h2>
+</div>
 
-## Other Install Files
+<div style="text-align: center; margin: 2rem 0;" markdown="1">
 
 ### {{ rel.name }} ({{ rel.tag_name }})
 **Published on** {{ rel.published_at | date: "%B %-d, %Y" }}
+
+</div>
 
 {% assign android_assets = "" | split: "," %}
 {% assign macos_assets = "" | split: "," %}

@@ -1,19 +1,156 @@
+// ===== MODERN REACTOR-CORE DESIGN SYSTEM =====
+
+// Black background with grid pattern
+body {
+    position: relative;
+    background-color: #000000;
+
+    &::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+        background-size: 24px 24px;
+        pointer-events: none;
+    }
+}
+
+// Sticky header - transparent to show background
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(10, 10, 10, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+// Search container - full width
+.search {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+// Search wrapper - semi-transparent to show background through and full width
+.search-input-wrap {
+    background-color: rgba(26, 26, 26, 0.4) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+// Search input - fully transparent
+.search-input {
+    background-color: transparent !important;
+}
+
+// Override the search-active state as well
+.search-active .search-input-wrap,
+.search-active .search-input {
+    background-color: rgba(26, 26, 26, 0.5) !important;
+}
+
+// Aux nav (top right navigation)
+.aux-nav {
+    background: transparent !important;
+}
+
+// Remove backdrop blur from navigation elements
+.site-nav,
+.main-header,
+nav {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: transparent !important;
+}
+
+// Main content wrapper adjustments
+.main-content-wrap {
+    background: transparent !important;
+}
+
+// Ensure sidebar shows background through
+.side-bar {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(10, 10, 10, 0.85) !important;
+}
+
+// Remove any backdrop filters globally
+* {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+// Store buttons with modern hover effects
 .store-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem; // space between badges
-    margin-top: 1.5rem; // some breathing room above
-    align-items: center; // vertically align all buttons
-    justify-content: center; // horizontally center all buttons
+    gap: 1.25rem;
+    margin: 2rem 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.store-buttons a {
+    transition: all 0.25s ease;
+    display: block;
+    border-radius: 8px;
+    padding: 4px;
+
+    &:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.15);
+        box-shadow: 0 8px 24px rgba(48, 143, 255, 0.2);
+    }
 }
 
 .store-buttons img {
-    height: 60px; // keep them uniform
+    height: 56px;
     display: block;
 }
 
 
-// Modern table styling that integrates with the bluish dark theme
+// Modern rounded cards with soft glow
+.modern-card {
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: rgba(48, 143, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+    }
+}
+
+// Hero section with glow accent
+.hero-glow {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(48, 143, 255, 0.15) 0%, transparent 70%);
+        filter: blur(60px);
+        pointer-events: none;
+        z-index: -1;
+    }
+}
+
+// Modern table styling with reactor-core aesthetic
 table {
     width: 100%;
     margin: 2rem 0;
@@ -21,16 +158,16 @@ table {
     border-spacing: 0;
     font-size: 0.9rem;
     line-height: 1.4;
-    background: rgba(26, 31, 46, 0.4);
-    border: 1px solid rgba(74, 158, 255, 0.2);
-    border-radius: 8px;
+    background: rgba(26, 26, 26, 0.4);
+    border: 1px solid rgba(48, 143, 255, 0.2);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 thead {
-    background: linear-gradient(135deg, rgba(74, 158, 255, 0.15), rgba(26, 31, 46, 0.8));
-    border-bottom: 2px solid rgba(74, 158, 255, 0.3);
+    background: linear-gradient(135deg, rgba(48, 143, 255, 0.12), rgba(26, 26, 26, 0.8));
+    border-bottom: 2px solid rgba(48, 143, 255, 0.25);
 }
 
 thead th {
@@ -123,15 +260,15 @@ tbody td {
         border: none;
         background: none;
         box-shadow: none;
-        
+
         thead {
             display: none;
         }
-        
+
         tbody {
             display: block;
         }
-        
+
         tbody tr {
             display: block;
             margin-bottom: 1rem;
@@ -140,18 +277,18 @@ tbody td {
             border-radius: 8px;
             padding: 1rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            
+
             &:hover {
                 transform: none;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             }
         }
-        
+
         tbody td {
             display: block;
             padding: 0.5rem 0;
             border: none;
-            
+
             &::before {
                 content: attr(data-label) ": ";
                 font-weight: 600;
@@ -160,10 +297,434 @@ tbody td {
                 font-size: 0.75rem;
                 letter-spacing: 0.5px;
             }
-            
+
             &:not(:last-child)::after {
                 display: none;
             }
         }
     }
+}
+
+// ===== MODERN HOMEPAGE LAYOUT SYSTEM =====
+
+// Hero wrapper - clean container, no effects
+.hero-wrapper {
+    position: relative;
+}
+
+// Hero section - two column layout with better spacing
+.hero-section {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin: 0;
+    padding: 6rem 3rem 8rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 1200px) {
+        padding: 5rem 2rem 6rem;
+        gap: 4rem;
+    }
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem 1.5rem 4rem;
+    }
+}
+
+.hero-content {
+    h1 {
+        font-size: clamp(2.75rem, 6vw, 4.5rem);
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+        color: #ffffff;
+
+        @media (max-width: 900px) {
+            font-size: 2.75rem;
+        }
+    }
+
+    .tagline {
+        font-size: 1.125rem;
+        color: #d4d4d4;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .brand-accent {
+        color: #5aa3ff;
+        font-weight: inherit;
+    }
+
+    .hero-subtitle {
+        font-size: 0.75rem;
+        color: #a3a3a3;
+        margin-top: 0.75rem;
+        line-height: 1.5;
+    }
+}
+
+// Download buttons
+.download-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+        text-decoration: none;
+
+        &.btn-primary {
+            background: #ffffff;
+            color: #0a0a0a;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+
+        &.btn-secondary {
+            background: #232323;
+            color: #ffffff;
+
+            &:hover {
+                background: #2d2d2d;
+            }
+        }
+
+        &.btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.05);
+            }
+        }
+    }
+}
+
+.hero-image {
+    position: relative;
+    text-align: center;
+
+    .glow-bg {
+        display: none; // Disabled - was causing blur issues
+    }
+
+    img {
+        position: relative;
+        max-width: 100%;
+        height: auto;
+        border-radius: 2rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .caption {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 0.875rem;
+        color: #a3a3a3;
+    }
+}
+
+// Social proof section
+.social-proof {
+    padding: 2.5rem 0;
+    text-align: center;
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem 2.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+            margin: 0;
+        }
+    }
+}
+
+// Feature grid
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.feature-card {
+    background: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+
+    .icon {
+        color: #5aa3ff;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+        margin-bottom: 0.25rem;
+        color: #f5f5f5;
+    }
+
+    p {
+        color: #a3a3a3;
+        line-height: 1.6;
+        font-size: 0.875rem;
+        margin: 0;
+    }
+}
+
+// Gallery section
+.gallery-section {
+    padding: 5rem 0;
+    background: #0a0a0a;
+
+    .gallery-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        a {
+            font-size: 0.875rem;
+            color: #5aa3ff;
+            text-decoration: none;
+
+            &:hover {
+                color: #7db8ff;
+            }
+        }
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+
+        img {
+            width: 100%;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    }
+}
+
+// Pricing section
+.pricing-section {
+    padding: 5rem 0;
+
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .pricing-info {
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: #a3a3a3;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                font-size: 0.875rem;
+                color: #d4d4d4;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    .pricing-card {
+        background: #121212;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        padding: 1.5rem;
+
+        .price-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+
+            .price {
+                font-size: 2.25rem;
+                font-weight: 600;
+
+                .period {
+                    font-size: 1.25rem;
+                    color: #a3a3a3;
+                }
+            }
+
+            .label {
+                font-size: 0.875rem;
+                color: #a3a3a3;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+
+            li {
+                font-size: 0.875rem;
+                color: #d4d4d4;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .cta-button {
+            display: inline-flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: #308fff;
+            color: #ffffff;
+            border-radius: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s ease;
+
+            &:hover {
+                background: #5aa3ff;
+            }
+        }
+
+        .disclaimer {
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            color: #737373;
+        }
+    }
+}
+
+// FAQ section
+.faq-section {
+    padding: 5rem 0;
+    max-width: 56rem;
+    margin: 0 auto;
+
+    h2 {
+        font-size: 1.875rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    details {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem 0;
+
+        summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            list-style: none;
+            color: #f5f5f5;
+            font-weight: 400;
+
+            &::-webkit-details-marker {
+                display: none;
+            }
+
+            .arrow {
+                margin-left: 1rem;
+                color: #737373;
+                transition: transform 0.2s ease;
+            }
+        }
+
+        &[open] summary .arrow {
+            transform: rotate(180deg);
+        }
+
+        p {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: #a3a3a3;
+            line-height: 1.6;
+        }
+    }
+}
+
+// Section headers
+.section-header {
+    text-align: center;
+    margin: 4rem 0 2rem;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #f5f5f5;
+    }
+}
+
+// Modern link styling
+a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: #308fff;
+    }
+}
+
+// Improved spacing and typography
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
