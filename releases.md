@@ -6,17 +6,24 @@ redirect_from:
   - /releases.html
 ---
 
-<div class="section-header" markdown="0">
-  <h2>Official Releases</h2>
-</div>
+# Releases
 
-<div class="modern-card" style="text-align: center; margin: 2rem 0;" markdown="0">
-  <h3 style="margin-bottom: 1.5rem; color: #f5f5f5;">Install via App Stores</h3>
-  {% include store-buttons.html %}
-  <p style="color: #a3a3a3; margin-top: 1.5rem; font-size: 0.9rem;">
-    <strong>Note:</strong> The Mac App Store version is "Wallpaper Reactor Lite" with limited features. See the <a href="/docs/features/">features documentation</a> for more information about version differences, or download the full macOS version below.
-  </p>
-</div>
+<section style="padding: 3rem 0; max-width: 1280px; margin: 0 auto;" markdown="0">
+  <div style="padding: 0 1rem;">
+    <h2 style="font-size: 1.875rem; font-weight: 600; margin-bottom: 0.5rem; text-align: center;">Download from App Stores</h2>
+    <p style="color: #a3a3a3; text-align: center; margin-bottom: 3rem; max-width: 48rem; margin-left: auto; margin-right: auto;">Get Wallpaper Reactor on your favorite platform. Fast, secure, and auto‑updating.</p>
+
+    <div style="margin-bottom: 3rem;">
+      {% include store-buttons.html %}
+    </div>
+
+    <div style="background: rgba(59, 130, 246, 0.05); border-left: 3px solid #3b82f6; padding: 1rem 1.5rem; border-radius: 0.5rem; max-width: 48rem; margin: 0 auto;">
+      <p style="color: #a3a3a3; margin: 0; font-size: 0.9rem;">
+        <strong style="color: #e5e5e5;">Note:</strong> The Mac App Store version is "Wallpaper Reactor Lite" with limited features. See the <a href="/docs/features/" style="color: #3b82f6; text-decoration: none;">features documentation</a> for version differences, or download the full macOS version below.
+      </p>
+    </div>
+  </div>
+</section>
 
 {% assign rel = site.data.latest_release %}
 
