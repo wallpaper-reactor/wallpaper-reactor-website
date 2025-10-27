@@ -336,6 +336,78 @@ tbody td {
     position: relative;
 }
 
+// App Showcase Section
+.app-showcase-section {
+    padding: 3rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+
+    @media (max-width: 768px) {
+        padding: 2rem 1.5rem;
+    }
+}
+
+.app-showcase-container {
+    position: relative;
+}
+
+.app-showcase-title {
+    text-align: center !important;
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
+    font-weight: 700 !important;
+    margin-bottom: 2.5rem !important;
+    color: #ffffff;
+    letter-spacing: -0.02em !important;
+    background: linear-gradient(135deg, #ffffff 0%, #5aa3ff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    position: relative;
+    padding-bottom: 1rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #5aa3ff, transparent);
+        border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: 2rem;
+        padding-bottom: 0.75rem;
+
+        &::after {
+            width: 60px;
+            height: 2px;
+        }
+    }
+}
+
+.app-screenshot-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-screenshot {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &:hover {
+        transform: scale(1.01);
+        opacity: 0.95;
+    }
+}
+
 // Video Showcase Section
 .video-showcase-section {
     padding: 1rem 2rem 2rem;
@@ -354,7 +426,7 @@ tbody td {
 
 .video-showcase-title {
     text-align: center !important;
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
     font-weight: 700 !important;
     margin-bottom: 2.5rem !important;
     color: #ffffff;
@@ -489,6 +561,32 @@ tbody td {
         height: 100%;
         display: block;
         object-fit: cover;
+    }
+}
+
+// Expanded image clone
+.image-expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    max-width: 90vw;
+    max-height: 90vh;
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+
+    &.show {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 90vh;
+        display: block;
+        object-fit: contain;
     }
 }
 
@@ -734,11 +832,17 @@ tbody td {
     border-radius: 1rem;
     padding: 1.5rem;
     transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .icon {
         color: #5aa3ff;
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom: 1.5rem;
+        width: 100%;
+        text-align: center;
     }
 
     h3 {
@@ -747,6 +851,7 @@ tbody td {
         margin-top: 0.5rem;
         margin-bottom: 0.25rem;
         color: #f5f5f5;
+        width: 100%;
     }
 
     p {
@@ -754,6 +859,7 @@ tbody td {
         line-height: 1.6;
         font-size: 0.875rem;
         margin: 0;
+        width: 100%;
     }
 }
 

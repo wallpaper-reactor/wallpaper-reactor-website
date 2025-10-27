@@ -32,6 +32,16 @@ nav_order: 1
   </div>
 </section>
 
+<!-- App Showcase Section -->
+<section class="app-showcase-section" markdown="0">
+  <div class="app-showcase-container">
+    <h2 class="app-showcase-title">Powerful features, intuitive interface</h2>
+    <div class="app-screenshot-wrapper">
+      <img src="{{ '/assets/images/main-app-screenshot.webp' | relative_url }}" alt="Wallpaper Reactor Application Interface" class="app-screenshot" />
+    </div>
+  </div>
+</section>
+
 <!-- Video Showcase Section -->
 <section class="video-showcase-section" markdown="0">
   <div class="video-overlay" id="videoOverlay"></div>
@@ -79,7 +89,7 @@ nav_order: 1
 
 </section>
 
-<script src="{{ '/assets/js/video-expand.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/media-expand.js' | relative_url }}"></script>
 
 <!-- Features Section -->
 <section id="features" style="padding: 2rem 0; max-width: 1280px; margin: 0 auto;" markdown="0">

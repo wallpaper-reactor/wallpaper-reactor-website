@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const videoItems = document.querySelectorAll('.video-item');
+  const appScreenshot = document.querySelector('.app-screenshot');
   const overlay = document.getElementById('videoOverlay');
   let expandedClone = null;
 
@@ -58,6 +59,44 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Handle app screenshot click
+  if (appScreenshot) {
+    appScreenshot.style.cursor = 'pointer';
+    appScreenshot.addEventListener('click', function(e) {
+      console.log('Screenshot clicked!');
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Close if already expanded
+      if (expandedClone) {
+        closeExpanded();
+      } else {
+        // Clone the image element
+        const clone = document.createElement('div');
+        clone.className = 'image-expanded';
+
+        const imgClone = this.cloneNode(true);
+        clone.appendChild(imgClone);
+
+        document.body.appendChild(clone);
+        expandedClone = clone;
+
+        // Trigger animation
+        setTimeout(() => {
+          clone.classList.add('show');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }, 10);
+
+        // Click the expanded image to close
+        clone.addEventListener('click', function(e) {
+          e.stopPropagation();
+          closeExpanded();
+        });
+      }
+    });
+  }
 
   // Click overlay to close
   if (overlay) {
