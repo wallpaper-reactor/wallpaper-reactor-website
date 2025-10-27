@@ -1,0 +1,109 @@
+<!-- Background Layer -->
+<style>
+@keyframes move {
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #000000;
+    overflow: hidden;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.background span {
+    width: 40vmin;
+    height: 40vmin;
+    border-radius: 40vmin;
+    backface-visibility: hidden;
+    position: absolute;
+    animation: move;
+    animation-duration: 45;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    filter: blur(8vmin);
+}
+
+.background span:nth-child(1) {
+    background: rgba(48, 143, 255, 0.4);
+    top: 59%;
+    left: 62%;
+    animation-duration: 120s;
+    animation-delay: -17s;
+    transform-origin: 13vw 14vh;
+}
+.background span:nth-child(2) {
+    background: rgba(26, 89, 186, 0.4);
+    top: 42%;
+    left: 58%;
+    animation-duration: 150s;
+    animation-delay: -32s;
+    transform-origin: -18vw -5vh;
+}
+.background span:nth-child(3) {
+    background: rgba(48, 143, 255, 0.4);
+    top: 5%;
+    left: 43%;
+    animation-duration: 110s;
+    animation-delay: -5s;
+    transform-origin: 3vw -21vh;
+}
+.background span:nth-child(4) {
+    background: rgba(90, 163, 255, 0.4);
+    top: 73%;
+    left: 58%;
+    animation-duration: 100s;
+    animation-delay: -14s;
+    transform-origin: -1vw -17vh;
+}
+.background span:nth-child(5) {
+    background: rgba(26, 89, 186, 0.4);
+    top: 83%;
+    left: 10%;
+    animation-duration: 130s;
+    animation-delay: -48s;
+    transform-origin: 22vw 18vh;
+}
+.background span:nth-child(6) {
+    background: rgba(48, 143, 255, 0.4);
+    top: 71%;
+    left: 84%;
+    animation-duration: 140s;
+    animation-delay: -17s;
+    transform-origin: 5vw 21vh;
+}
+.background span:nth-child(7) {
+    background: rgba(90, 163, 255, 0.4);
+    top: 82%;
+    left: 69%;
+    animation-duration: 160s;
+    animation-delay: -44s;
+    transform-origin: -1vw -20vh;
+}
+.background span:nth-child(8) {
+    background: rgba(26, 89, 186, 0.4);
+    top: 95%;
+    left: 19%;
+    animation-duration: 125s;
+    animation-delay: -45s;
+    transform-origin: -5vw 13vh;
+}
+</style>
+
+<div class="background">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>

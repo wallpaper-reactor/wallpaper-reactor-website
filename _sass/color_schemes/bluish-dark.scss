@@ -1,33 +1,41 @@
 @import "./color_schemes/dark";
 
-// Modern bluish color palette - remove !default to force override
-$blue-000: #4a9eff;
-$blue-100: #3a8eef;
-$blue-200: #2a7edf;
-$blue-300: #1a6ecf;
+// Modern reactor-core blue gradient palette
+$brand-blue-500: #308fff; // Primary brand blue (bright)
+$brand-blue-600: #1e6fe6; // Secondary brand blue (deeper)
+$brand-blue-400: #5aa3ff; // Lighter accent
+$brand-blue-700: #1558c7; // Darker accent
 
-$grey-dk-000: #0f1419; // Deep blue-gray background
-$grey-dk-100: #1a1f2e; // Sidebar background  
-$grey-dk-200: #2d3748; // Border color
-$grey-dk-300: #4a5568; // Muted elements
+// Deep neutral backgrounds - OLED-friendly
+$neutral-950: #0a0a0a; // Deep black background
+$neutral-900: #121212; // Slightly lighter black
+$neutral-850: #1a1a1a; // Card/section background
+$neutral-800: #232323; // Elevated elements
 
-$body-background-color: $grey-dk-000;
-$sidebar-color: $grey-dk-100;
-$search-background-color: $grey-dk-100;
-$table-background-color: $grey-dk-100;
-$code-background-color: $grey-dk-100;
+// Warm grays for text
+$neutral-100: #f5f5f5; // Primary text
+$neutral-300: #d4d4d4; // Secondary text
+$neutral-400: #a3a3a3; // Muted text
+$neutral-600: #525252; // Borders/dividers
 
-// Link colors using our blue palette
-$link-color: $blue-000;
-$btn-primary-color: $blue-000;
+// Override Jekyll theme colors
+$body-background-color: transparent;
+$sidebar-color: rgba(18, 18, 18, 0.85);
+$search-background-color: rgba(26, 26, 26, 0.5);
+$table-background-color: $neutral-850;
+$code-background-color: $neutral-850;
 
-// Border colors
-$border-color: $grey-dk-200;
+// Link and button colors - using brand blue
+$link-color: $brand-blue-400;
+$btn-primary-color: $brand-blue-500;
 
-// Text colors for good contrast
-$body-text-color: #e1e8f0;
-$body-heading-color: #ffffff;
-$nav-child-link-color: #b8c5d1;
+// Border colors - subtle
+$border-color: rgba(255, 255, 255, 0.1);
+
+// Text colors with warm grays
+$body-text-color: $neutral-300;
+$body-heading-color: $neutral-100;
+$nav-child-link-color: $neutral-400;
 
 // Search specific colors
-$search-result-preview-color: $grey-dk-200;
+$search-result-preview-color: $neutral-800;
