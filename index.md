@@ -8,26 +8,37 @@ nav_order: 1
 <section class="hero-wrapper" markdown="0">
   <div class="hero-section">
     <div class="hero-content">
-      <h1>Live wallpapers with <span class="brand-accent">unlimited power</span></h1>
-      <p class="tagline">Run video loops, interactive web scenes, shaders, Godot games, and more — optimized for performance and battery on every device.</p>
+      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Wallpaper Reactor Logo" class="hero-logo" />
+      <h1>Live wallpapers with<br><span class="brand-accent">unlimited power</span></h1>
+      <p class="tagline">Run 4K video loops, interactive web scenes, shaders, Godot games, and more — optimized for performance and battery on every device.</p>
 
       <div class="download-buttons">
-        <a href="https://play.google.com/store/apps/details?id=app.wallpaperreactor" class="btn-primary" target="_blank" rel="noopener">Download Android</a>
-        <a href="https://apps.microsoft.com/detail/9n4302crdqrl" class="btn-secondary" target="_blank" rel="noopener">Download Windows</a>
-        <a href="https://apps.apple.com/us/app/wallpaper-reactor-lite/id6751447022" class="btn-secondary" target="_blank" rel="noopener">Download macOS</a>
-        <a href="#pricing" class="btn-outline">Pricing</a>
+        <a href="https://play.google.com/store/apps/details?id=app.wallpaperreactor" class="btn-primary" target="_blank" rel="noopener">
+          <img src="{{ '/assets/images/android-logo-fill.svg' | relative_url }}" alt="" class="btn-icon" />
+          Download Android
+        </a>
+        <a href="https://apps.microsoft.com/detail/9n4302crdqrl" class="btn-primary" target="_blank" rel="noopener">
+          <img src="{{ '/assets/images/windows-logo-fill.svg' | relative_url }}" alt="" class="btn-icon" />
+          Download Windows
+        </a>
+        <a href="https://apps.apple.com/us/app/wallpaper-reactor-lite/id6751447022" class="btn-primary" target="_blank" rel="noopener">
+          <img src="{{ '/assets/images/apple-logo-fill.svg' | relative_url }}" alt="" class="btn-icon" />
+          Download macOS
+        </a>
       </div>
 
       <p class="hero-subtitle">No account required. Optional sign‑in to sync wallpapers & favorites.</p>
     </div>
-
-    <div class="hero-image">
-      <div class="glow-bg"></div>
-      <img src="{{ '/assets/images/mockup3.webp' | relative_url }}" alt="Wallpaper Reactor Preview" />
-    </div>
   </div>
 </section>
 
+<!-- Preview Grid Section -->
+<section class="preview-grid-section" markdown="0">
+  <div class="preview-container">
+    <div class="preview-glow"></div>
+    <img src="{{ '/assets/images/preview-grid.png' | relative_url }}" alt="Wallpaper Reactor Preview" class="preview-grid-image" />
+  </div>
+</section>
 
 <!-- Features Section -->
 <section id="features" style="padding: 5rem 0; max-width: 1280px; margin: 0 auto;" markdown="0">
@@ -57,7 +68,7 @@ nav_order: 1
       <article class="feature-card">
         <div class="icon">⚡</div>
         <h3>Battery Smart</h3>
-        <p>Auto‑pauses on battery saver, caps FPS on idle, and sleeps on low power.</p>
+        <p>Auto‑pauses on battery saver, includes power-saving mdoes, and has great performance.</p>
       </article>
 
       <article class="feature-card">
@@ -75,40 +86,6 @@ nav_order: 1
   </div>
 </section>
 
-<!-- Pricing Section -->
-<section id="pricing" class="pricing-section" markdown="0">
-  <div style="max-width: 1280px; margin: 0 auto; padding: 0 1rem;">
-    <div class="pricing-grid">
-      <div class="pricing-info">
-        <h2>Simple pricing that scales with you</h2>
-        <p>Free to try. Pay once to unlock desktop + creator extras, or choose a lightweight subscription for cloud sync & premium packs.</p>
-        <ul>
-          <li>• Free: basic playback, local wallpapers</li>
-          <li>• One‑time: desktop + creator tools</li>
-          <li>• Optional yearly: sync, premium packs</li>
-        </ul>
-      </div>
-
-      <div class="pricing-card">
-        <div class="price-header">
-          <div>
-            <div class="label" style="margin-bottom: 0.25rem;">Creator Pack</div>
-            <div class="price">$10<span class="period">/year</span></div>
-          </div>
-          <div class="label">Cancel anytime</div>
-        </div>
-        <ul>
-          <li>• Cloud sync of favorites</li>
-          <li>• Premium wallpaper bundles</li>
-          <li>• Early access features</li>
-        </ul>
-        <a href="#download" class="cta-button">Get the Creator Pack</a>
-        <p class="disclaimer">Pricing example — customize to your real plan.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ Section -->
 <section id="faq" class="faq-section" markdown="0">
   <div style="padding: 0 1rem;">
@@ -119,7 +96,7 @@ nav_order: 1
           Does it hurt battery life?
           <span class="arrow">▾</span>
         </summary>
-        <p>Wallpaper Reactor adapts to your device: it pauses on battery saver, limits FPS when idle, and sleeps on low power.</p>
+        <p>Wallpaper Reactor adapts to your device: it pauses on battery saver automatically, has power-saving modes, and is designed with battery life in mind.</p>
       </details>
 
       <details>

@@ -6,14 +6,18 @@ body {
     background-color: #000000;
 
     &::after {
-        content: '';
+        content: "";
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         z-index: -1;
-        background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+        background-image: radial-gradient(
+            circle at 1px 1px,
+            rgba(255, 255, 255, 0.08) 1px,
+            transparent 1px
+        );
         background-size: 24px 24px;
         pointer-events: none;
     }
@@ -29,6 +33,20 @@ body {
     box-shadow: none;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+}
+
+// Site title - keep on one line
+.site-title {
+    font-size: 1.125rem !important;
+    white-space: nowrap !important;
+
+    @media (max-width: 768px) {
+        font-size: 1rem !important;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 0.875rem !important;
+    }
 }
 
 // Search container - full width
@@ -115,7 +133,6 @@ nav {
     display: block;
 }
 
-
 // Modern rounded cards with soft glow
 .modern-card {
     background: #1a1a1a;
@@ -136,14 +153,18 @@ nav {
     position: relative;
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 400px;
         height: 400px;
-        background: radial-gradient(circle, rgba(48, 143, 255, 0.15) 0%, transparent 70%);
+        background: radial-gradient(
+            circle,
+            rgba(48, 143, 255, 0.15) 0%,
+            transparent 70%
+        );
         filter: blur(60px);
         pointer-events: none;
         z-index: -1;
@@ -166,7 +187,11 @@ table {
 }
 
 thead {
-    background: linear-gradient(135deg, rgba(48, 143, 255, 0.12), rgba(26, 26, 26, 0.8));
+    background: linear-gradient(
+        135deg,
+        rgba(48, 143, 255, 0.12),
+        rgba(26, 26, 26, 0.8)
+    );
     border-bottom: 2px solid rgba(48, 143, 255, 0.25);
 }
 
@@ -179,9 +204,9 @@ thead th {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     position: relative;
-    
+
     &:not(:last-child)::after {
-        content: '';
+        content: "";
         position: absolute;
         right: 0;
         top: 50%;
@@ -195,13 +220,13 @@ thead th {
 tbody tr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.2s ease;
-    
+
     &:hover {
         background: rgba(255, 255, 255, 0.03);
         transform: translateY(-1px);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
-    
+
     &:last-child {
         border-bottom: none;
     }
@@ -211,14 +236,14 @@ tbody td {
     padding: 1rem 1.25rem;
     vertical-align: middle;
     position: relative;
-    
+
     // First column gets lighter text
     &:first-child {
         color: rgba(255, 255, 255, 0.85);
     }
-    
+
     &:not(:last-child)::after {
-        content: '';
+        content: "";
         position: absolute;
         right: 0;
         top: 20%;
@@ -226,7 +251,7 @@ tbody td {
         width: 1px;
         background: rgba(255, 255, 255, 0.05);
     }
-    
+
     // Center align emoji cells (columns 2, 3, 4) without any color modifications
     &:nth-child(2),
     &:nth-child(3),
@@ -236,19 +261,18 @@ tbody td {
     }
 }
 
-
 // Responsive table design
 @media (max-width: 768px) {
     table {
         font-size: 0.8rem;
         margin: 1.5rem 0;
     }
-    
+
     thead th,
     tbody td {
         padding: 0.75rem 0.5rem;
     }
-    
+
     thead th {
         font-size: 0.75rem;
     }
@@ -312,13 +336,89 @@ tbody td {
     position: relative;
 }
 
-// Hero section - two column layout with better spacing
+// Preview Grid Section - Fancy Display
+.preview-grid-section {
+    padding: 2rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+
+    @media (max-width: 768px) {
+        padding: 1.5rem 1.5rem;
+    }
+}
+
+.preview-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.preview-glow {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(
+        circle,
+        rgba(90, 163, 255, 0.3) 0%,
+        rgba(90, 163, 255, 0.1) 40%,
+        transparent 70%
+    );
+    filter: blur(80px);
+    z-index: -1;
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+.preview-grid-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2rem;
+    box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 80px rgba(90, 163, 255, 0.2);
+    border: 1px solid rgba(90, 163, 255, 0.2);
+    transition: all 0.5s ease;
+    animation: float 6s ease-in-out infinite;
+
+    &:hover {
+        transform: translateY(-10px) rotateX(2deg);
+        box-shadow:
+            0 35px 70px -12px rgba(0, 0, 0, 0.6),
+            0 0 120px rgba(90, 163, 255, 0.4);
+        border-color: rgba(90, 163, 255, 0.4);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+// Hero section - single column centered layout
 .hero-section {
     position: relative;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 5rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     margin: 0;
     padding: 6rem 3rem 8rem;
     max-width: 1400px;
@@ -327,27 +427,46 @@ tbody td {
 
     @media (max-width: 1200px) {
         padding: 5rem 2rem 6rem;
-        gap: 4rem;
     }
 
     @media (max-width: 900px) {
-        grid-template-columns: 1fr;
-        gap: 3rem;
         padding: 3rem 1.5rem 4rem;
     }
 }
 
 .hero-content {
+    .hero-logo {
+        max-width: 120px;
+        height: auto;
+        margin-bottom: 1.5rem;
+
+        @media (max-width: 768px) {
+            max-width: 100px;
+        }
+    }
+
     h1 {
-        font-size: clamp(2.75rem, 6vw, 4.5rem);
+        font-size: clamp(3.5rem, 7vw, 5.5rem);
         font-weight: 600;
-        line-height: 1.1;
+        line-height: 1.15;
         letter-spacing: -0.02em;
         margin-bottom: 1rem;
         color: #ffffff;
+        max-width: 100%;
 
         @media (max-width: 900px) {
-            font-size: 2.75rem;
+            font-size: 3rem;
+        }
+
+        @media (max-width: 600px) {
+            font-size: 2.5rem;
+        }
+
+        // Prevent individual words from wrapping
+        white-space: nowrap;
+
+        @media (max-width: 768px) {
+            white-space: normal;
         }
     }
 
@@ -372,22 +491,30 @@ tbody td {
     }
 }
 
-// Download buttons
+// Download buttons with icons
 .download-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-top: 2rem;
+    justify-content: center;
 
     a {
         display: inline-flex;
         align-items: center;
+        gap: 0.5rem;
         padding: 0.5rem 1rem;
         border-radius: 1rem;
         font-weight: 500;
         font-size: 0.95rem;
         transition: all 0.2s ease;
         text-decoration: none;
+
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
 
         &.btn-primary {
             background: #ffffff;
@@ -483,8 +610,8 @@ tbody td {
 
     .icon {
         color: #5aa3ff;
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
     }
 
     h3 {
