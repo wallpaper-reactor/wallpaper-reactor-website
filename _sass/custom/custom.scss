@@ -352,6 +352,43 @@ tbody td {
     position: relative;
 }
 
+.video-showcase-title {
+    text-align: center !important;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+    font-weight: 700 !important;
+    margin-bottom: 2.5rem !important;
+    color: #ffffff;
+    letter-spacing: -0.02em !important;
+    background: linear-gradient(135deg, #ffffff 0%, #5aa3ff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    position: relative;
+    padding-bottom: 1rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #5aa3ff, transparent);
+        border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: 2rem;
+        padding-bottom: 0.75rem;
+
+        &::after {
+            width: 60px;
+            height: 2px;
+        }
+    }
+}
+
 .video-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -519,12 +556,13 @@ tbody td {
 
     h1 {
         font-size: clamp(3.5rem, 7vw, 5.5rem);
-        font-weight: 600;
+        font-weight: 700;
         line-height: 1.15;
         letter-spacing: -0.02em;
         margin-bottom: 1rem;
         color: #ffffff;
         max-width: 100%;
+        text-shadow: 0 2px 20px rgba(90, 163, 255, 0.3);
 
         @media (max-width: 900px) {
             font-size: 3rem;
@@ -551,8 +589,25 @@ tbody td {
     }
 
     .brand-accent {
-        color: #5aa3ff;
-        font-weight: inherit;
+        background: linear-gradient(135deg, #5aa3ff 0%, #88c0ff 50%, #5aa3ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #5aa3ff 20%, #88c0ff 50%, #5aa3ff 80%, transparent);
+            border-radius: 2px;
+            opacity: 0.6;
+        }
     }
 
     .hero-subtitle {

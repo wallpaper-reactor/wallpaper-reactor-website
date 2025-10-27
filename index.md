@@ -36,6 +36,7 @@ nav_order: 1
 <section class="video-showcase-section" markdown="0">
   <div class="video-overlay" id="videoOverlay"></div>
   <div class="video-showcase-container">
+    <h2 class="video-showcase-title">See it in action</h2>
     <div class="video-grid">
       <div class="video-item">
         <video autoplay loop muted playsinline preload="metadata">
