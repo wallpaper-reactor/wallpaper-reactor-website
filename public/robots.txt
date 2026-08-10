@@ -4,4 +4,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://wallpaperreactor.app/sitemap.xml
+Sitemap: https://wallpaperreactor.app/sitemap-index.xml
