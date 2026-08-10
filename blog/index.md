@@ -3,6 +3,7 @@ title: Blog
 layout: default
 nav_order: 5
 has_children: true
+has_toc: false
 description: Guides, comparisons, and technical deep-dives on live wallpapers across Android, Windows, and macOS.
 ---
 
