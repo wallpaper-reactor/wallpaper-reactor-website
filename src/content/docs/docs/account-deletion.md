@@ -1,12 +1,7 @@
 ---
 title: Account Deletion
-layout: default
-nav_order: 2
-parent: Documentation
-has_children: false
+description: How to request deletion of your Wallpaper Reactor account and what data is deleted versus kept.
 ---
-
-# Account Deletion
 
 ## How to Request Account Deletion
 

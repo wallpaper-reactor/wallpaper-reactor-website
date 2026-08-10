@@ -29,12 +29,12 @@ jobs:
         env:
           RELEASE_JSON: ${{ steps.release.outputs.data }}
         run: |
-          mkdir -p _data
-          echo "$RELEASE_JSON" > _data/latest_release.json
+          mkdir -p src/data
+          echo "$RELEASE_JSON" > src/data/latest_release.json
 
       - name: Commit & push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add _data/latest_release.json
+          git add src/data/latest_release.json
           git diff --quiet --staged || (git commit -m "chore: update latest release data" && git push origin main)

@@ -1,11 +1,7 @@
 ---
-layout: default
 title: Rive Animations
-parent: Wallpaper Creation
-nav_order: 2
+description: How Wallpaper Reactor plays Rive (.riv) animations as live wallpapers, best practices, and troubleshooting.
 ---
-
-# Creating Rive Wallpapers
 
 Wallpaper Reactor supports **Rive animations** (.riv files) as live wallpapers. Rive is a powerful real-time animation tool that creates lightweight, interactive animations perfect for wallpapers.
 

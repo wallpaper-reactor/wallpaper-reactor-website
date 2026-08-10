@@ -35,6 +35,17 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
       }
     </ul>
 
+    <form action="/search/" method="get" class="hidden lg:block">
+      <label class="sr-only" for="site-search">Search Wallpaper Reactor</label>
+      <input
+        id="site-search"
+        type="search"
+        name="q"
+        placeholder="Search"
+        class="w-40 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-ink-300 placeholder:text-ink-500 focus:border-brand-400/50 focus:outline-none"
+      />
+    </form>
+
     <button
       type="button"
       id="nav-toggle"

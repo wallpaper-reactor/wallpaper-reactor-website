@@ -1,0 +1,35 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  updatedDate?: Date;
+}
+
+const { title, description, publishDate, updatedDate } = Astro.props;
+
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+const shown = updatedDate ?? publishDate;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="prose-wr mx-auto max-w-4xl">
+    <h1>{title}</h1>
+    <p class="text-[1.05rem] leading-relaxed text-ink-400">
+      {updatedDate ? 'Last updated' : 'Published'}: {fmt(shown)}
+    </p>
+    <slot />
+  </article>
+</BaseLayout>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: publishDate.toISOString(),
+  ...(updatedDate ? { dateModified: updatedDate.toISOString() } : {}),
+  author: { '@type': 'Person', name: 'Kyle Eichlin' },
+})} />

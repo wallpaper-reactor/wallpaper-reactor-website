@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Faq, { type FaqItem } from '../components/Faq.astro';
+import {
+  HIGHLIGHTS,
+  PLANS,
+  PLATFORMS,
+  TIER_FEATURES,
+  TIER_LABELS,
+  type Tier,
+} from '../data/features';
+
+const TIERS: Tier[] = ['anon', 'signedIn', 'paid'];
+
+const PLAN_STYLES = {
+  base: 'bg-surface-900 border-white/10',
+  outline: 'bg-surface-850 border-white/15',
+  primary:
+    'bg-linear-135 from-brand-500/8 to-surface-850/90 border-brand-500/40 shadow-[0_8px_32px_rgba(48,143,255,0.15)]',
+} as const;
+
+const LABEL_TONES = {
+  green: 'bg-green-500/15 text-green-400 border-green-500/30',
+  yellow: 'bg-yellow-500/15 text-yellow-400 border-yellow-500/30',
+} as const;
+
+const FAQS: FaqItem[] = [
+  {
+    question: 'Can I start free and upgrade later?',
+    answer: 'Yes — your wallpapers and favorites carry over when you sign in and upgrade.',
+  },
+  {
+    question: 'Do I need an account to use it?',
+    answer:
+      'No. You can browse and apply locally without signing in. Sign in to sync favorites and upload.',
+  },
+  {
+    question: 'Why are some features missing on specific stores?',
+    answer:
+      'Store policies and platform capabilities sometimes require adjusted feature sets. Direct downloads usually provide the most complete experience.',
+  },
+];
+---
+
+<BaseLayout
+  title="Features & Pricing"
+  description="Compare Wallpaper Reactor tiers and platform availability across Android, Windows, and macOS."
+>
+  <div class="prose-wr max-w-none">
+    <h1>Features &amp; Pricing</h1>
+    <p>
+      Meet Wallpaper Reactor: fast, flexible, and cross-platform. Choose a tier that fits how you use
+      wallpapers today — and grow into more power later.
+    </p>
+  </div>
+
+  <div class="mt-4 flex flex-wrap gap-3">
+    <a
+      href="#plans"
+      class="inline-block rounded-xl border border-brand-500 bg-brand-500 px-5 py-2 text-sm font-medium text-white transition-all hover:-translate-y-px hover:border-brand-400 hover:bg-brand-400 hover:text-white"
+      >See Plans</a
+    >
+    <a
+      href="#platforms"
+      class="inline-block rounded-xl border border-white/20 px-5 py-2 text-sm font-medium text-ink-300 transition-all hover:-translate-y-px hover:border-white/30 hover:bg-white/5"
+      >Platform Availability</a
+    >
+  </div>
+
+  <hr class="my-8 border-white/10" />
+
+  <h2 class="mb-4 text-2xl font-semibold text-ink-100">Highlights</h2>
+  <div class="my-8 grid gap-6 md:grid-cols-3">
+    {
+      HIGHLIGHTS.map((h) => (
+        <div class="rounded-card border border-white/10 bg-surface-900 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+          <h3 class="mb-3 mt-0 text-lg font-semibold text-ink-100">{h.title}</h3>
+          <p class="m-0 leading-relaxed text-ink-300">{h.body}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <hr class="my-8 border-white/10" />
+
+  <h2 class="mb-4 text-2xl font-semibold text-ink-100">What's included by tier</h2>
+  <div class="my-8 overflow-x-auto">
+    <table class="w-full border-collapse">
+      <thead>
+        <tr>
+          <th class="border border-white/10 bg-surface-850 px-3 py-2 text-left text-ink-100">Feature</th>
+          {
+            TIERS.map((t) => (
+              <th class="border border-white/10 bg-surface-850 px-3 py-2 text-center text-ink-100">
+                {TIER_LABELS[t]}
+              </th>
+            ))
+          }
+        </tr>
+      </thead>
+      <tbody>
+        {
+          TIER_FEATURES.map((row) => (
+            <tr>
+              <td class="border border-white/10 px-3 py-2 text-ink-300">{row.label}</td>
+              {TIERS.map((t) => (
+                <td class="border border-white/10 px-3 py-2 text-center">
+                  {row.tiers.includes(t) ? '✅' : ''}
+                </td>
+              ))}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="my-8 border-white/10" />
+
+  <h2 id="plans" class="mb-4 text-2xl font-semibold text-ink-100">Plans</h2>
+  <div class="my-8 grid gap-6 md:grid-cols-3">
+    {
+      PLANS.map((plan) => (
+        <div
+          class:list={[
+            'rounded-card border p-6 transition-all duration-300 hover:-translate-y-0.5',
+            PLAN_STYLES[plan.style],
+          ]}
+        >
+          <span class="mb-2 block text-[2.5rem] leading-none">{plan.emoji}</span>
+          <h3 class="mt-0 text-lg font-semibold text-ink-100">{plan.name}</h3>
+          <div class="mb-2 text-4xl font-bold text-ink-100">
+            {plan.price}
+            {plan.unit && <span class="ml-1 text-base font-medium text-ink-400">{plan.unit}</span>}
+          </div>
+          <p class="font-semibold text-ink-100">{plan.intro}</p>
+          <ul class="my-3 list-disc pl-5">
+            {plan.items.map((item) => (
+              <li class="mb-2 leading-relaxed text-ink-300">{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+
+  <hr class="my-8 border-white/10" />
+
+  <h2 id="platforms" class="mb-4 text-2xl font-semibold text-ink-100">Platform availability</h2>
+  <p class="mb-8 max-w-3xl text-ink-400">
+    Versions and limitations by store are sometimes driven by platform policies.
+  </p>
+
+  <div class="my-8 grid gap-6 md:grid-cols-3">
+    {
+      PLATFORMS.map((p) => (
+        <div class="group flex flex-col gap-5 rounded-card border border-white/10 bg-surface-900 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/30">
+          <div class="flex items-center gap-3">
+            <img
+              src={p.icon}
+              alt=""
+              class="h-8 w-8 shrink-0 brightness-90 invert transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
+            />
+            <h3 class="m-0 text-xl font-semibold text-ink-100">{p.name}</h3>
+          </div>
+
+          <div class="flex flex-col gap-4">
+            {p.options.map((o) => (
+              <div class="flex flex-col gap-1">
+                <div class="flex items-center justify-between gap-2">
+                  <strong class="text-[0.95rem] text-ink-100">{o.title}</strong>
+                  <span
+                    class:list={[
+                      'inline-block rounded-lg border px-3 py-1 text-xs font-medium',
+                      LABEL_TONES[o.tone],
+                    ]}
+                  >
+                    {o.label}
+                  </span>
+                </div>
+                <p class="m-0 text-[0.85rem] leading-snug text-ink-400">{o.note}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-[0.85rem] leading-relaxed text-ink-400">
+            <strong class="text-ink-300">{p.limitation.lead}</strong> {p.limitation.text}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="my-8 rounded-lg border-l-[3px] border-brand-500 bg-brand-500/5 px-6 py-4">
+    <p class="m-0 text-[0.9rem] text-ink-400">
+      <strong class="text-ink-100">Full vs Lite:</strong> "Full" includes sign-in, cloud features, performance
+      options, and paid upgrades where supported. Store builds update automatically; direct downloads
+      may require manual updates.
+    </p>
+  </div>
+
+  <hr class="my-8 border-white/10" />
+
+  <Faq items={FAQS} heading="FAQ" />
+</BaseLayout>

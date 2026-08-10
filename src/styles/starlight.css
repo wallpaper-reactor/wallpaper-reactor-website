@@ -1,0 +1,28 @@
+/* Map Starlight's theme variables onto the site's own tokens so /docs/ doesn't
+   read as a different product. Starlight defines these as CSS custom properties,
+   so overriding them is enough — no need to fight its component styles. */
+:root {
+  --sl-color-accent-low: #1558c7;
+  --sl-color-accent: #308fff;
+  --sl-color-accent-high: #88c0ff;
+
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #f5f5f5;
+  --sl-color-gray-2: #d4d4d4;
+  --sl-color-gray-3: #a3a3a3;
+  --sl-color-gray-4: #737373;
+  --sl-color-gray-5: #232323;
+  --sl-color-gray-6: #1a1a1a;
+  --sl-color-black: #0a0a0a;
+
+  --sl-color-text-accent: #5aa3ff;
+  --sl-color-bg-nav: rgba(18, 18, 18, 0.8);
+  --sl-color-bg-sidebar: rgba(18, 18, 18, 0.85);
+}
+
+/* Starlight keeps its own opaque background here rather than showing the marketing
+   pages' animated blobs — long-form docs are easier to read on a flat surface. */
+:root {
+  --sl-color-bg: #0a0a0a;
+  --sl-color-bg-inline-code: #1a1a1a;
+}

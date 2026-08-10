@@ -1,13 +1,7 @@
 ---
 title: Customizable User Settings
-layout: default
-nav_order: 1
-parent: Wallpaper Creation
-grand_parent: Documentation
-has_children: false
+description: Learn how to create custom configuration files for Wallpaper Reactor wallpapers using the settings.json format.
 ---
-
-# Customizable User Settings
 
 Learn how to create custom configuration files for Wallpaper Reactor wallpapers using the `settings.json` format.
 

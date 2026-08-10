@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StoreButtons from '../components/StoreButtons.astro';
+import { STORES } from '../data/site';
+import { DOWNLOADS, LATEST, formatDate } from '../data/releases';
+
+/** Rows of the install table. `href` null means the build isn't in this release. */
+const ROWS = [
+  { os: '🍎 macOS', build: 'Apple Silicon', recommended: true, href: DOWNLOADS.macArm?.browser_download_url },
+  { os: null, build: 'Intel', recommended: true, href: DOWNLOADS.macIntel?.browser_download_url },
+  { os: null, build: 'Mac App Store<br />(Apple Silicon)', recommended: false, href: STORES.appStoreLite, label: 'Mac App Store', external: true },
+  { os: '🪟 Windows', build: 'Microsoft Store<br />(Intel/AMD)', recommended: true, href: STORES.microsoft, label: 'Microsoft Store', external: true },
+  { os: null, build: 'Direct Install<br />(Intel/AMD & ARM)', recommended: false, href: DOWNLOADS.windowsExe?.browser_download_url },
+  { os: '🤖 Android', build: 'Google Play', recommended: true, href: STORES.googlePlay, label: 'Google Play', external: true },
+  { os: null, build: 'Universal APK', recommended: false, href: DOWNLOADS.androidApk?.browser_download_url },
+];
+---
+
+<BaseLayout
+  title="Releases"
+  description="Download the latest Wallpaper Reactor builds for macOS, Windows, and Android."
+>
+  <div class="prose-wr max-w-none">
+    <h1>Releases</h1>
+  </div>
+
+  <section class="mx-auto max-w-7xl py-12">
+    <h2 class="mb-2 text-center text-3xl font-semibold text-ink-100">Download from App Stores</h2>
+    <p class="mx-auto mb-12 max-w-3xl text-center text-ink-400">
+      Get Wallpaper Reactor on your favorite platform. Fast, secure, and auto‑updating.
+    </p>
+
+    <div class="mb-12">
+      <StoreButtons />
+    </div>
+
+    <div class="mx-auto max-w-3xl rounded-lg border-l-[3px] border-brand-500 bg-brand-500/5 px-6 py-4">
+      <p class="m-0 text-[0.9rem] text-ink-400">
+        <strong class="text-ink-100">Note:</strong> The Mac App Store version is "Wallpaper Reactor Lite"
+        with limited features. See the <a href="/features/" class="text-brand-500 no-underline">features
+        documentation</a> for version differences, or download the full macOS version below.
+      </p>
+    </div>
+  </section>
+
+  <div class="mt-16 text-center">
+    <h2 class="text-4xl font-bold tracking-tight text-ink-100">Other Install Files</h2>
+  </div>
+
+  <div class="my-8 text-center">
+    <h3 class="text-xl font-semibold text-ink-100">{LATEST.name} ({LATEST.tag})</h3>
+    <p class="text-ink-400"><strong class="text-ink-100">Published on</strong> {formatDate(LATEST.publishedAt)}</p>
+  </div>
+
+  <div class="prose-wr mx-auto max-w-4xl overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Operating System</th>
+          <th>Build</th>
+          <th>Recommended</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          ROWS.map((row) => (
+            <tr>
+              <td>{row.os ? <strong set:html={row.os} /> : ''}</td>
+              <td set:html={row.build} />
+              <td>{row.recommended ? '✅' : '❌'}</td>
+              <td>
+                {row.href ? (
+                  <a href={row.href} {...(row.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                    {row.label ?? 'Download'}
+                  </a>
+                ) : (
+                  <span class="text-ink-500">Not in this release</span>
+                )}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <p class="mt-6 text-center text-sm text-ink-400">
+    All builds and checksums are on the
+    <a href={LATEST.htmlUrl} target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-hover"
+      >GitHub release page</a
+    >.
+  </p>
+</BaseLayout>

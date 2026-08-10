@@ -1,13 +1,7 @@
 ---
 title: Wallpaper Upload Guidelines
-layout: default
-nav_order: 2
-parent: Wallpaper Creation
-grand_parent: Documentation
-has_children: false
+description: Content restrictions and quality standards for wallpapers uploaded to Wallpaper Reactor.
 ---
-
-# Wallpaper Upload Guidelines
 
 To maintain a safe and welcoming community for all users, we have established content guidelines for wallpaper uploads. All submitted wallpapers must comply with these restrictions.
 
