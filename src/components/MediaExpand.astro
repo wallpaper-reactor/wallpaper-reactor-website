@@ -1,0 +1,147 @@
+---
+/**
+ * Click-to-expand for the homepage videos and app screenshot, ported from
+ * public/assets/js/media-expand.js (console.log noise dropped).
+ *
+ * The expanded element is cloned onto <body>, so its styles must be global.
+ */
+---
+
+<div class="video-overlay" id="videoOverlay"></div>
+
+<style is:global>
+  .video-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .video-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .video-expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 70vw;
+    height: 70vh;
+    max-width: 1200px;
+    max-height: 800px;
+    z-index: 1000;
+    border-radius: 2rem;
+    overflow: hidden;
+    background: #000;
+    box-shadow:
+      0 40px 80px -12px rgba(0, 0, 0, 0.8),
+      0 0 200px rgba(90, 163, 255, 0.5);
+    border: 1px solid rgba(90, 163, 255, 0.6);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  .video-expanded.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .video-expanded video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .image-expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    max-width: 90vw;
+    max-height: 90vh;
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  .image-expanded.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .image-expanded img {
+    max-width: 100%;
+    max-height: 90vh;
+    display: block;
+    object-fit: contain;
+  }
+</style>
+
+<script>
+  const overlay = document.getElementById('videoOverlay');
+  let expanded: HTMLElement | null = null;
+
+  function close() {
+    if (expanded) {
+      expanded.classList.remove('show');
+      const node = expanded;
+      setTimeout(() => node.remove(), 400);
+      expanded = null;
+    }
+    overlay?.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function open(clone: HTMLElement) {
+    document.body.appendChild(clone);
+    expanded = clone;
+    setTimeout(() => {
+      clone.classList.add('show');
+      overlay?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }, 10);
+    clone.addEventListener('click', (e) => {
+      e.stopPropagation();
+      close();
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('.video-item').forEach((item) => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (expanded) return close();
+
+      const video = item.querySelector('video');
+      if (!video) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'video-expanded';
+      const clone = video.cloneNode(true) as HTMLVideoElement;
+      clone.currentTime = video.currentTime;
+      wrap.appendChild(clone);
+      open(wrap);
+    });
+  });
+
+  const screenshot = document.querySelector<HTMLImageElement>('.app-screenshot');
+  screenshot?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (expanded) return close();
+
+    const wrap = document.createElement('div');
+    wrap.className = 'image-expanded';
+    wrap.appendChild(screenshot.cloneNode(true));
+    open(wrap);
+  });
+
+  overlay?.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+</script>

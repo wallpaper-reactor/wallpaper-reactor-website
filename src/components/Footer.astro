@@ -1,0 +1,13 @@
+---
+import { SITE } from '../data/site';
+
+// Jekyll rendered this from `site.time` (build time). Same behaviour here.
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-16 border-t border-white/10 py-6 text-center">
+  <p class="m-0 text-sm text-ink-400">
+    &copy; {year} {SITE.title} by{' '}
+    <a href={SITE.url} class="text-brand-400 hover:text-brand-hover">{SITE.author}</a>
+  </p>
+</footer>

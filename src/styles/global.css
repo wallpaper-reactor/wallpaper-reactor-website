@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+/* Design tokens ported from _sass/color_schemes/bluish-dark.scss and the palette
+   used throughout _sass/custom/custom.scss. Names mirror the SCSS variables so the
+   old stylesheet stays readable as a reference during the migration. */
+@theme {
+  /* Brand blues — reactor-core gradient palette */
+  --color-brand-400: #5aa3ff;
+  --color-brand-500: #308fff;
+  --color-brand-600: #1e6fe6;
+  --color-brand-700: #1558c7;
+  --color-brand-hover: #6bb0ff;
+  --color-brand-hover-deep: #4399ff;
+  --color-brand-glow: #88c0ff;
+
+  /* OLED-friendly surfaces */
+  --color-surface-950: #0a0a0a;
+  --color-surface-900: #121212;
+  --color-surface-850: #1a1a1a;
+  --color-surface-800: #232323;
+  --color-surface-750: #2d2d2d;
+
+  /* Text ramp */
+  --color-ink-100: #f5f5f5;
+  --color-ink-300: #d4d4d4;
+  --color-ink-400: #a3a3a3;
+  --color-ink-500: #737373;
+  --color-ink-600: #525252;
+
+  /* Shared radii used by cards, plans and buttons */
+  --radius-card: 1rem;
+  --radius-button: 0.875rem;
+}
+
+/* Long-form prose (docs-style body copy on legal/support pages and blog posts).
+   Hand-rolled rather than pulling in @tailwindcss/typography, since the ramp here
+   is small and needs to match the existing just-the-docs rendering. */
+@layer components {
+  .prose-wr {
+    color: var(--color-ink-300);
+    line-height: 1.7;
+  }
+  .prose-wr h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .prose-wr h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-wr h3 {
+    font-size: 1.175rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-wr p,
+  .prose-wr ul,
+  .prose-wr ol {
+    margin-bottom: 1rem;
+  }
+  .prose-wr ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .prose-wr ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+  .prose-wr li {
+    margin-bottom: 0.35rem;
+  }
+  .prose-wr a {
+    color: var(--color-brand-400);
+    text-decoration: none;
+  }
+  .prose-wr a:hover {
+    color: var(--color-brand-hover);
+  }
+  .prose-wr strong {
+    color: var(--color-ink-100);
+    font-weight: 600;
+  }
+  .prose-wr code {
+    background: var(--color-surface-850);
+    border-radius: 0.375rem;
+    padding: 0.125rem 0.375rem;
+    font-size: 0.875em;
+  }
+  .prose-wr pre {
+    background: var(--color-surface-850);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+  .prose-wr pre code {
+    background: none;
+    padding: 0;
+  }
+  .prose-wr hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+  }
+  .prose-wr table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+  }
+  .prose-wr th,
+  .prose-wr td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+  .prose-wr th {
+    color: var(--color-ink-100);
+    background: var(--color-surface-850);
+  }
+}
+
+@layer base {
+  html {
+    background-color: var(--color-surface-950);
+    color-scheme: dark;
+  }
+
+  body {
+    color: var(--color-ink-300);
+    /* The animated blob background sits behind everything at z-index -2. */
+    background-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink-100);
+  }
+}

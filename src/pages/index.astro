@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import VideoShowcase from '../components/VideoShowcase.astro';
+import MediaExpand from '../components/MediaExpand.astro';
+import Faq, { type FaqItem } from '../components/Faq.astro';
+
+const FEATURES = [
+  { icon: '▶︎', title: 'Video & Audio', body: 'Seamless loops, volume controls, and performance presets that adapt to your device.' },
+  { icon: '⌘', title: 'Web & Shaders', body: 'Run interactive web canvases and GLSL shaders with battery‑aware frame pacing.' },
+  { icon: '🎮', title: 'Godot Support', body: 'Showcase Godot scenes as living wallpapers with simple export.' },
+  { icon: '⚡', title: 'Battery Smart', body: 'Auto‑pauses on battery saver, includes power-saving modes, and has great performance.' },
+  { icon: '🖥️', title: 'Multi‑monitor Ready', body: 'Per‑display configs on desktop and Android.' },
+  { icon: '☁️', title: 'Sync (optional)', body: 'Sign in to sync favorites; no account required for basic use.' },
+];
+
+const FAQS: FaqItem[] = [
+  {
+    question: 'Does it hurt battery life?',
+    answer:
+      'Wallpaper Reactor adapts to your device: it pauses on battery saver automatically, has power-saving modes, and is designed with battery life in mind.',
+  },
+  {
+    question: 'What formats are supported?',
+    answer: 'Video (MP4/WebM), web canvases, shaders (GLSL), and Godot scenes. More coming.',
+  },
+  {
+    question: 'Do I need an account?',
+    answer: 'No. Accounts are optional for sync and premium content.',
+  },
+  {
+    question: 'Does it work on all platforms?',
+    answer:
+      'Yes! Wallpaper Reactor is available for Android, Windows, and macOS. Use the same wallpapers across all your devices.',
+  },
+];
+---
+
+<BaseLayout title="Home" wide>
+  <Hero />
+
+  <section class="relative mx-auto max-w-[1400px] px-8 py-12 max-md:px-6 max-md:py-8">
+    <div class="relative">
+      <SectionTitle>Powerful features, intuitive interface</SectionTitle>
+      <div class="flex items-center justify-center">
+        <img
+          src="/assets/images/main-app-screenshot.webp"
+          alt="Wallpaper Reactor Application Interface"
+          class="app-screenshot block h-auto max-w-full cursor-pointer transition-all duration-200 hover:scale-[1.01] hover:opacity-95"
+        />
+      </div>
+    </div>
+  </section>
+
+  <VideoShowcase />
+  <MediaExpand />
+
+  <section id="features" class="mx-auto max-w-7xl px-4 py-8">
+    <h2 class="mb-2 text-3xl font-semibold text-ink-100">
+      Everything you need to make your screen alive
+    </h2>
+    <p class="mb-10 max-w-2xl text-ink-400">
+      A creator‑friendly pipeline with performance knobs and battery‑aware behavior across Android,
+      Windows, and macOS.
+    </p>
+
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
+      {
+        FEATURES.map((f) => (
+          <article class="flex flex-col items-center rounded-card border border-white/10 bg-surface-900 p-6 text-center transition-all duration-200">
+            <div class="mb-6 w-full text-center text-[2.5rem] text-brand-400">{f.icon}</div>
+            <h3 class="mb-1 mt-2 w-full text-base font-semibold text-ink-100">{f.title}</h3>
+            <p class="m-0 w-full text-sm leading-relaxed text-ink-400">{f.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-7xl px-4">
+    <Faq items={FAQS} heading="Frequently asked questions" />
+  </div>
+</BaseLayout>

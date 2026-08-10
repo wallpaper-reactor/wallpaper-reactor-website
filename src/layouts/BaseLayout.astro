@@ -1,0 +1,63 @@
+---
+import { SEO } from 'astro-seo';
+import { SITE } from '../data/site';
+import AnimatedBackground from '../components/AnimatedBackground.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Omit the max-width wrapper for full-bleed pages like the homepage hero. */
+  wide?: boolean;
+}
+
+const { title, description = SITE.description, wide = false } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
+// just-the-docs rendered "<page> | Wallpaper Reactor"; keep that format so titles
+// already indexed by search engines don't change shape.
+const fullTitle = Astro.url.pathname === '/' ? SITE.title : `${title} | ${SITE.title}`;
+---
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <SEO
+      title={fullTitle}
+      description={description}
+      canonical={canonical}
+      openGraph={{
+        basic: { title, type: 'website', url: canonical, image: `${SITE.url}/assets/images/logo.png` },
+        optional: { description, siteName: SITE.title, locale: 'en_US' },
+      }}
+      twitter={{ card: 'summary', title, description }}
+    />
+
+    <GoogleAnalytics />
+  </head>
+
+  <body class="min-h-screen">
+    <AnimatedBackground />
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-surface-850 focus:px-4 focus:py-2"
+      >Skip to main content</a
+    >
+
+    <Header />
+
+    <main id="main" class={wide ? '' : 'mx-auto max-w-7xl px-4 py-8'}>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

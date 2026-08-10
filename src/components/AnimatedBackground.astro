@@ -1,0 +1,67 @@
+---
+/**
+ * Fixed blurred-blob backdrop, ported from _includes/background.html.
+ * Sits at z-index -2 behind all page content.
+ *
+ * The original set `animation-duration: 45` (no unit) in the shared rule, which is
+ * invalid CSS and was ignored — every blob's real duration comes from its own rule
+ * below. Keeping the per-blob values reproduces the original motion exactly.
+ */
+const BLOBS = [
+  { color: 'rgba(48, 143, 255, 0.4)', top: '59%', left: '62%', duration: '120s', delay: '-17s', origin: '13vw 14vh' },
+  { color: 'rgba(26, 89, 186, 0.4)', top: '42%', left: '58%', duration: '150s', delay: '-32s', origin: '-18vw -5vh' },
+  { color: 'rgba(48, 143, 255, 0.4)', top: '5%', left: '43%', duration: '110s', delay: '-5s', origin: '3vw -21vh' },
+  { color: 'rgba(90, 163, 255, 0.4)', top: '73%', left: '58%', duration: '100s', delay: '-14s', origin: '-1vw -17vh' },
+  { color: 'rgba(26, 89, 186, 0.4)', top: '83%', left: '10%', duration: '130s', delay: '-48s', origin: '22vw 18vh' },
+  { color: 'rgba(48, 143, 255, 0.4)', top: '71%', left: '84%', duration: '140s', delay: '-17s', origin: '5vw 21vh' },
+  { color: 'rgba(90, 163, 255, 0.4)', top: '82%', left: '69%', duration: '160s', delay: '-44s', origin: '-1vw -20vh' },
+  { color: 'rgba(26, 89, 186, 0.4)', top: '95%', left: '19%', duration: '125s', delay: '-45s', origin: '-5vw 13vh' },
+];
+---
+
+<div class="background" aria-hidden="true">
+  {
+    BLOBS.map((b) => (
+      <span
+        style={`background:${b.color};top:${b.top};left:${b.left};animation-duration:${b.duration};animation-delay:${b.delay};transform-origin:${b.origin}`}
+      />
+    ))
+  }
+</div>
+
+<style>
+  @keyframes move {
+    100% {
+      transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+  }
+
+  .background {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    overflow: hidden;
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  .background span {
+    position: absolute;
+    width: 40vmin;
+    height: 40vmin;
+    border-radius: 40vmin;
+    backface-visibility: hidden;
+    filter: blur(8vmin);
+    animation-name: move;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .background span {
+      animation: none;
+    }
+  }
+</style>

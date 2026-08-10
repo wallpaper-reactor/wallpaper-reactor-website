@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+/**
+ * Site-wide search. Starlight's Pagefind step indexes the entire dist/ (all 15
+ * pages, not just /docs/), so this page can reuse that index directly — the
+ * assets it loads from /pagefind/ only exist in a production build, not in dev.
+ */
+---
+
+<BaseLayout title="Search" description="Search the Wallpaper Reactor site.">
+  <div class="mx-auto max-w-4xl">
+    <h1 class="mb-6 text-3xl font-semibold text-ink-100">Search</h1>
+    <div id="search"></div>
+    <noscript>
+      <p class="text-ink-400">Search requires JavaScript.</p>
+    </noscript>
+  </div>
+</BaseLayout>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+
+<script>
+  // @ts-expect-error - resolved from the generated Pagefind bundle at runtime
+  import { PagefindUI } from '@pagefind/default-ui';
+
+  const params = new URLSearchParams(window.location.search);
+
+  new PagefindUI({
+    element: '#search',
+    showSubResults: true,
+    showImages: false,
+    resetStyles: false,
+  });
+
+  const initial = params.get('q');
+  if (initial) {
+    const input = document.querySelector<HTMLInputElement>('#search input');
+    if (input) {
+      input.value = initial;
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+  }
+</script>
+
+<style is:global>
+  /* Pagefind's default UI ships light-theme variables; point them at our tokens. */
+  :root {
+    --pagefind-ui-primary: var(--color-ink-100);
+    --pagefind-ui-text: var(--color-ink-300);
+    --pagefind-ui-background: var(--color-surface-900);
+    --pagefind-ui-border: rgba(255, 255, 255, 0.1);
+    --pagefind-ui-tag: var(--color-surface-850);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0.75rem;
+    --pagefind-ui-font: inherit;
+  }
+</style>

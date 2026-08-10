@@ -14,6 +14,18 @@ _site/
 .bundle/
 vendor/
 
+# Astro / Node
+node_modules/
+dist/
+.astro/
+.env
+.env.production
+
+# Screenshot output — baselines and diffs are large binaries, kept local only
+_screenshots/baseline/
+_screenshots/current/
+_screenshots/diff/
+
 # Claude Code documentation (local only)
 CLAUDE.md
 .DS_Store

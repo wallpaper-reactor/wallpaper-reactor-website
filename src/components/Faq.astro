@@ -1,0 +1,52 @@
+---
+/**
+ * FAQ accordion. Renders the visible <details> list AND the FAQPage JSON-LD from
+ * the same array, so the structured data can't drift from the copy — in the Jekyll
+ * site these were hand-maintained twice in the same file.
+ *
+ * Answers are plain text (no markup), which is what schema.org wants anyway.
+ */
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqItem[];
+  heading?: string;
+  /** Set false when another FAQ block on the same page already emits the schema. */
+  schema?: boolean;
+}
+
+const { items, heading, schema = true } = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((i) => ({
+    '@type': 'Question',
+    name: i.question,
+    acceptedAnswer: { '@type': 'Answer', text: i.answer },
+  })),
+};
+---
+
+<section class="mx-auto my-8 max-w-4xl">
+  {heading && <h2 class="mb-6 text-3xl font-semibold text-ink-100">{heading}</h2>}
+
+  {
+    items.map((item) => (
+      <details class="group border-b border-white/10 py-4">
+        <summary
+          class="flex cursor-pointer items-center justify-between text-ink-100 marker:content-none [&::-webkit-details-marker]:hidden"
+        >
+          {item.question}
+          <span class="ml-4 text-ink-500 transition-transform duration-200 group-open:rotate-180">▾</span>
+        </summary>
+        <p class="mt-2 text-sm leading-relaxed text-ink-400">{item.answer}</p>
+      </details>
+    ))
+  }
+</section>
+
+{schema && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}

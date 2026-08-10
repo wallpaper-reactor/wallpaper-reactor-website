@@ -1,0 +1,19 @@
+---
+import { STORES } from '../data/site';
+
+const BADGES = [
+  { href: STORES.googlePlay, src: '/assets/images/google-play-button.png', alt: 'Get it on Google Play' },
+  { href: STORES.microsoft, src: '/assets/images/microsoft-store-badge.svg', alt: 'Get it from Microsoft' },
+  { href: STORES.appStoreLite, src: '/assets/images/apple-store-button.svg', alt: 'Download on the App Store' },
+];
+---
+
+<div class="flex flex-wrap items-center justify-center gap-4">
+  {
+    BADGES.map((b) => (
+      <a href={b.href} target="_blank" rel="noopener" class="transition-transform hover:-translate-y-0.5">
+        <img src={b.src} alt={b.alt} class="h-12 w-auto" />
+      </a>
+    ))
+  }
+</div>

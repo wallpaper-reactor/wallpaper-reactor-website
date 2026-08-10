@@ -1,0 +1,54 @@
+---
+/** Gradient section heading with the centered underline bar, shared by the
+    app-showcase and video-showcase sections in the original stylesheet. */
+interface Props {
+  as?: 'h1' | 'h2';
+  class?: string;
+}
+
+const { as: Tag = 'h2', class: className = '' } = Astro.props;
+---
+
+<Tag class:list={['section-title', className]}>
+  <slot />
+</Tag>
+
+<style>
+  .section-title {
+    position: relative;
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, #5aa3ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #5aa3ff, transparent);
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+    }
+    .section-title::after {
+      width: 60px;
+      height: 2px;
+    }
+  }
+</style>

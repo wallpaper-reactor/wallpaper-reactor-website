@@ -1,0 +1,139 @@
+---
+import { STORES } from '../data/site';
+
+const DOWNLOADS = [
+  { href: STORES.googlePlay, icon: '/assets/images/android-logo-fill.svg', label: 'Download Android' },
+  { href: STORES.microsoft, icon: '/assets/images/windows-logo-fill.svg', label: 'Download Windows' },
+  { href: STORES.appStoreLite, icon: '/assets/images/apple-logo-fill.svg', label: 'Download macOS' },
+];
+---
+
+<section class="relative">
+  <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-center px-6 pb-12 pt-16 text-center max-lg:px-8 max-lg:pb-8 max-lg:pt-12 max-sm:px-6 max-sm:py-8">
+    <div class="hero-content">
+      <img
+        src="/assets/images/logo.png"
+        alt="Wallpaper Reactor Logo"
+        width="120"
+        height="120"
+        class="mx-auto mb-6 max-w-[120px] max-md:max-w-[100px]"
+      />
+
+      <h1>
+        Live wallpapers with<br /><span class="brand-accent">unlimited power</span>
+      </h1>
+
+      <p class="tagline">
+        Run 4K video loops, interactive web scenes, shaders, Godot games, and more — optimized for
+        performance and battery on every device.
+      </p>
+
+      <div class="download-buttons">
+        {
+          DOWNLOADS.map((d) => (
+            <a href={d.href} target="_blank" rel="noopener">
+              <img src={d.icon} alt="" class="block h-5 w-5" />
+              {d.label}
+            </a>
+          ))
+        }
+      </div>
+
+      <p class="hero-subtitle">No account required. Optional sign‑in to sync wallpapers & favorites.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-content h1 {
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 0 2px 20px rgba(90, 163, 255, 0.3);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 900px) {
+    .hero-content h1 {
+      font-size: 3rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      white-space: normal;
+    }
+  }
+  @media (max-width: 600px) {
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .brand-accent {
+    position: relative;
+    display: inline-block;
+    font-weight: 800;
+    background: linear-gradient(135deg, #5aa3ff 0%, #88c0ff 50%, #5aa3ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .brand-accent::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #5aa3ff 20%, #88c0ff 50%, #5aa3ff 80%, transparent);
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+
+  .tagline {
+    font-size: 1.125rem;
+    color: #d4d4d4;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .download-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    justify-content: center;
+  }
+
+  .download-buttons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background: #ffffff;
+    color: #0a0a0a;
+  }
+
+  .download-buttons a:hover {
+    opacity: 0.9;
+    color: #0a0a0a;
+  }
+
+  .hero-subtitle {
+    font-size: 0.75rem;
+    color: #a3a3a3;
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+</style>
