@@ -48,7 +48,7 @@ If you've got a MacBook, a desktop, and a phone, Wallpaper Reactor treats them a
 
 Download Wallpaper Reactor for macOS directly. The direct build is the complete app — sign-in, cloud sync, uploads, and performance settings all included.
 
-Free to browse and apply with no account at all. Sign in free for uploads and cloud favorites, or go paid at $3/month or $10/year for settings sync, private wallpapers, performance tuning, and no ads. Full breakdown on the [features page]({{ '/features/' | relative_url }}).
+Free to browse and apply with no account at all. See the [features page]({{ '/features/' | relative_url }}) for what each tier includes.
 
 ## FAQ
 
