@@ -1,0 +1,39 @@
+---
+/**
+ * Primary download button. Fully self-contained: in the Jekyll site this markup
+ * relied on `.btn-primary`/`.btn-icon`, which were scoped to the hero and 404
+ * contexts, so reusing it elsewhere silently produced a dark icon on a cramped
+ * button. Nothing here depends on ambient styles.
+ */
+interface Props {
+  href: string;
+  /** Platform icon shown before the label. */
+  icon?: 'apple' | 'windows' | 'android' | null;
+  external?: boolean;
+  class?: string;
+}
+
+const { href, icon = null, external = false, class: className = '' } = Astro.props;
+
+const ICONS = {
+  apple: '/assets/images/apple-logo-fill.svg',
+  windows: '/assets/images/windows-logo-fill.svg',
+  android: '/assets/images/android-logo-fill.svg',
+};
+---
+
+<a
+  href={href}
+  {...external ? { target: '_blank', rel: 'noopener' } : {}}
+  class:list={[
+    'inline-flex items-center justify-center gap-2 rounded-button border border-brand-400/30',
+    'bg-linear-135 from-brand-400 to-brand-500 px-7 py-3.5 text-base font-semibold text-white',
+    'shadow-[0_10px_30px_rgba(48,143,255,0.3)] transition-all duration-300',
+    'hover:-translate-y-0.5 hover:from-brand-hover hover:to-brand-hover-deep',
+    'hover:text-white hover:shadow-[0_15px_40px_rgba(48,143,255,0.4)] active:translate-y-0',
+    className,
+  ]}
+>
+  {icon && <img src={ICONS[icon]} alt="" class="block h-5 w-5 brightness-0 invert" />}
+  <slot />
+</a>

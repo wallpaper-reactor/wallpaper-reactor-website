@@ -1,0 +1,13 @@
+---
+import { SITE } from '../data/site';
+---
+
+<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.gaTrackingId}`}></script>
+<script is:inline define:vars={{ id: SITE.gaTrackingId }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', id);
+</script>
