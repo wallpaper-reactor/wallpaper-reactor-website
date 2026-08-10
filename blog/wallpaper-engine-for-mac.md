@@ -70,8 +70,8 @@ Free to browse and apply with no account at all. Sign in free for uploads and cl
 <div style="background: rgba(48, 143, 255, 0.06); border: 1px solid rgba(48, 143, 255, 0.3); border-radius: 1rem; padding: 2rem; margin: 2.5rem 0; text-align: center;" markdown="0">
   <h2 style="margin-top: 0; color: #f5f5f5;">Download Wallpaper Reactor for macOS</h2>
   <p style="color: #a3a3a3; max-width: 34rem; margin: 0 auto 1.5rem;">Interactive wallpapers, shaders, Godot, and video — on Mac, Windows, and Android, from one library.</p>
-  <a href="{{ '/releases/' | relative_url }}" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
-    <img src="{{ '/assets/images/apple-logo-fill.svg' | relative_url }}" alt="" class="btn-icon" />
+  <a href="{{ '/releases/' | relative_url }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.9rem 1.75rem; background: linear-gradient(135deg, #5aa3ff 0%, #308fff 100%); color: #ffffff; text-decoration: none; border-radius: 0.875rem; font-weight: 600; font-size: 1rem; border: 1px solid rgba(90, 163, 255, 0.3); box-shadow: 0 10px 30px rgba(48, 143, 255, 0.3);">
+    <img src="{{ '/assets/images/apple-logo-fill.svg' | relative_url }}" alt="" style="width: 20px; height: 20px; display: block; filter: brightness(0) invert(1);" />
     Download for macOS
   </a>
 </div>
