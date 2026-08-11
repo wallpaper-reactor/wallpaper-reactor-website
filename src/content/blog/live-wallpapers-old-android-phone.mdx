@@ -1,0 +1,102 @@
+---
+title: Live wallpapers on an old or cheap Android phone
+description: "Wallpaper Reactor runs on Android 9 and up, so a phone from 2018 still works. Here's what to pick, and how to turn the cost down on hardware that can't spare much."
+publishDate: 2026-08-11
+updatedDate: 2026-08-11
+---
+
+import { Image } from 'astro:assets';
+import Faq from '../../components/Faq.astro';
+import CtaButton from '../../components/CtaButton.astro';
+import oldPhone from '../../assets/older-android-phone.jpg';
+
+Live wallpapers have a reputation for being something only new phones can afford to run. That reputation is mostly out of date, and it goes back further than people expect: Wallpaper Reactor installs on **Android 9**, which shipped in 2018. If your phone still gets apps from the Play Store, it can almost certainly run this.
+
+<figure>
+  <Image
+    src={oldPhone}
+    alt="An Android phone from 2018 lying face-up on a wooden desk, showing its home screen."
+    widths={[480, 768, 1128]}
+    sizes="(max-width: 768px) 100vw, 768px"
+    loading="lazy"
+  />
+  <figcaption>A 2018 phone. Seven years old, and still well inside what's supported.</figcaption>
+</figure>
+
+## Why older phones struggle
+
+It helps to know what's actually expensive, because it isn't the wallpaper being "heavy" in any general sense. It's pixels per second — how many dots the phone has to draw, multiplied by how many times a second it draws them.
+
+A 4K clip at 60 frames per second asks for about sixteen times the work of a 1080p clip at 30. Same wallpaper, same idea, wildly different cost. Everything below follows from that one fact.
+
+## What to pick
+
+**Short video loops.** A ten to twenty second clip at 1080p is the safest thing you can put on an older phone. It's a format the hardware has a dedicated decoder for, which is exactly why it's cheap.
+
+**Rive animations.** Wallpaper Reactor runs these as wallpapers, and they're vector animations rather than video — they're drawn from shapes instead of stored as pixels. Files are usually under a megabyte, they stay sharp at any screen size, and they're inexpensive to draw. On a phone that's tight on both storage and power, they're often the best of both.
+
+**Go carefully with heavy shaders and 4K video.** Not never — just not the first thing to try. A shader that does a lot of maths for every pixel is the one category where an older GPU will genuinely feel it.
+
+## Turn the cost down
+
+You don't have to guess at any of this. Wallpaper Reactor's performance modes set the frame rate and how much of your screen's resolution a wallpaper actually renders at:
+
+| Mode | Frame rate | Resolution |
+|---|---|---|
+| Battery Saver | 15 fps | 50% |
+| Balanced | 30 fps | 75% |
+| High FPS | native | 75% |
+| High Resolution | 30 fps | 100% |
+| High Quality | 60 fps | 90% |
+| Max Quality | native | 100% |
+
+Battery Saver asks for roughly an eighth of the work Max Quality does. On a phone that's showing its age, that's the difference between a wallpaper you keep and one you turn off after a day.
+
+Balanced is the sensible middle, and honestly most people can't tell 30 from 60 on a wallpaper they aren't staring at.
+
+## What Wallpaper Reactor does on its own
+
+Two things happen without you setting anything up.
+
+Wallpaper Reactor **pauses when your phone enters battery saver** — it watches for the system switching that on, and stops drawing rather than competing with the thing trying to save your battery. And it has a separate control for whether wallpapers run on battery at all, if you'd rather they only animate while charging.
+
+Both are on by default, so the sensible behaviour is what you get out of the box.
+
+## An old phone is a fine place for this
+
+There's a decent argument that a hand-me-down phone is a *better* candidate for a live wallpaper than a new one — it's the device most likely to be sitting on a desk being looked at rather than carried around.
+
+It's free, it runs on Android 9 and up, and when you do upgrade, the same library comes with you.
+
+<Faq
+  items={[
+    {
+      question: 'Will a live wallpaper slow my phone down?',
+      answer:
+        'It depends on what you pick and which performance mode you use. A short 1080p video loop or a Rive animation on Balanced or Battery Saver is light work for most phones. A 4K clip at full frame rate is not.',
+    },
+    {
+      question: 'How old can my phone be?',
+      answer:
+        'Wallpaper Reactor supports Android 9 and up, which means phones from 2018 onwards.',
+    },
+    {
+      question: 'Does it drain my battery in the background?',
+      answer:
+        "No. Wallpaper Reactor only draws a wallpaper while it's on screen, and by default it pauses entirely when your phone switches into battery saver.",
+    },
+    {
+      question: 'Does it use mobile data?',
+      answer:
+        'Only when you download a wallpaper. Once it is on your phone it plays locally, with no connection needed.',
+    },
+  ]}
+/>
+
+<div class="my-10 rounded-card border border-brand-500/30 bg-brand-500/[0.06] p-8 text-center">
+  <div class="mb-3 text-2xl font-semibold leading-tight text-ink-100">Give that old phone something to do</div>
+  <p class="mx-auto mb-6 max-w-lg text-ink-400">
+    Free on Android 9 and up, and on Windows and macOS too.
+  </p>
+  <CtaButton href="/releases/" icon="android">Download Wallpaper Reactor</CtaButton>
+</div>
