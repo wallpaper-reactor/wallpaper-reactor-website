@@ -1,0 +1,119 @@
+---
+title: How to Set Any Video as a Live Wallpaper on macOS, Windows, and Android
+description: "Pick a video file, choose a screen, done — about fifteen seconds, no account needed, and nothing gets converted or uploaded. The same steps work on all three platforms."
+publishDate: 2026-08-11
+updatedDate: 2026-08-11
+---
+
+import { Image } from 'astro:assets';
+import Faq from '../../components/Faq.astro';
+import CtaButton from '../../components/CtaButton.astro';
+import step1 from '../../assets/quick-wallpaper-step1-create-tab.png';
+import step2 from '../../assets/quick-wallpaper-step2-import-file.png';
+import crossPlatform from '../../assets/cross-platform-macos-windows-android.jpg';
+
+Got a clip you want on your desktop? It takes about fifteen seconds. No account needed, nothing gets converted or uploaded, and the steps are the same on macOS, Windows and Android.
+
+## What you need
+
+Two things: our app, and a clip.
+
+**[Wallpaper Reactor](/releases/) is a free download** for macOS, Windows and Android. There are accounts, and they're worth having later — but you don't need one for this. Everything below works signed out.
+
+Then a video file. It takes all the common ones:
+
+**mp4 · webm · mov · avi · mkv · m4v · wmv**
+
+If you've got a GIF, that works too — GIFs are accepted here specifically, even though they aren't allowed for wallpapers you publish.
+
+## Open the Create tab
+
+It's the image icon in the left sidebar.
+
+<figure>
+  <Image
+    src={step1}
+    alt="Wallpaper Reactor's wallpaper library, with the Create tab highlighted in the left sidebar."
+    widths={[640, 896, 1280, 1792]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>The Create tab is the third icon down in the sidebar.</figcaption>
+</figure>
+
+## Import your video
+
+Pick **Quick Wallpaper**, hit **Import File**, and choose your clip. If you're on a device with more than one monitor, you'll pick which screen it goes on.
+
+<figure>
+  <Image
+    src={step2}
+    alt="The Create screen showing the Quick Wallpaper card with its Import File button and the list of supported file types."
+    widths={[640, 896, 1280, 1792]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>Quick Wallpaper imports and applies in one step. The supported formats are listed under the button.</figcaption>
+</figure>
+
+That's it. Your video is live on the desktop, and it stays there until you replace it — closing the app or restarting your machine won't undo it.
+
+## Why it's instant
+
+Nothing happens to your file. It isn't re-encoded, compressed, or sent anywhere — it's copied into the app's own folder and played as it is. That's why there's no progress bar, no account prompt, and no need for an internet connection.
+
+It also means the file you choose is the file that plays. A 400 MB 4K clip will work, but it's still a 400 MB 4K clip sitting on your desktop, so a little care pays off:
+
+- **Keep it short.** Ten to thirty seconds is plenty. You're going to see it loop all day.
+- **Match your screen.** A 1080p clip on a 1080p monitor looks the same as a 4K one and costs far less to play.
+- **Make the loop clean.** A clip that ends where it started loops invisibly. One that doesn't will jump every time it repeats.
+
+## Want it on all your devices?
+
+A quick wallpaper lives on the machine you set it on. That's the trade for how fast it is.
+
+Make a free account and you can create a **permanent wallpaper** instead — one that's saved properly, can be shared, and syncs to every device you sign in on. Set it up on your desktop and it's waiting on your phone.
+
+<figure>
+  <Image
+    src={crossPlatform}
+    alt="The same wallpaper running at the same time on a MacBook, a Windows laptop and an Android handheld."
+    widths={[640, 896, 1280, 1792]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>One wallpaper, three machines — macOS, Windows and Android.</figcaption>
+</figure>
+
+<Faq
+  items={[
+    {
+      question: 'Do I need an account to set a video as my wallpaper?',
+      answer:
+        'No. Quick Wallpaper works straight away with no account and no internet connection. An account is only needed if you want to create a permanent wallpaper that syncs across your devices.',
+    },
+    {
+      question: 'Does my video get converted or uploaded?',
+      answer:
+        "No. The file is copied into the app's own folder and played as it is. Nothing is re-encoded and nothing leaves your machine.",
+    },
+    {
+      question: 'Will the wallpaper still be there after I restart?',
+      answer:
+        'Yes. A quick wallpaper stays applied until you replace it with another one.',
+    },
+    {
+      question: 'Can I use a different video on each monitor?',
+      answer:
+        'Yes. If your device has more than one monitor, you choose which screen a quick wallpaper applies to, so each one can run its own.',
+    },
+  ]}
+/>
+
+<div class="my-10 rounded-card border border-brand-500/30 bg-brand-500/[0.06] p-8 text-center">
+  <div class="mb-3 text-2xl font-semibold leading-tight text-ink-100">Put your own video on your desktop</div>
+  <p class="mx-auto mb-6 max-w-lg text-ink-400">
+    Works on macOS, Windows and Android. No account needed to start.
+  </p>
+  <CtaButton href="/releases/">Download Wallpaper Reactor</CtaButton>
+</div>
