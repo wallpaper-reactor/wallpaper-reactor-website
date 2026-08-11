@@ -1,6 +1,6 @@
 ---
 title: Do live wallpapers work on Android Desktop Mode?
-description: Not yet. Android Desktop Mode puts your session on a secondary display, where wallpaper support is still behind a developer-preview flag. Here's what that looks like, and why Wallpaper Reactor is ready for the day it ships.
+description: "Not yet. On a connected display Android allows only its own fallback wallpaper — config_isLiveWallpaperSupportedInDesktopExperience ships as false. Here is the code, and why Wallpaper Reactor is ready for the day it flips."
 publishDate: 2026-08-10
 updatedDate: 2026-08-10
 ---
@@ -8,11 +8,11 @@ updatedDate: 2026-08-10
 import Faq from '../../components/Faq.astro';
 import CtaButton from '../../components/CtaButton.astro';
 
-Short answer: **no, not today.** Apps run perfectly well in Desktop Mode windows — the desktop behind them just stays a flat grey.
+Short answer: **no, not today.** Apps run perfectly well in Desktop Mode windows. The desktop behind them shows Android's own fallback wallpaper instead of yours, which is why it looks like a flat grey.
 
 ## Here's what it looks like
 
-This is Wallpaper Reactor running in Android 17 Desktop Mode. The app works: the library loads, wallpapers preview, everything responds. Look past the window and the desktop is empty.
+This is Wallpaper Reactor running in Android 17 Desktop Mode. The app works: the library loads, wallpapers preview, everything responds. Look past the window and the wallpaper you picked is nowhere to be seen.
 
 <figure>
   <video
@@ -35,45 +35,47 @@ Two things are going on, and only one of them is about wallpapers.
 
 First, Desktop Mode itself is still a developer feature. You turn it on in Developer options — it isn't something a normal user has switched on, and Android doesn't present it as finished.
 
-Second, and this is the actual blocker: Android decides per display whether a wallpaper is allowed to exist there at all. The decision lives in the wallpaper service, in [`WallpaperDisplayHelper`](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/services/core/java/com/android/server/wallpaper/WallpaperDisplayHelper.java):
+Second, and this is the actual blocker: when a device is running the desktop experience, Android permits exactly one live wallpaper on a connected display, and it isn't yours. From [`WallpaperManagerService`](https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-17.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java) at the `android-17.0.0_r1` tag:
 
 ```java
-boolean isUsableDisplay(Display display, int clientUid) {
-    if (display == null || !display.hasAccess(clientUid)) {
-        return false;
+if (connection.mInfo != null) {                      // a live wallpaper
+    if (isWallpaperDesktopExperienceEnabled
+            && !isLiveWallpaperSupportedInDesktopExperience) {
+        // Only allow the fallback wallpaper.
+        return mFallbackWallpaperComponent != null
+                && mFallbackWallpaperComponent.equals(connection.mInfo.getComponent());
     }
-    final int displayId = display.getDisplayId();
-    if (displayId == DEFAULT_DISPLAY) {
-        return true;
-    }
-    return mWindowManagerInternal.isHomeSupportedOnDisplay(displayId);
+    return connection.mInfo.supportsMultipleDisplays();
 }
 ```
 
-Your phone's built-in screen is `DEFAULT_DISPLAY`, so it returns early and always gets a wallpaper. Every other display has to be one the launcher runs on.
+`isLiveWallpaperSupportedInDesktopExperience` comes from a system resource in [`config.xml`](https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-17.0.0_r1/core/res/res/values/config.xml):
 
-That answer decides whether a wallpaper engine is ever created. [`WallpaperManagerService`](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java) only builds a `DisplayConnector` — the object that attaches an engine to a screen — for displays that pass the check:
-
-```java
-appendConnectorWithCondition(display ->
-        mWallpaperDisplayHelper.isUsableDisplay(display, mClientUid));
+```xml
+<!-- True if live wallpapers can be supported in the deskop experience -->
+<bool name="config_isLiveWallpaperSupportedInDesktopExperience">false</bool>
 ```
 
-A display that fails is skipped silently. No connector, no engine, no wallpaper. Nothing errors and nothing is logged for you to find.
+It ships as `false`. So the early return fires and only the platform's own fallback component is allowed through. Note where that return sits: it happens *before* `supportsMultipleDisplays()` is consulted, so nothing an app declares about multi-display support is ever read.
+
+This isn't new in Android 17, either. Diffing the AOSP tags, the check first appears in Android 16 r3 — so any Android 16 r3+ device driving a connected display behaves the same way.
 
 ## So why is it grey?
 
-Because the grey is a fallback, and you're looking at the layer that was supposed to have a wallpaper in it.
+Because you are looking at a wallpaper. It just isn't yours.
 
-When you enter Desktop Mode, Android slides a dedicated activity in behind your windows. [`DesktopWallpaperActivity`](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/libs/WindowManager/Shell/src/com/android/wm/shell/desktopmode/DesktopWallpaperActivity.kt) describes itself as:
+"Only allow the fallback wallpaper" means the platform substitutes its own. On a Pixel 8 running Android 17, driving an external monitor over USB-C, both are on screen at once:
 
-> A transparent activity used in the desktop mode to show the wallpaper under the freeform windows.
+```
+System wallpaper state:
+  mInfo.component=app.wallpaperreactor/...WallpaperReactorLiveWallpaperService
+   mDisplayId=0            <- ours, phone only
+Fallback wallpaper state:
+  mInfo.component=com.android.systemui/...GradientColorWallpaper
+   mDisplayId=111          <- the external display
+```
 
-That's the whole job. It's transparent on purpose, it runs fullscreen so the launcher stays hidden, and it's added when you enter desktop and removed when you leave. It doesn't draw a background — it exists so a wallpaper can be seen through it.
-
-Put the two halves together and the grey explains itself. The window that would reveal your wallpaper is present and working. The wallpaper engine behind it was never attached, because the display didn't pass `isUsableDisplay`. What's left is the plain surface underneath, a flat `#A0A0A0` in the recording above.
-
-So the desktop isn't broken and it isn't empty by design. It's a window onto a layer that nothing was allowed to paint.
+The flat `#A0A0A0` behind those windows is SystemUI's `GradientColorWallpaper`, doing exactly the job it was picked for.
 
 ## It isn't the app
 
@@ -84,11 +86,15 @@ fun isSecondaryDisplay(): Boolean =
     getCompatDisplayContext().display.displayId != Display.DEFAULT_DISPLAY
 ```
 
-Every visibility decision in the wallpaper service takes that into account, so the engine stays alive on a display the phone isn't looking at. The wallpaper is running and ready to draw — it simply has nowhere to appear yet.
+Every visibility decision in the wallpaper service takes that into account, so the engine stays alive on a display the phone isn't looking at. It never gets the chance here: `onCreateEngine` only ever fires for display 0, because the platform ruled our component out before asking.
 
-## When it ships, this works
+## When it flips, this works
 
-Android is clearly building toward it. The flag exists, the plumbing exists, and Desktop Mode is a shipped feature on Android 17. The day connected-display wallpaper is switched on for everyone, Wallpaper Reactor needs no new release to take advantage of it — the secondary-display path is already written and tested.
+The interesting part is that this is a *config resource*, not a constant. An OEM can enable it with a resource overlay, so behaviour may already differ between manufacturers — Samsung DeX is worth trying on its own rather than assuming it matches a Pixel. There's a debug system property too, `persist.wm.debug.desktop_support_live_wallpaper`, which the same code reads before falling back to the resource.
+
+And the change that introduced all this is titled "Add a config to enable live wallpaper in desktop experience." That's an opt-in switch shipped alongside a new capability, not a ban on something that used to work — live wallpapers were never drawn on connected displays before it existed.
+
+So the day that resource flips to `true`, Wallpaper Reactor needs no new release. The secondary-display path is already written and tested; it's waiting on one boolean.
 
 In the meantime live wallpapers work exactly as you'd expect on your phone's own screen, and if you plug into a desktop, the same library is waiting for you on Windows and macOS.
 
@@ -97,7 +103,7 @@ In the meantime live wallpapers work exactly as you'd expect on your phone's own
     {
       question: 'Do live wallpapers work in Android Desktop Mode right now?',
       answer:
-        "No. Desktop Mode is still a developer feature you enable in Developer options, and it runs your session on a display that isn't the phone's built-in screen. Android's wallpaper service only attaches a wallpaper engine to displays that pass its isUsableDisplay check, so the desktop background stays a flat colour while apps run normally in their windows.",
+        "No. Desktop Mode is still a developer feature you enable in Developer options, and on a connected display Android permits only its own fallback wallpaper. The system resource config_isLiveWallpaperSupportedInDesktopExperience ships as false, so third-party live wallpapers are filtered out and you see SystemUI's GradientColorWallpaper instead. Apps themselves run normally in their windows.",
     },
     {
       question: 'Does this affect live wallpapers on my phone screen?',
