@@ -1,5 +1,6 @@
 ---
 import { SEO } from 'astro-seo';
+import ogImage from '../assets/logo.png';
 import { SITE } from '../data/site';
 import AnimatedBackground from '../components/AnimatedBackground.astro';
 import Header from '../components/Header.astro';
@@ -35,7 +36,8 @@ const fullTitle = Astro.url.pathname === '/' ? SITE.title : `${title} | ${SITE.t
       description={description}
       canonical={canonical}
       openGraph={{
-        basic: { title, type: 'website', url: canonical, image: `${SITE.url}/assets/images/logo.png` },
+        // og:image must be absolute; ogImage.src is the hashed build path.
+        basic: { title, type: 'website', url: canonical, image: new URL(ogImage.src, SITE.url).href },
         optional: { description, siteName: SITE.title, locale: 'en_US' },
       }}
       twitter={{ card: 'summary', title, description }}

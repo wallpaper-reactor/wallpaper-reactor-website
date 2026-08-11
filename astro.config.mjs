@@ -24,7 +24,7 @@ export default defineConfig({
       disable404Route: true,
       favicon: '/favicon.ico',
       logo: {
-        src: './public/assets/images/logo.png',
+        src: './src/assets/logo.png',
         alt: 'Wallpaper Reactor',
       },
       // Only the token overrides — NOT global.css. That file imports Tailwind,

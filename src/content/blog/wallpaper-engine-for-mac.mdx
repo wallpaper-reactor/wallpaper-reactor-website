@@ -5,8 +5,11 @@ publishDate: 2026-08-10
 updatedDate: 2026-08-10
 ---
 
+import { Image } from 'astro:assets';
 import Faq from '../../components/Faq.astro';
 import CtaButton from '../../components/CtaButton.astro';
+import appScreenshot from '../../assets/main-app-screenshot.webp';
+import crossPlatform from '../../assets/mockup2.webp';
 
 Wallpaper Engine is Windows-only. There's no macOS version, no beta, and no announced plan for one — so if you're searching for it on a Mac, you need a replacement.
 
@@ -33,11 +36,11 @@ The problem with most replacements is that they're video players. They put a cli
 Web scenes take real input, shaders render live on your GPU, and full game scenes run on your desktop.
 
 <figure>
-  <img
-    src="/assets/images/main-app-screenshot.webp"
+  <Image
+    src={appScreenshot}
     alt="The Wallpaper Reactor library on macOS, showing video, web, shader and Rive wallpapers side by side with the details panel open."
-    width="3248"
-    height="2112"
+    widths={[640, 896, 1280, 1792]}
+    sizes="(max-width: 896px) 100vw, 896px"
     loading="lazy"
     decoding="async"
   />
@@ -68,11 +71,11 @@ Wallpaper Reactor runs on **macOS, Windows, and Android**:
 If you've got a MacBook, a desktop, and a phone, Wallpaper Reactor treats them as one setup.
 
 <figure>
-  <img
-    src="/assets/images/mockup2.webp"
+  <Image
+    src={crossPlatform}
     alt="Wallpaper Reactor open on a MacBook and on a phone, showing the same wallpaper library on both devices."
-    width="2922"
-    height="1619"
+    widths={[640, 896, 1280, 1792]}
+    sizes="(max-width: 896px) 100vw, 896px"
     loading="lazy"
     decoding="async"
   />

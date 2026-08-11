@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import appScreenshot from '../assets/main-app-screenshot.webp';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionTitle from '../components/SectionTitle.astro';
@@ -44,9 +46,11 @@ const FAQS: FaqItem[] = [
     <div class="relative">
       <SectionTitle>Powerful features, intuitive interface</SectionTitle>
       <div class="flex items-center justify-center">
-        <img
-          src="/assets/images/main-app-screenshot.webp"
+        <Image
+          src={appScreenshot}
           alt="Wallpaper Reactor Application Interface"
+          widths={[640, 960, 1280, 1600, 2048]}
+          sizes="(max-width: 768px) 100vw, 1400px"
           class="app-screenshot block h-auto max-w-full cursor-pointer transition-all duration-200 hover:scale-[1.01] hover:opacity-95"
         />
       </div>

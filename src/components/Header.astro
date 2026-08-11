@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 import { NAV, SITE } from '../data/site';
 
 const path = Astro.url.pathname;
@@ -10,7 +12,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
 >
   <nav class="mx-auto flex max-w-7xl items-center gap-6 px-4 py-3" aria-label="Main">
     <a href="/" class="flex shrink-0 items-center gap-2 text-ink-100 hover:text-ink-100">
-      <img src="/assets/images/logo.png" alt="" width="28" height="28" class="h-7 w-7" />
+      <Image src={logo} alt="" width={28} height={28} densities={[1, 2]} class="h-7 w-7" />
       <span class="font-semibold tracking-tight">{SITE.title}</span>
     </a>
 

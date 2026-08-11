@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 import { STORES } from '../data/site';
 
 const DOWNLOADS = [
@@ -11,11 +13,13 @@ const DOWNLOADS = [
 <section class="relative">
   <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-center px-6 pb-12 pt-16 text-center max-lg:px-8 max-lg:pb-8 max-lg:pt-12 max-sm:px-6 max-sm:py-8">
     <div class="hero-content">
-      <img
-        src="/assets/images/logo.png"
+      <Image
+        src={logo}
         alt="Wallpaper Reactor Logo"
-        width="120"
-        height="120"
+        width={120}
+        height={120}
+        densities={[1, 2]}
+        loading="eager"
         class="mx-auto mb-6 max-w-[120px] max-md:max-w-[100px]"
       />
 
