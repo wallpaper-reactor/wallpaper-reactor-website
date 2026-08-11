@@ -117,6 +117,11 @@ draft: false              # optional; drafts are excluded from build
 - Keep internal links trailing-slashed (`/features/`), matching `trailingSlash: 'always'`.
 - Raster images go in `src/assets/` and use `<Image>` from `astro:assets` with `widths`/`sizes`,
   so mobile isn't downloading a 3000px original. SVGs stay in `public/assets/images/`.
+- **Photos carry camera metadata — strip it.** A phone photo embeds make, model, capture time
+  and a GPS block, and "my desk" is usually "my home address". `astro:assets` re-encodes and
+  drops metadata for anything imported through `<Image>`, but files in `public/` are copied
+  verbatim, so that path can leak. Run `npm run images:clean` after adding any photo; CI runs
+  `npm run images:check` and fails the build if metadata is found.
 - Screen recordings must be re-encoded before they ship — a raw 1080p60 capture is heavier
   than the whole rest of the page. 720p/30fps at CRF 30 with no audio took one from 12 MB to
   114 KB. Give the `<video>` a poster frame and `autoplay loop muted playsinline`:

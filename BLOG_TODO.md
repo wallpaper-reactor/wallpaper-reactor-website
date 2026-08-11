@@ -58,6 +58,15 @@ is also the most linkable thing the site can publish.
 
 Needs: actual measurements from you.
 
+## Assets on hand
+
+- `src/assets/cross-platform-macos-windows-android.jpg` — the same wallpaper (PSP Wallpaper by
+  ParkingLotGames) running at once on a MacBook, a Windows laptop and an Android handheld.
+  A single photo that proves the cross-platform pillar better than any screenshot could.
+  Metadata stripped. Best used on `/features/`, the homepage, or any post that leans on
+  "one library, every device" — note it shows three *platforms*, not a dual-screen device, so
+  it does not illustrate the handheld article below.
+
 ## Candidates
 
 | Idea | Why | Needs |

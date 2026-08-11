@@ -8,7 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "screenshots": "node _screenshots/compare.mjs"
+    "screenshots": "node _screenshots/compare.mjs",
+    "images:clean": "node scripts/clean-image-metadata.mjs",
+    "images:check": "node scripts/clean-image-metadata.mjs --check"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
