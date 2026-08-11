@@ -71,6 +71,8 @@ Needs: actual measurements from you.
 
 | Idea | Why | Needs |
 |---|---|---|
+| How to make a clip loop seamlessly | The ffmpeg material cut from the video article, given a home where the depth fits; the kind of page forums link to | Nothing |
+| Put a live web page on your desktop | "Any Website Wallpaper" is an unusual capability and "website as wallpaper" is a real query | Shipped-UI screenshots |
 | How Android live wallpapers work, and why yours restarts | Explains a genuinely confusing behaviour; positions us as the people who know it | Nothing |
 | Does a live wallpaper slow down your games? | Objection-killer, answerable by mechanism | Nothing |
 | Different wallpapers on lock screen and home screen | Real query, supported since Android 14 | Shipped-UI screenshots |
