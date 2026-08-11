@@ -4,6 +4,26 @@ House rules for writing posts under `src/content/blog/`. Derived from direction 
 writing the first post (`wallpaper-engine-for-mac.mdx`). This file lives outside `src/pages/`,
 so it is not a route — it is a working document, not a page.
 
+## Workflow
+
+Every post goes through these steps in order. There are two approval gates, and neither is
+optional.
+
+1. **Ideas.** Present a set of article ideas with the reasoning behind each.
+2. **Topic chosen.** Kyle picks one. Don't start on an idea that hasn't been picked.
+3. **Outline.** Produce an outline, plus the media it should carry — screenshots, video,
+   diagrams — and flag anything that needs sourcing, re-encoding or permission.
+4. **Gate 1: outline approved.** Kyle approves or asks for revisions. Revise and re-present
+   until it's approved. No prose before this point.
+5. **Write.** Produce the article and **send the full final text in chat for review** — not a
+   summary, not a diff, the text itself.
+6. **Gate 2: text approved.** Kyle approves or asks for revisions.
+7. **Publish.** Only now does it go public: commit, push to `main`, and confirm the deploy.
+
+**Nothing is published without an explicit approval of the final text.** Building it locally,
+committing it on a branch and screenshotting it are all fine before Gate 2 — pushing to `main`
+is not, because that deploys straight to the live site.
+
 ## Process
 
 **Agree the bullet points before writing prose.** Settle the thesis, the pillars, and the
