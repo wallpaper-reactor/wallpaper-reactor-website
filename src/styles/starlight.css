@@ -20,6 +20,19 @@
   --sl-color-bg-sidebar: rgba(18, 18, 18, 0.85);
 }
 
+/* Starlight paints the header site title with --sl-color-text-accent. Keep the
+   accent for links and force the wordmark white, matching the marketing header.
+   `a.site-title` outranks Starlight's own `.site-title` rule, whose scoping class
+   is wrapped in :where() and so adds no specificity. */
+a.site-title {
+  color: var(--sl-color-white);
+}
+
+/* Social links (the GitHub mark) are accent-coloured by default too. */
+.social-icons a {
+  color: var(--sl-color-white);
+}
+
 /* Starlight keeps its own opaque background here rather than showing the marketing
    pages' animated blobs — long-form docs are easier to read on a flat surface. */
 :root {

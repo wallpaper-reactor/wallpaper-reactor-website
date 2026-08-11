@@ -31,6 +31,11 @@ export default defineConfig({
       // whose preflight resets `ul { list-style: none }` and strips Starlight's
       // own content styling (bullets vanish from every docs page).
       customCss: ['./src/styles/starlight.css'],
+      // The site is dark-only, so the theme picker is removed and the theme pinned.
+      components: {
+        ThemeSelect: './src/components/starlight/ThemeSelect.astro',
+        ThemeProvider: './src/components/starlight/ThemeProvider.astro',
+      },
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/wallpaper-reactor' },
       ],

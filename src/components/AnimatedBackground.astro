@@ -7,15 +7,28 @@
  * invalid CSS and was ignored — every blob's real duration comes from its own rule
  * below. Keeping the per-blob values reproduces the original motion exactly.
  */
+/** Blob alpha was 0.4 in the Jekyll version; dialled back for a darker backdrop. */
+const A = 0.24;
+
+/**
+ * Five blobs, down from eight, chosen to keep coverage across the viewport.
+ * Measured at 1440x900 in headless Chromium (software raster, so pessimistic —
+ * treat these as relative, not absolute):
+ *
+ *   8 blobs @ 8vmin blur ... 32 fps   (the original Jekyll setup)
+ *   5 blobs @ 8vmin blur ... 48 fps
+ *   8 blobs @ 5vmin blur ... 46 fps
+ *   5 blobs @ 5vmin blur ... 60 fps   <- this
+ *
+ * Blur radius and blob count cost about the same, and enlarging the remaining
+ * blobs to compensate gives the saving straight back (49 fps at 55vmin).
+ */
 const BLOBS = [
-  { color: 'rgba(48, 143, 255, 0.4)', top: '59%', left: '62%', duration: '120s', delay: '-17s', origin: '13vw 14vh' },
-  { color: 'rgba(26, 89, 186, 0.4)', top: '42%', left: '58%', duration: '150s', delay: '-32s', origin: '-18vw -5vh' },
-  { color: 'rgba(48, 143, 255, 0.4)', top: '5%', left: '43%', duration: '110s', delay: '-5s', origin: '3vw -21vh' },
-  { color: 'rgba(90, 163, 255, 0.4)', top: '73%', left: '58%', duration: '100s', delay: '-14s', origin: '-1vw -17vh' },
-  { color: 'rgba(26, 89, 186, 0.4)', top: '83%', left: '10%', duration: '130s', delay: '-48s', origin: '22vw 18vh' },
-  { color: 'rgba(48, 143, 255, 0.4)', top: '71%', left: '84%', duration: '140s', delay: '-17s', origin: '5vw 21vh' },
-  { color: 'rgba(90, 163, 255, 0.4)', top: '82%', left: '69%', duration: '160s', delay: '-44s', origin: '-1vw -20vh' },
-  { color: 'rgba(26, 89, 186, 0.4)', top: '95%', left: '19%', duration: '125s', delay: '-45s', origin: '-5vw 13vh' },
+  { color: `rgba(48, 143, 255, ${A})`, top: '5%', left: '43%', duration: '110s', delay: '-5s', origin: '3vw -21vh' },
+  { color: `rgba(26, 89, 186, ${A})`, top: '42%', left: '58%', duration: '150s', delay: '-32s', origin: '-18vw -5vh' },
+  { color: `rgba(90, 163, 255, ${A})`, top: '73%', left: '58%', duration: '100s', delay: '-14s', origin: '-1vw -17vh' },
+  { color: `rgba(48, 143, 255, ${A})`, top: '71%', left: '84%', duration: '140s', delay: '-17s', origin: '5vw 21vh' },
+  { color: `rgba(26, 89, 186, ${A})`, top: '83%', left: '10%', duration: '130s', delay: '-48s', origin: '22vw 18vh' },
 ];
 ---
 
@@ -45,6 +58,9 @@ const BLOBS = [
     overflow: hidden;
     z-index: -2;
     pointer-events: none;
+    /* Isolate the blobs from the rest of the page so their repaints can never
+       invalidate page content. */
+    contain: strict;
   }
 
   .background span {
@@ -53,15 +69,28 @@ const BLOBS = [
     height: 40vmin;
     border-radius: 40vmin;
     backface-visibility: hidden;
-    filter: blur(8vmin);
+    filter: blur(5vmin);
     animation-name: move;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    /* Promote each blob to its own compositor layer. Without this the 8vmin blur
+       is re-rasterised every frame of the rotation, which is the expensive part;
+       with it the blurred texture is rendered once and only the transform moves. */
+    will-change: transform;
+  }
+
+  /* Drop to three on small screens — fewer blurred layers on the hardware least
+     able to afford them, and less of the viewport is visible anyway. */
+  @media (max-width: 768px) {
+    .background span:nth-child(n + 4) {
+      display: none;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .background span {
       animation: none;
+      will-change: auto;
     }
   }
 </style>

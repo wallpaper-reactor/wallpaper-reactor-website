@@ -1,0 +1,16 @@
+---
+/**
+ * Replaces Starlight's theme provider, which reads a stored preference and the
+ * OS setting. The site is dark-only, so the theme is pinned here.
+ *
+ * This also rescues anyone who previously picked "light" in the old selector:
+ * without it their stored preference would persist with no way to change it back.
+ */
+---
+
+<script is:inline>
+  document.documentElement.dataset.theme = 'dark';
+  try {
+    localStorage.removeItem('starlight-theme');
+  } catch {}
+</script>
