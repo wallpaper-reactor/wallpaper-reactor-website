@@ -29,18 +29,51 @@ This is Wallpaper Reactor running in Android 17 Desktop Mode. The app works: the
   <figcaption>Wallpaper Reactor in Android 17 Desktop Mode. The app runs; the desktop behind it stays flat grey.</figcaption>
 </figure>
 
-## Why
+## Why the desktop stays empty
 
-Desktop Mode moves your session onto a display that isn't the phone's built-in screen. In Android's terms that's a secondary display, and wallpaper support there is still gated.
+Two things are going on, and only one of them is about wallpapers.
 
-The flag lives in Android's own source, in `DesktopExperienceFlags`:
+First, Desktop Mode itself is still a developer feature. You turn it on in Developer options — it isn't something a normal user has switched on, and Android doesn't present it as finished.
+
+Second, and this is the actual blocker: Android decides per display whether a wallpaper is allowed to exist there at all. The decision lives in the wallpaper service, in [`WallpaperDisplayHelper`](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/services/core/java/com/android/server/wallpaper/WallpaperDisplayHelper.java):
 
 ```java
-ENABLE_CONNECTED_DISPLAYS_WALLPAPER(android.app.Flags::enableConnectedDisplaysWallpaper, true,
-        android.app.Flags.FLAG_ENABLE_CONNECTED_DISPLAYS_WALLPAPER),
+boolean isUsableDisplay(Display display, int clientUid) {
+    if (display == null || !display.hasAccess(clientUid)) {
+        return false;
+    }
+    final int displayId = display.getDisplayId();
+    if (displayId == DEFAULT_DISPLAY) {
+        return true;
+    }
+    return mWindowManagerInternal.isHomeSupportedOnDisplay(displayId);
+}
 ```
 
-That class is documented as holding flags "aiming for developer preview before their release," switched by the `persist.wm.debug.desktop_experience_devopts` system property. Connected-display wallpaper is on the list, which is a fair summary of where the feature sits: built, not switched on for everyone.
+Your phone's built-in screen is `DEFAULT_DISPLAY`, so it returns early and always gets a wallpaper. Every other display has to be one the launcher runs on.
+
+That answer decides whether a wallpaper engine is ever created. [`WallpaperManagerService`](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java) only builds a `DisplayConnector` — the object that attaches an engine to a screen — for displays that pass the check:
+
+```java
+appendConnectorWithCondition(display ->
+        mWallpaperDisplayHelper.isUsableDisplay(display, mClientUid));
+```
+
+A display that fails is skipped silently. No connector, no engine, no wallpaper. Nothing errors and nothing is logged for you to find.
+
+## So why is it grey?
+
+Because the grey is a fallback, and you're looking at the layer that was supposed to have a wallpaper in it.
+
+When you enter Desktop Mode, Android slides a dedicated activity in behind your windows. [`DesktopWallpaperActivity`](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/libs/WindowManager/Shell/src/com/android/wm/shell/desktopmode/DesktopWallpaperActivity.kt) describes itself as:
+
+> A transparent activity used in the desktop mode to show the wallpaper under the freeform windows.
+
+That's the whole job. It's transparent on purpose, it runs fullscreen so the launcher stays hidden, and it's added when you enter desktop and removed when you leave. It doesn't draw a background — it exists so a wallpaper can be seen through it.
+
+Put the two halves together and the grey explains itself. The window that would reveal your wallpaper is present and working. The wallpaper engine behind it was never attached, because the display didn't pass `isUsableDisplay`. What's left is the plain surface underneath, a flat `#A0A0A0` in the recording above.
+
+So the desktop isn't broken and it isn't empty by design. It's a window onto a layer that nothing was allowed to paint.
 
 ## It isn't the app
 
@@ -64,7 +97,7 @@ In the meantime live wallpapers work exactly as you'd expect on your phone's own
     {
       question: 'Do live wallpapers work in Android Desktop Mode right now?',
       answer:
-        "No. Desktop Mode runs your session on a secondary display, and wallpaper support for connected displays is still behind a developer-preview flag in Android. Apps run normally in Desktop Mode windows, but the desktop background stays a flat colour.",
+        "No. Desktop Mode is still a developer feature you enable in Developer options, and it runs your session on a display that isn't the phone's built-in screen. Android's wallpaper service only attaches a wallpaper engine to displays that pass its isUsableDisplay check, so the desktop background stays a flat colour while apps run normally in their windows.",
     },
     {
       question: 'Does this affect live wallpapers on my phone screen?',
