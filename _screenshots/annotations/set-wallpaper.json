@@ -1,0 +1,48 @@
+[
+  {
+    "in": "_screenshots/raw/desktop-browse.png",
+    "out": "src/assets/set-wallpaper-desktop-1-browse.png",
+    "steps": [
+      { "box": [10, 126, 70, 196], "label": "1  Browse", "labelAt": [160, 98],
+        "arrowFrom": [150, 120], "arrowTo": [58, 120] },
+      { "box": [98, 292, 298, 548], "label": "2  Pick a wallpaper", "labelAt": [300, 214],
+        "arrowFrom": [330, 250], "arrowTo": [300, 300] },
+      { "box": [902, 442, 1204, 488], "radius": 22, "label": "3  Download it", "labelAt": [690, 566],
+        "arrowFrom": [880, 560], "arrowTo": [1050, 494] }
+    ]
+  },
+  {
+    "in": "_screenshots/raw/desktop-set.png",
+    "out": "src/assets/set-wallpaper-desktop-2-set.png",
+    "steps": [
+      { "box": [902, 442, 1152, 488], "radius": 22, "label": "4  Set it as your wallpaper",
+        "labelAt": [660, 566], "arrowFrom": [880, 566], "arrowTo": [1010, 496] }
+    ]
+  },
+  {
+    "in": "_screenshots/raw/android-browse.png",
+    "out": "src/assets/set-wallpaper-android-1-browse.png",
+    "steps": [
+      { "box": [112, 640, 188, 700], "label": "1  Browse", "labelAt": [238, 600],
+        "arrowFrom": [232, 624], "arrowTo": [178, 648] },
+      { "box": [18, 274, 194, 502], "label": "2  Tap a wallpaper", "labelAt": [120, 196],
+        "arrowFrom": [150, 244], "arrowTo": [110, 278] }
+    ]
+  },
+  {
+    "in": "_screenshots/raw/android-download.png",
+    "out": "src/assets/set-wallpaper-android-2-download.png",
+    "steps": [
+      { "box": [18, 508, 327, 552], "radius": 22, "label": "3  Download it", "labelAt": [92, 340],
+        "arrowFrom": [172, 392], "arrowTo": [172, 502] }
+    ]
+  },
+  {
+    "in": "_screenshots/raw/android-set.png",
+    "out": "src/assets/set-wallpaper-android-3-set.png",
+    "steps": [
+      { "box": [18, 508, 270, 552], "radius": 22, "label": "4  Set it as your wallpaper", "labelAt": [16, 340],
+        "arrowFrom": [144, 392], "arrowTo": [144, 502] }
+    ]
+  }
+]

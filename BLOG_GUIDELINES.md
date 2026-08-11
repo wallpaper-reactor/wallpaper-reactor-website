@@ -152,6 +152,38 @@ How to do it well:
   drops metadata for anything imported through `<Image>`, but files in `public/` are copied
   verbatim, so that path can leak. Run `npm run images:clean` after adding any photo; CI runs
   `npm run images:check` and fails the build if metadata is found.
+### Annotating screenshots
+
+Tutorial screenshots get numbered pointers, drawn by `scripts/annotate-screenshot.mjs` from a
+JSON spec. Never hand-draw them per article — the point is that every tutorial on the site
+looks like the same system.
+
+```bash
+node scripts/annotate-screenshot.mjs _screenshots/annotations/<name>.json
+```
+
+The spec lists steps, each with any of `box`, `label` + `labelAt`, and `arrowFrom` + `arrowTo`,
+in source-image pixels. Raw captures live in `_screenshots/raw/` and the specs in
+`_screenshots/annotations/`, so any annotated asset can be regenerated or nudged later without
+re-shooting the app.
+
+The visual language is fixed, and each part of it was learned the hard way:
+
+- **White fill, near-black text, drop shadow.** An earlier pass used the brand blue and the
+  pointers vanished into the UI they were pointing at — the app is dark and blue, so blue reads
+  as interface, not annotation.
+- **Numbered labels** (`1  Browse`, `2  Pick a wallpaper`). Readers scan a tutorial by number.
+- **Box the target, arrow from the label.** The box says what to click; the arrow says which
+  label belongs to it when there are several.
+- **Put labels in empty space**, never over content. If a label overflows the frame the script
+  warns — move it rather than shrinking the text.
+- **Font size scales with image width**, so a 400px phone shot and a 1280px desktop shot come
+  out visually consistent.
+
+Capture at a size where the UI is legible, not at the largest size available. Desktop shots at
+1280×720 read far better than 1920×1080, where everything is small. Phone shots at 400×711 put
+the app in its two-column compact layout, which is what a phone actually shows.
+
 - Screen recordings must be re-encoded before they ship — a raw 1080p60 capture is heavier
   than the whole rest of the page. 720p/30fps at CRF 30 with no audio took one from 12 MB to
   114 KB. Give the `<video>` a poster frame and `autoplay loop muted playsinline`:
