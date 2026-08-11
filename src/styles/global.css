@@ -24,8 +24,11 @@
   --color-ink-100: #f5f5f5;
   --color-ink-300: #d4d4d4;
   --color-ink-400: #a3a3a3;
-  --color-ink-500: #737373;
-  --color-ink-600: #525252;
+  /* #737373 was 3.7:1 on surface-850 — below the 4.5:1 WCAG AA floor for body text,
+     and it is used for figcaptions, so it was real copy nobody could read comfortably.
+     #8a8a8a clears 4.5:1 on every surface here. Anything dimmer than this needs to be
+     decoration, not text. */
+  --color-ink-500: #8a8a8a;
 
   /* Shared radii used by cards, plans and buttons */
   --radius-card: 1rem;
@@ -75,7 +78,8 @@
   }
   .prose-wr a {
     color: var(--color-brand-400);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
   }
   .prose-wr a:hover {
     color: var(--color-brand-hover);
@@ -150,6 +154,17 @@
 }
 
 @layer base {
+  /* Links inside body text need something other than colour to mark them (WCAG 1.4.1).
+     Blue on grey measured 1.02:1 as a colour difference, which is no difference at all to
+     anyone who doesn't perceive the hue. Scoped to running text so nav items, cards and
+     CTA buttons keep their own styling. */
+  p a,
+  figcaption a,
+  td a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
   html {
     background-color: var(--color-surface-950);
     color-scheme: dark;

@@ -24,3 +24,7 @@ jobs:
         run: npx astro check --minimumSeverity error
       - name: Build
         run: npm run build
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Accessibility check
+        run: npm run a11y

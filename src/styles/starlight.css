@@ -2,7 +2,9 @@
    read as a different product. Starlight defines these as CSS custom properties,
    so overriding them is enough — no need to fight its component styles. */
 :root {
-  --sl-color-accent-low: #1558c7;
+  /* Starlight pairs accent-low with a light accent background on the current nav item.
+     #1558c7 on #5aa3ff measured 2.49:1 — near-black gives 7.65:1 against the same blue. */
+  --sl-color-accent-low: #0a0a0a;
   --sl-color-accent: #308fff;
   --sl-color-accent-high: #88c0ff;
 

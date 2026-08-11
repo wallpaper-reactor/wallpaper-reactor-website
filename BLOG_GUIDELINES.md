@@ -35,6 +35,13 @@ describe tiers and formats, but they don't answer questions like "is the web ren
 genuinely interactive" or "does Godot work on the Mac build." Get those confirmed. Flag
 any claim that couldn't be verified so it can be checked before publishing.
 
+**Run the accessibility check before publishing.** `npm run build && npm run a11y` runs
+axe-core over every page in the sitemap and fails on WCAG A/AA violations. CI runs it too.
+It exists because a text colour shipped at 3.7:1 against its background — used for every
+figcaption on the site — and nobody noticed through four articles. Two rules that came out
+of it: body text needs 4.5:1 against its background, and a link inside running text must be
+underlined, because colour alone is not a distinction for a reader who doesn't see the hue.
+
 **Verify before publishing, not after.** Build the site, screenshot the rendered page, and
 confirm the layout holds. Cosmetic defects that ship are visible to every visitor.
 
