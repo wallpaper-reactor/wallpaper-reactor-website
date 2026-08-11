@@ -40,8 +40,17 @@ confirm the layout holds. Cosmetic defects that ship are visible to every visito
 
 ## Length and scope
 
-**Keep posts short.** Target 400–600 words. One thesis, two or three sections, a short
-FAQ, a CTA. Comprehensive-guide length is not the goal.
+**Keep posts tight.** Target 400–1000 words. One thesis, a handful of sections, a short FAQ,
+a CTA. Length should be earned: the upper end is for posts carrying something substantial —
+cited source, measured numbers, a real walkthrough — not for padding a thin idea. If a post is
+long because it explains something specific that nobody else has explained, that's the right
+kind of long.
+
+**Every post carries at least one piece of media.** A screenshot, a diagram, a photo, or a
+short video. It has to do work the prose can't: proof that something happens, a shape that's
+easier to see than describe, or the thing itself. Decorative stock imagery doesn't count.
+Media is also usually where errors surface — drawing a 1080p frame inside a 4K one is what
+caught a wrong multiplier that had already survived a full read-through.
 
 **Don't explain competitors' technical internals.** No deep dives into how another product
 renders, why it can't be ported, or what its file formats contain. It's off-topic and it
