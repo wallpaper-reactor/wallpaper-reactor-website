@@ -31,6 +31,14 @@ export default defineConfig({
       // whose preflight resets `ul { list-style: none }` and strips Starlight's
       // own content styling (bullets vanish from every docs page).
       customCss: ['./src/styles/starlight.css'],
+      // Starlight's Expressive Code renders code blocks site-wide, and by default
+      // emits both a light and a dark theme as --0/--1 CSS variables. Outside
+      // Starlight there's no data-theme to select with, so it fell back to the
+      // light theme — near-black code on a dark page. The site is dark-only, so
+      // ship one theme.
+      expressiveCode: {
+        themes: ['github-dark'],
+      },
       // The site is dark-only, so the theme picker is removed and the theme pinned.
       components: {
         ThemeSelect: './src/components/starlight/ThemeSelect.astro',

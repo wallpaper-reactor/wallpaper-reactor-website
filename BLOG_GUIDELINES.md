@@ -95,6 +95,18 @@ draft: false              # optional; drafts are excluded from build
 - In MDX, write apostrophes as real characters inside JS strings — `&apos;` renders
   literally in attribute values rather than being decoded.
 - Keep internal links trailing-slashed (`/features/`), matching `trailingSlash: 'always'`.
+- Raster images go in `src/assets/` and use `<Image>` from `astro:assets` with `widths`/`sizes`,
+  so mobile isn't downloading a 3000px original. SVGs stay in `public/assets/images/`.
+- Screen recordings must be re-encoded before they ship — a raw 1080p60 capture is heavier
+  than the whole rest of the page. 720p/30fps at CRF 30 with no audio took one from 12 MB to
+  114 KB. Give the `<video>` a poster frame and `autoplay loop muted playsinline`:
+
+  ```bash
+  ffmpeg -i raw.mp4 -vf "fps=30,scale=1280:-2" -c:v libx264 -crf 30 -preset slow \
+    -pix_fmt yuv420p -an -movflags +faststart public/assets/videos/<name>.mp4
+  ffmpeg -ss 2 -i raw.mp4 -frames:v 1 -vf "scale=1280:-2" -q:v 6 \
+    public/assets/videos/<name>-poster.jpg
+  ```
 
 ## After publishing
 

@@ -104,7 +104,8 @@
   .prose-wr figure {
     margin: 2rem 0;
   }
-  .prose-wr img {
+  .prose-wr img,
+  .prose-wr video {
     display: block;
     max-width: 100%;
     height: auto;
