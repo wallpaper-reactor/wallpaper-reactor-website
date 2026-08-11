@@ -1,0 +1,113 @@
+---
+title: How to set a live wallpaper on Android
+description: "Android has supported live wallpapers for years — you just need one worth setting. Here's the whole thing in four taps, free, with no account."
+publishDate: 2026-08-11
+updatedDate: 2026-08-11
+---
+
+import { Image } from 'astro:assets';
+import Faq from '../../components/Faq.astro';
+import CtaButton from '../../components/CtaButton.astro';
+import browseStep from '../../assets/set-wallpaper-android-1-browse.png';
+import downloadStep from '../../assets/set-wallpaper-android-2-download.png';
+import setStep from '../../assets/set-wallpaper-android-3-set.png';
+
+Good news: unlike Windows and macOS, **Android has supported live wallpapers since 2010**. It's built into the system. What you need is an app that gives you good ones and a sane way to set them.
+
+Here's the whole thing, in four taps.
+
+## 1. Install Wallpaper Reactor
+
+It's a [free download](/releases/) on the Play Store, and it runs on Android 9 and up — so a phone from 2018 is still fine. No account needed for any of this.
+
+## 2. Open Browse and tap a wallpaper
+
+**Browse** is in the bottom bar. The library is grouped into Recently Added, Hidden Gems, Most Downloaded and Most Favorited — scroll until something appeals, then tap it.
+
+<figure>
+  <Image
+    src={browseStep}
+    alt="The Browse tab on a phone, with the bottom-bar Browse button and a wallpaper card highlighted."
+    widths={[320, 400, 800]}
+    sizes="(max-width: 420px) 100vw, 400px"
+    loading="lazy"
+  />
+  <figcaption>Two columns, scrolled down to Most Downloaded.</figcaption>
+</figure>
+
+## 3. Download it
+
+Tapping a wallpaper opens its own screen: a big preview, who made it, and a **Download** button. Tap that first — until the file is on your phone there's nothing to set.
+
+<figure>
+  <Image
+    src={downloadStep}
+    alt="The wallpaper detail screen on a phone with the Download button highlighted."
+    widths={[320, 400, 800]}
+    sizes="(max-width: 420px) 100vw, 400px"
+    loading="lazy"
+  />
+  <figcaption>Download first. It's a small file — this one is 9.66 KB.</figcaption>
+</figure>
+
+## 4. Set it
+
+Once downloaded, that button becomes **Set**. Tap it and it's your wallpaper.
+
+<figure>
+  <Image
+    src={setStep}
+    alt="The same detail screen after downloading, with the Set button highlighted."
+    widths={[320, 400, 800]}
+    sizes="(max-width: 420px) 100vw, 400px"
+    loading="lazy"
+  />
+  <figcaption>Download becomes Set once the file is on your phone.</figcaption>
+</figure>
+
+## Worth knowing
+
+**Battery is handled for you.** Wallpapers pause when your phone switches into battery saver, and there's a separate control for whether they run on battery at all.
+
+**Older phone?** Performance modes let you cap the frame rate and the resolution a wallpaper renders at, which makes a real difference on hardware that's a few years old — that's covered properly in [live wallpapers on an old or cheap Android phone](/blog/live-wallpapers-old-android-phone/).
+
+**On a computer too.** The same library and the same four steps work [on Windows 11](/blog/how-to-set-live-wallpaper-windows-11/) and [on a Mac](/blog/how-to-set-live-wallpaper-mac/).
+
+**Plugging into a monitor?** Desktop Mode is the one place this doesn't work yet, and [that's Android's doing rather than the app's](/blog/android-desktop-mode-live-wallpapers/).
+
+## Want your own video instead?
+
+A clip you already have — MP4, WebM, even a GIF — takes about fifteen seconds to set, with no account and no conversion: [how to set any video as a live wallpaper](/blog/set-any-video-as-live-wallpaper/).
+
+<Faq
+  items={[
+    {
+      question: 'Does Android support live wallpapers natively?',
+      answer:
+        'Yes. Android has had built-in live wallpaper support since 2010. You install an app that provides them, then set one the same way you would any wallpaper.',
+    },
+    {
+      question: 'How old can my phone be?',
+      answer:
+        'Wallpaper Reactor runs on Android 9 and up, which covers phones from 2018 onwards.',
+    },
+    {
+      question: 'Do live wallpapers drain your battery?',
+      answer:
+        'They use some power, but wallpapers pause when your phone enters battery saver, and performance modes let you lower the frame rate and resolution to spend less.',
+    },
+    {
+      question: 'Do I need an account?',
+      answer:
+        'No. Browsing, downloading and setting wallpapers all work signed out. An account is only for creating wallpapers and syncing them across devices.',
+    },
+  ]}
+/>
+
+<div class="my-10 rounded-card border border-brand-500/30 bg-brand-500/[0.06] p-8 text-center">
+  <div class="mb-3 text-2xl font-semibold leading-tight text-ink-100">Get a live wallpaper on your phone</div>
+  <p class="mx-auto mb-6 max-w-lg text-ink-400">
+    Free on Android 9 and up, and the same library works on Windows and macOS too.
+  </p>
+  <CtaButton href="/releases/" icon="android">Download Wallpaper Reactor</CtaButton>
+</div>

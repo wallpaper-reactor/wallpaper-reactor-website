@@ -1,0 +1,103 @@
+---
+title: How to set a live wallpaper on Windows 11
+description: "Windows 11 has no built-in live wallpaper, so you need an app. Here's the whole thing in four steps, using a free one, with nothing to sign up for."
+publishDate: 2026-08-11
+updatedDate: 2026-08-11
+---
+
+import { Image } from 'astro:assets';
+import Faq from '../../components/Faq.astro';
+import CtaButton from '../../components/CtaButton.astro';
+import browseStep from '../../assets/set-wallpaper-desktop-1-browse.png';
+import setStep from '../../assets/set-wallpaper-desktop-2-set.png';
+
+**Windows 11 can't do this on its own.** Personalization gives you a still image, or a slideshow that swaps between still images, and that's where it stops. There's no setting to turn on. You need an app that draws behind your icons for you.
+
+Here's the whole thing, start to finish.
+
+## 1. Install Wallpaper Reactor
+
+It's a [free download](/releases/), and it's in the Microsoft Store. You don't need an account for any of this — the library and everything below work signed out.
+
+## 2. Open Browse and pick something
+
+The **Browse** tab is your library: hundreds of wallpapers sorted into Recently Added, Hidden Gems, Most Downloaded and Most Favorited. Scroll until something catches your eye, then click it.
+
+<figure>
+  <Image
+    src={browseStep}
+    alt="Wallpaper Reactor's Browse tab with the sidebar Browse icon, a wallpaper card, and the Download button highlighted."
+    widths={[640, 896, 1280]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>Picking PSP Wallpaper, a re-creation of the PSP-1000 home screen.</figcaption>
+</figure>
+
+## 3. Download it
+
+Selecting a wallpaper fills the panel on the right — preview, who made it, size, and a **Download** button. Click that first. This is the step people miss: until the file is on your PC, there's nothing to set.
+
+## 4. Set it
+
+Once it's downloaded, the same button becomes **Set**. Click it, and it's live on your desktop.
+
+<figure>
+  <Image
+    src={setStep}
+    alt="The same wallpaper after downloading, with the Set button highlighted in the details panel."
+    widths={[640, 896, 1280]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>Download turns into Set once the wallpaper is on your machine.</figcaption>
+</figure>
+
+That's it. Four clicks and your desktop is moving.
+
+## Worth knowing
+
+**More than one monitor?** You choose which screen a wallpaper goes on, so each display can run something different.
+
+**Not all live wallpapers are big files.** The one above is a shader — code that draws itself, rather than stored video — and it's 9.66 KB. Smaller than most photos you've taken.
+
+**It gets out of the way.** Wallpapers pause rather than compete with whatever you're doing, so a game or a fullscreen video isn't sharing your GPU with your desktop background.
+
+**Same library elsewhere.** The steps are near enough identical [on a Mac](/blog/how-to-set-live-wallpaper-mac/) and [on Android](/blog/how-to-set-live-wallpaper-android/).
+
+## Want your own video instead?
+
+You can use a clip you already have — an MP4, a WebM, even a GIF — and it takes about fifteen seconds with no account. That's a short walkthrough of its own: [how to set any video as a live wallpaper](/blog/set-any-video-as-live-wallpaper/).
+
+<Faq
+  items={[
+    {
+      question: 'Does Windows 11 support live wallpapers natively?',
+      answer:
+        'No. Windows 11 supports a still image or a slideshow of still images. Animated or video wallpapers need a third-party app that draws behind your desktop icons.',
+    },
+    {
+      question: 'Do I need an account?',
+      answer:
+        'No. Browsing the library, downloading a wallpaper and setting it all work signed out. An account is only needed if you want to create wallpapers and sync them between devices.',
+    },
+    {
+      question: 'Will a live wallpaper slow my PC down?',
+      answer:
+        'It uses some resources, but wallpapers pause instead of competing with fullscreen apps and games, and performance settings let you cap frame rate and resolution if you want to spend less.',
+    },
+    {
+      question: 'Can I use a different wallpaper on each monitor?',
+      answer:
+        'Yes. You pick which display a wallpaper applies to, so every monitor can run its own.',
+    },
+  ]}
+/>
+
+<div class="my-10 rounded-card border border-brand-500/30 bg-brand-500/[0.06] p-8 text-center">
+  <div class="mb-3 text-2xl font-semibold leading-tight text-ink-100">Get a live wallpaper on Windows 11</div>
+  <p class="mx-auto mb-6 max-w-lg text-ink-400">
+    Free, no account needed, and the same library works on macOS and Android too.
+  </p>
+  <CtaButton href="/releases/" icon="windows">Download Wallpaper Reactor</CtaButton>
+</div>
