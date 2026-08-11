@@ -1,10 +1,28 @@
 // @ts-check
+import { readdirSync, readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 import starlight from '@astrojs/starlight';
 import tailwindcss from '@tailwindcss/vite';
+
+/**
+ * Blog post slug -> last-modified date, read straight from the MDX frontmatter so the
+ * sitemap can carry `lastmod`. Done here rather than through astro:content because the
+ * config is plain Node and can't reach the content layer.
+ */
+const BLOG_DATES = Object.fromEntries(
+  readdirSync('./src/content/blog')
+    .filter((f) => f.endsWith('.mdx') || f.endsWith('.md'))
+    .map((file) => {
+      const src = readFileSync(`./src/content/blog/${file}`, 'utf8');
+      const updated = src.match(/^updatedDate:\s*(\S+)/m)?.[1];
+      const published = src.match(/^publishDate:\s*(\S+)/m)?.[1];
+      return [`/blog/${file.replace(/\.mdx?$/, '')}/`, updated ?? published];
+    })
+    .filter(([, date]) => Boolean(date))
+);
 
 // Apex custom domain, so no `base`. `trailingSlash: 'always'` plus the default
 // directory build format reproduces Jekyll's `permalink: pretty` URLs exactly —
@@ -22,6 +40,9 @@ export default defineConfig({
     starlight({
       title: 'Wallpaper Reactor',
       disable404Route: true,
+      // Match the lang the marketing pages declare, rather than Starlight's default 'en'.
+      defaultLocale: 'root',
+      locales: { root: { label: 'English', lang: 'en-US' } },
       favicon: '/favicon.ico',
       logo: {
         src: './src/assets/logo.png',
@@ -62,7 +83,15 @@ export default defineConfig({
       ],
     }),
     mdx(),
-    sitemap(),
+    sitemap({
+      // /search/ is a Pagefind shell with no server-rendered content — nothing to index.
+      filter: (page) => !page.endsWith('/search/'),
+      serialize(item) {
+        const path = new URL(item.url).pathname;
+        if (BLOG_DATES[path]) item.lastmod = new Date(BLOG_DATES[path]).toISOString();
+        return item;
+      },
+    }),
     icon(),
   ],
   vite: {

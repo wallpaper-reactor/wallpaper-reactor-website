@@ -13,9 +13,19 @@ interface Props {
   description?: string;
   /** Omit the max-width wrapper for full-bleed pages like the homepage hero. */
   wide?: boolean;
+  /** og:type — 'article' for blog posts, 'website' everywhere else. */
+  type?: 'website' | 'article';
+  /** Keep a page out of search results. Used for /search/, which is an empty shell until Pagefind runs. */
+  noindex?: boolean;
 }
 
-const { title, description = SITE.description, wide = false } = Astro.props;
+const {
+  title,
+  description = SITE.description,
+  wide = false,
+  type = 'website',
+  noindex = false,
+} = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
 // just-the-docs rendered "<page> | Wallpaper Reactor"; keep that format so titles
@@ -35,12 +45,29 @@ const fullTitle = Astro.url.pathname === '/' ? SITE.title : `${title} | ${SITE.t
       title={fullTitle}
       description={description}
       canonical={canonical}
+      noindex={noindex}
+      nofollow={noindex}
       openGraph={{
+        // Share cards must use the composed title. Passing the bare `title` prop here
+        // meant the homepage shared as "Home".
         // og:image must be absolute; ogImage.src is the hashed build path.
-        basic: { title, type: 'website', url: canonical, image: new URL(ogImage.src, SITE.url).href },
+        basic: { title: fullTitle, type, url: canonical, image: new URL(ogImage.src, SITE.url).href },
         optional: { description, siteName: SITE.title, locale: 'en_US' },
       }}
-      twitter={{ card: 'summary', title, description }}
+      twitter={{ card: 'summary', title: fullTitle, description }}
+    />
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: SITE.title,
+        url: SITE.url,
+        logo: new URL(ogImage.src, SITE.url).href,
+        founder: { '@type': 'Person', name: SITE.author },
+      })}
     />
 
     <GoogleAnalytics />

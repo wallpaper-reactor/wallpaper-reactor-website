@@ -2,7 +2,8 @@
 
 export const SITE = {
   title: 'Wallpaper Reactor',
-  description: 'Reactive & cross-platform live wallpapers.',
+  description:
+    'Live wallpapers for macOS, Windows and Android — video loops, GLSL shaders, Godot scenes and interactive web wallpapers in one app.',
   url: 'https://wallpaperreactor.app',
   author: 'Kyle Eichlin',
   gaTrackingId: 'G-YYB483JREW',

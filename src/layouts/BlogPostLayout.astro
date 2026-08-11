@@ -14,7 +14,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
 const shown = updatedDate ?? publishDate;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} type="article">
   <article class="prose-wr mx-auto max-w-4xl">
     <h1>{title}</h1>
     <p class="text-[1.05rem] leading-relaxed text-ink-400">

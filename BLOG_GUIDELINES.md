@@ -115,6 +115,27 @@ draft: false              # optional; drafts are excluded from build
 - In MDX, write apostrophes as real characters inside JS strings — `&apos;` renders
   literally in attribute values rather than being decoded.
 - Keep internal links trailing-slashed (`/features/`), matching `trailingSlash: 'always'`.
+
+### Link every post to the others
+
+**Every new post links to at least two existing posts, and at least one existing post gets a
+link back to it.** Not a footer list of "related articles" — real links inside sentences, where
+the connection is genuine.
+
+Why it matters: an SEO review of the first four posts found that not one of them linked to any
+other. Search engines were discovering them through the sitemap alone, with nothing signalling
+that they're the same site talking about the same subject, and readers who finished one post had
+nowhere to go but the download page.
+
+How to do it well:
+
+- Put the link where a reader would actually want it — at the moment the other post answers the
+  question they've just formed, not bolted on at the end.
+- Write anchor text that describes the destination: "setting a video as a wallpaper", not
+  "click here" or a bare URL.
+- Link into `/docs/` when a post touches creating or uploading wallpapers. The docs are otherwise
+  orphaned from everything a reader arrives on.
+- Two or three links is plenty. A post stuffed with them reads like SEO rather than writing.
 - Raster images go in `src/assets/` and use `<Image>` from `astro:assets` with `widths`/`sizes`,
   so mobile isn't downloading a 3000px original. SVGs stay in `public/assets/images/`.
 - **Photos carry camera metadata — strip it.** A phone photo embeds make, model, capture time

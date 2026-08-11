@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Faq, { type FaqItem } from '../components/Faq.astro';
+import { SITE } from '../data/site';
 import {
   HIGHLIGHTS,
   PLANS,
@@ -50,7 +51,9 @@ const FAQS: FaqItem[] = [
     <h1>Features &amp; Pricing</h1>
     <p>
       Meet Wallpaper Reactor: fast, flexible, and cross-platform. Choose a tier that fits how you use
-      wallpapers today — and grow into more power later.
+      wallpapers today — and grow into more power later. New here? See it in practice:
+      <a href="/blog/set-any-video-as-live-wallpaper/">setting any video as a live wallpaper</a>,
+      or <a href="/blog/live-wallpapers-old-android-phone/">running one on an older phone</a>.
     </p>
   </div>
 
@@ -203,3 +206,34 @@ const FAQS: FaqItem[] = [
 
   <Faq items={FAQS} heading="FAQ" />
 </BaseLayout>
+
+{/* The strongest rich-result candidate on the site: a downloadable app with platforms and tiers. */}
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: SITE.title,
+    url: `${SITE.url}/features/`,
+    applicationCategory: 'PersonalizationApplication',
+    operatingSystem: 'macOS, Windows, Android',
+    offers: [
+      { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
+      {
+        '@type': 'Offer',
+        name: 'Paid',
+        price: '3',
+        priceCurrency: 'USD',
+        billingIncrement: 1,
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: '3',
+          priceCurrency: 'USD',
+          billingDuration: 1,
+          unitCode: 'MON',
+        },
+      },
+    ],
+  })}
+/>
