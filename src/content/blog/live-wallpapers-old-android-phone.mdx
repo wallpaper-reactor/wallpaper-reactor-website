@@ -9,6 +9,7 @@ import { Image } from 'astro:assets';
 import Faq from '../../components/Faq.astro';
 import CtaButton from '../../components/CtaButton.astro';
 import oldPhone from '../../assets/older-android-phone.jpg';
+import resolutions from '../../assets/resolution-1080p-vs-4k.png';
 
 Live wallpapers have a reputation for being something only new phones can afford to run. That reputation is mostly out of date, and it goes back further than people expect: Wallpaper Reactor installs on **Android 9**, which shipped in 2018. If your phone still gets apps from the Play Store, it can almost certainly run this.
 
@@ -27,7 +28,22 @@ Live wallpapers have a reputation for being something only new phones can afford
 
 It helps to know what's actually expensive, because it isn't the wallpaper being "heavy" in any general sense. It's pixels per second — how many dots the phone has to draw, multiplied by how many times a second it draws them.
 
-A 4K clip at 60 frames per second asks for about sixteen times the work of a 1080p clip at 30. Same wallpaper, same idea, wildly different cost. Everything below follows from that one fact.
+4K is four times the pixels of 1080p:
+
+<figure>
+  <Image
+    src={resolutions}
+    alt="A 4K frame with a 1080p frame drawn inside it, filling exactly one quarter of the area."
+    widths={[640, 896, 1280]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>A whole 1080p frame fits into a quarter of a 4K one.</figcaption>
+</figure>
+
+Then run that 4K clip at 60 frames a second instead of 30 and you've doubled it again — **eight times** the work of a 1080p clip at 30, for something that mostly sits behind your icons.
+
+The file follows the same curve. The same footage at 4K is several times the size on disk, which matters just as much on a phone that shipped with 32 GB.
 
 ## What to pick
 
