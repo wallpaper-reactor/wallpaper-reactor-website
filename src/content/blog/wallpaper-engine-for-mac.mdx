@@ -10,11 +10,39 @@ import CtaButton from '../../components/CtaButton.astro';
 
 Wallpaper Engine is Windows-only. There's no macOS version, no beta, and no announced plan for one — so if you're searching for it on a Mac, you need a replacement.
 
+<figure>
+  <div class="grid grid-cols-2 gap-4 rounded-xl border border-white/10 bg-surface-900 p-6">
+    <div class="flex flex-col items-center gap-3 text-center">
+      <img src="/assets/images/windows-logo-fill.svg" alt="" width="32" height="32" class="h-8 w-8 border-0 brightness-90 invert" />
+      <span class="text-sm font-semibold text-ink-100">Windows</span>
+      <span class="rounded-lg border border-green-500/30 bg-green-500/15 px-3 py-1 text-xs font-medium text-green-400">Supported</span>
+    </div>
+    <div class="flex flex-col items-center gap-3 text-center">
+      <img src="/assets/images/apple-logo-fill.svg" alt="" width="32" height="32" class="h-8 w-8 border-0 opacity-40 brightness-90 invert" />
+      <span class="text-sm font-semibold text-ink-400">macOS</span>
+      <span class="rounded-lg border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-ink-400">No version</span>
+    </div>
+  </div>
+  <figcaption>Wallpaper Engine ships on Windows only — there is no macOS build to download.</figcaption>
+</figure>
+
 The problem with most replacements is that they're video players. They put a clip behind your icons and stop there. That's one slice of what Wallpaper Engine did, and it's why switching usually feels like losing something.
 
 ## Wallpaper Reactor is the only Mac app with truly interactive wallpapers
 
 Web scenes take real input, shaders render live on your GPU, and full game scenes run on your desktop.
+
+<figure>
+  <img
+    src="/assets/images/main-app-screenshot.webp"
+    alt="The Wallpaper Reactor library on macOS, showing video, web, shader and Rive wallpapers side by side with the details panel open."
+    width="3248"
+    height="2112"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption>Wallpaper Reactor running on macOS — one library for video, web, shader, Godot and Rive wallpapers.</figcaption>
+</figure>
 
 - **Interactive web wallpapers** that respond to your input
 - **GLSL shaders** rendered in real time
@@ -38,6 +66,18 @@ Wallpaper Reactor runs on **macOS, Windows, and Android**:
 - Wallpapers you upload are available on every device you sign in on
 
 If you've got a MacBook, a desktop, and a phone, Wallpaper Reactor treats them as one setup.
+
+<figure>
+  <img
+    src="/assets/images/mockup2.webp"
+    alt="Wallpaper Reactor open on a MacBook and on a phone, showing the same wallpaper library on both devices."
+    width="2922"
+    height="1619"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption>The same library on macOS and Android, with favorites synced between them.</figcaption>
+</figure>
 
 ## Get the full version
 

@@ -101,6 +101,22 @@
     background: none;
     padding: 0;
   }
+  .prose-wr figure {
+    margin: 2rem 0;
+  }
+  .prose-wr img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .prose-wr figcaption {
+    margin-top: 0.625rem;
+    font-size: 0.8125rem;
+    color: var(--color-ink-500);
+    text-align: center;
+  }
   .prose-wr hr {
     border-color: rgba(255, 255, 255, 0.1);
     margin: 2rem 0;
