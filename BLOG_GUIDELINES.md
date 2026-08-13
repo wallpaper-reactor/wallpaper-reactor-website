@@ -159,6 +159,34 @@ How to do it well:
   drops metadata for anything imported through `<Image>`, but files in `public/` are copied
   verbatim, so that path can leak. Run `npm run images:clean` after adding any photo; CI runs
   `npm run images:check` and fails the build if metadata is found.
+### Capturing app screenshots
+
+`scripts/app-capture.py` drives the desktop app on a virtual display and takes the shots.
+Don't rewrite this ad hoc each time — it encodes a handful of things that are easy to get
+wrong and slow to rediscover.
+
+```bash
+Xvfb :99 -screen 0 1200x2000x24 -ac &
+JAVA_HOME=~/.gradle/jdks/jetbrains_s_r_o_-21-amd64-linux.2 \
+  DISPLAY=:99 ./gradlew :composeApp:run        # in the app repo
+
+python3 scripts/app-capture.py resize 1280 720   # desktop layout
+python3 scripts/app-capture.py resize 400 711    # phone layout
+python3 scripts/app-capture.py click 148 670
+python3 scripts/app-capture.py scroll 200 400 5
+python3 scripts/app-capture.py shot /tmp/step1.png
+```
+
+- **The app needs JBR 21.** System Java 17 fails with `UnsupportedClassVersionError`.
+- **Xvfb, not the real session.** A locked GNOME session captures pure black, and the
+  virtual display lets you pick the exact size.
+- **Resize explicitly.** With no window manager the window opens at 800×600 and ignores
+  maximise.
+- **400px wide is the phone layout** — two columns and a bottom nav. 540px gives three
+  columns, which no phone shows.
+- **This is a dev build.** It has a Developer tab real users don't have; frame shots to
+  avoid it or note it.
+
 ### Annotating screenshots
 
 Tutorial screenshots get numbered pointers, drawn by `scripts/annotate-screenshot.mjs` from a

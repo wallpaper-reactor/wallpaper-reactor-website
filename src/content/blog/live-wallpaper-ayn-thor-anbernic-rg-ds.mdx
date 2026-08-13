@@ -1,0 +1,91 @@
+---
+title: How to set a live wallpaper on the AYN Thor and Anbernic RG DS
+description: "Live wallpapers work on both screens of dual-screen Android handhelds like the AYN Thor and Anbernic RG DS — and each screen can run a different one. Here's how, free and in four taps."
+publishDate: 2026-08-13
+updatedDate: 2026-08-13
+---
+
+import Faq from '../../components/Faq.astro';
+import CtaButton from '../../components/CtaButton.astro';
+
+Yes — live wallpapers work on dual-screen handhelds like the **AYN Thor** and the **Anbernic RG DS**. Not just the bottom screen either: they run on **both**, and each screen can have a different one.
+
+<figure>
+  {/* Served straight from public/ rather than through astro:assets: resizing an animated
+      WebP re-encodes every frame and made this file bigger than the tuned original. */}
+  <img
+    src="/assets/images/rg-ds-dual-screen-live-wallpaper.webp"
+    alt="An Anbernic RG DS open on a desk with an animated Matrix-style live wallpaper running on both the top and bottom screens."
+    width="480"
+    height="494"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption>Matrix Rain running on both screens of an Anbernic RG DS.</figcaption>
+</figure>
+
+## Why bother on a handheld like this
+
+The top screen is the reason you bought a two-screen device, and most of the time it's sitting there doing nothing. A live wallpaper gives it something to do — and on a machine built to look like a DS, that's half the appeal.
+
+It also looks far better than it has any right to on a small screen. Motion reads well at that size.
+
+## Setting one up
+
+Four taps, and you don't need an account for any of it.
+
+1. **Install Wallpaper Reactor.** It's a [free download](/releases/), and it runs on Android 9 and up, which every one of these handhelds clears comfortably.
+2. **Open Browse** in the bottom bar and scroll the library.
+3. **Tap a wallpaper, then Download it.** The button only becomes *Set* once the file is on the device.
+4. **Tap Set.**
+
+If you want it spelled out with screenshots, the [Android walkthrough](/blog/how-to-set-live-wallpaper-android/) covers the same four steps in more detail.
+
+## A different wallpaper on each screen
+
+This is the part worth knowing. Your two screens aren't locked together — you pick which one you're setting, so the top and bottom can run completely different wallpapers.
+
+A calm one up top and something busier below. A clock on one and artwork on the other. Or the same on both, which is what the animation above is doing.
+
+## Keeping it easy on the battery
+
+These are handhelds, so it's worth a thought. Wallpapers pause when the device drops into battery saver, and there's a separate switch for whether they run on battery at all.
+
+If you want to spend even less, performance modes cap the frame rate and the resolution a wallpaper renders at — the same trick that makes this work nicely on [older or cheaper Android hardware](/blog/live-wallpapers-old-android-phone/).
+
+## Worth a try
+
+It's free, it takes about a minute, and if you don't like it you set a normal wallpaper back. For a device with a screen that usually sits idle, it's the cheapest upgrade available.
+
+<Faq
+  items={[
+    {
+      question: 'Can you change the wallpaper on the AYN Thor and Anbernic RG DS?',
+      answer:
+        'Yes. Both run Android, so you can set any wallpaper you like, including live wallpapers — and they work on both screens.',
+    },
+    {
+      question: 'Does the live wallpaper work on the top screen too?',
+      answer:
+        'Yes. Both screens can run a live wallpaper, and you can set a different one on each.',
+    },
+    {
+      question: 'Will a live wallpaper hurt battery life on a handheld?',
+      answer:
+        'It uses some power, but wallpapers pause when the device enters battery saver, and performance modes let you lower the frame rate and resolution to spend less.',
+    },
+    {
+      question: 'Do I need an account to set one?',
+      answer:
+        'No. Browsing the library, downloading a wallpaper and setting it all work without signing in.',
+    },
+  ]}
+/>
+
+<div class="my-10 rounded-card border border-brand-500/30 bg-brand-500/[0.06] p-8 text-center">
+  <div class="mb-3 text-2xl font-semibold leading-tight text-ink-100">Give that second screen a job</div>
+  <p class="mx-auto mb-6 max-w-lg text-ink-400">
+    Free on Android 9 and up, with hundreds of wallpapers and no account needed.
+  </p>
+  <CtaButton href="/releases/" icon="android">Download Wallpaper Reactor</CtaButton>
+</div>

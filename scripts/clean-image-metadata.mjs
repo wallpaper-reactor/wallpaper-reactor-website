@@ -58,6 +58,14 @@ for (const root of ROOTS) {
     found.push(`${file} (${dirty.join(', ')})`);
     if (checkOnly) continue;
 
+    // Re-encoding an animation through sharp's default path keeps only the first
+    // frame. Rather than silently flatten a carefully tuned animated WebP, skip it
+    // and say so — these are hand-encoded and a human should decide.
+    if ((meta.pages ?? 1) > 1) {
+      console.warn(`  ! ${file} is animated (${meta.pages} frames) — skipped, strip it at encode time`);
+      continue;
+    }
+
     const before = (await stat(file)).size;
     // Re-encode without metadata. Passing the buffer avoids reading and writing
     // the same path concurrently.
