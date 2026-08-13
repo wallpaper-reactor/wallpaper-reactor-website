@@ -1,0 +1,45 @@
+[
+  {
+    "in": "_screenshots/raw/thor-settings-multimonitor.png",
+    "out": "src/assets/dual-screen-1-multi-monitor-mode.png",
+    "steps": [
+      {
+        "box": [
+          10,
+          18,
+          530,
+          112
+        ],
+        "radius": 14
+      }
+    ]
+  },
+  {
+    "in": "_screenshots/raw/thor-monitor-picker.png",
+    "out": "src/assets/dual-screen-2-pick-a-screen.png",
+    "steps": [
+      {
+        "box": [
+          188,
+          138,
+          348,
+          262
+        ],
+        "radius": 14,
+        "label": "Set now asks which screen",
+        "labelAt": [
+          110,
+          285
+        ],
+        "arrowFrom": [
+          240,
+          280
+        ],
+        "arrowTo": [
+          255,
+          266
+        ]
+      }
+    ]
+  }
+]

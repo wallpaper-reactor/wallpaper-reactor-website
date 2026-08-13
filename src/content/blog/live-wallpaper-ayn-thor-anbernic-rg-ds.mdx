@@ -5,8 +5,11 @@ publishDate: 2026-08-13
 updatedDate: 2026-08-13
 ---
 
+import { Image } from 'astro:assets';
 import Faq from '../../components/Faq.astro';
 import CtaButton from '../../components/CtaButton.astro';
+import settingStep from '../../assets/dual-screen-1-multi-monitor-mode.png';
+import pickerStep from '../../assets/dual-screen-2-pick-a-screen.png';
 
 Yes — live wallpapers work on dual-screen handhelds like the **AYN Thor** and the **Anbernic RG DS**. Not just the bottom screen either: they run on **both**, and each screen can have a different one.
 
@@ -43,9 +46,37 @@ If you want it spelled out with screenshots, the [Android walkthrough](/blog/how
 
 ## A different wallpaper on each screen
 
-This is the part worth knowing. Your two screens aren't locked together — you pick which one you're setting, so the top and bottom can run completely different wallpapers.
+Out of the box, both screens get the same wallpaper — that's what the clip above is doing. Giving them different ones takes one setting.
 
-A calm one up top and something busier below. A clock on one and artwork on the other. Or the same on both, which is what the animation above is doing.
+1. Open **Settings** from the bottom bar.
+2. Scroll down to **Multi-Monitor Mode**.
+3. Change it from **Duplicate** to **Custom**.
+
+<figure>
+  <Image
+    src={settingStep}
+    alt="The Multi-Monitor Mode row in Wallpaper Reactor's settings, currently set to Duplicate."
+    widths={[360, 540, 1080]}
+    sizes="(max-width: 560px) 100vw, 540px"
+    loading="lazy"
+  />
+  <figcaption>Settings, near the bottom of Wallpaper Settings. Switch this to Custom.</figcaption>
+</figure>
+
+That's the only change. From now on, tapping **Set** on a wallpaper asks which screen you want it on instead of putting it on both.
+
+<figure>
+  <Image
+    src={pickerStep}
+    alt="After tapping Set, a menu offers Monitor 1 and Monitor 2."
+    widths={[360, 540, 1080]}
+    sizes="(max-width: 560px) 100vw, 540px"
+    loading="lazy"
+  />
+  <figcaption>Pick a screen, then repeat with another wallpaper for the other one.</figcaption>
+</figure>
+
+Choose **Monitor 1** for one wallpaper, then go back, pick another, and choose **Monitor 2**. A calm one up top and something busier below. A clock on one and artwork on the other. Whatever suits each screen.
 
 ## Keeping it easy on the battery
 
@@ -67,7 +98,7 @@ It's free, it takes about a minute, and if you don't like it you set a normal wa
     {
       question: 'Does the live wallpaper work on the top screen too?',
       answer:
-        'Yes. Both screens can run a live wallpaper, and you can set a different one on each.',
+        'Yes. Both screens can run a live wallpaper, and you can set a different one on each by switching Multi-Monitor Mode to Custom in Settings.',
     },
     {
       question: 'Will a live wallpaper hurt battery life on a handheld?',
