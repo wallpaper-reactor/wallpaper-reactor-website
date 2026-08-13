@@ -11,37 +11,14 @@ written today" are very different kinds of ready.
 
 - **Wallpaper Engine for Mac** — `/blog/wallpaper-engine-for-mac/`
 - **Do live wallpapers work on Android Desktop Mode?** — `/blog/android-desktop-mode-live-wallpapers/`
+- **How to Set Any Video as a Live Wallpaper** — `/blog/set-any-video-as-live-wallpaper/`
+- **Live wallpapers on an old or cheap Android phone** — `/blog/live-wallpapers-old-android-phone/`
+- **How to set a live wallpaper on Windows 11** — `/blog/how-to-set-live-wallpaper-windows-11/`
+- **How to set a live wallpaper on Mac** — `/blog/how-to-set-live-wallpaper-mac/`
+- **How to set a live wallpaper on Android** — `/blog/how-to-set-live-wallpaper-android/`
+- **AYN Thor and Anbernic RG DS** — `/blog/live-wallpaper-ayn-thor-anbernic-rg-ds/`
 
 ## Next up
-
-### Dual-screen handhelds: AYN Thor and Anbernic RG DS
-
-Live wallpapers on both screens of a dual-display Android handheld.
-
-Why it's worth doing:
-- These devices have small, engaged communities that share findings hard, and almost nobody
-  writes about the second screen beyond emulator layouts. Very little competition.
-- It is the natural companion to the Desktop Mode piece and gives the cross-platform pillar a
-  concrete, unusual proof point.
-- Wallpaper Reactor already carries the machinery: `isSecondaryDisplay()` in
-  `WallpaperReactorLiveWallpaperService.kt`, per-display configs, and the secondary-display
-  FileWatcher.
-
-**The angle worth checking first, because it could make the piece:** the Android 17 block we
-documented is gated on the device being eligible for the *desktop experience*
-(`isWallpaperDesktopExperienceEnabled`). A dual-screen handheld is not a desktop session, so
-the code should fall through to `connection.mInfo.supportsMultipleDisplays()` instead — the
-ordinary multi-display path. If that holds, these handhelds are one of the few places a
-third-party live wallpaper legitimately runs on a second screen today, which is a much better
-story than a straight how-to.
-
-Needs:
-- Confirmation of which of these devices you have and can record.
-- A test: does the wallpaper actually attach to display 1, and does each screen get its own
-  wallpaper or a stretched copy?
-- Video or photo of both screens running. A photo of the physical device is likely stronger
-  than a screen capture here.
-- Confirmation of how per-display config selection presents on these devices.
 
 ### Live wallpaper not showing on your external display?
 
@@ -60,12 +37,21 @@ Needs: actual measurements from you.
 
 ## Assets on hand
 
-- `src/assets/cross-platform-macos-windows-android.jpg` — the same wallpaper (PSP Wallpaper by
-  ParkingLotGames) running at once on a MacBook, a Windows laptop and an Android handheld.
-  A single photo that proves the cross-platform pillar better than any screenshot could.
-  Metadata stripped. Best used on `/features/`, the homepage, or any post that leans on
-  "one library, every device" — note it shows three *platforms*, not a dual-screen device, so
-  it does not illustrate the handheld article below.
+- `cross-platform-macos-windows-android.jpg` — the same wallpaper running at once on a MacBook,
+  a Windows laptop and an Android handheld. Proves the cross-platform pillar better than any
+  screenshot. Note it shows three *platforms*, not a dual-screen device.
+- `older-android-phone.jpg` — a 2018-era Android phone, CC0, no attribution needed.
+- `resolution-1080p-vs-4k.png` — a to-scale diagram of a 1080p frame inside a 4K one.
+- `rg-ds-dual-screen-live-wallpaper.webp` — animated, an RG DS running Matrix Rain on both
+  screens. Served from `public/` because resizing an animated WebP inflates it.
+- `set-wallpaper-desktop-{1,2}-*.png` and `set-wallpaper-android-{1,2,3}-*.png` — the annotated
+  Browse / Download / Set walkthrough, desktop at 1280x720 and phone at 400x711.
+- `quick-wallpaper-step{1,2}-*.png` — the Create tab and Quick Wallpaper import.
+- `dual-screen-{1,2}-*.png` — Multi-Monitor Mode in settings, and the Monitor 1 / Monitor 2
+  picker. Captured on the `ayn_thor_dual` AVD, since the setting only appears with two displays.
+
+Raw captures live in `_screenshots/raw/` with their annotation specs in
+`_screenshots/annotations/`, so any of them can be regenerated or nudged.
 
 ## Candidates
 

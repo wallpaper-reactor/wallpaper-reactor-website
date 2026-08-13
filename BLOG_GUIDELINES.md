@@ -47,11 +47,16 @@ confirm the layout holds. Cosmetic defects that ship are visible to every visito
 
 ## Length and scope
 
-**Keep posts tight.** Target 400–1000 words. One thesis, a handful of sections, a short FAQ,
-a CTA. Length should be earned: the upper end is for posts carrying something substantial —
-cited source, measured numbers, a real walkthrough — not for padding a thin idea. If a post is
-long because it explains something specific that nobody else has explained, that's the right
-kind of long.
+**Keep posts tight.** Most land between 400 and 1000 words. Treat that as a rough guide rather
+than a gate — it describes where posts usually end up, not a length to write towards.
+
+Length should be earned in both directions. The upper end is for posts carrying something
+substantial — cited source, measured numbers, a real walkthrough — not for padding a thin idea.
+The lower end is fine too: a four-step tutorial with screenshots can say everything it needs in
+350 words, and stretching it to hit a number would only make it worse. Several of the how-to
+posts sit in the 330–400 range on purpose.
+
+The test is whether anything is missing or padded, not the word count.
 
 **Every post carries at least one piece of media.** A screenshot, a diagram, a photo, or a
 short video. It has to do work the prose can't: proof that something happens, a shape that's
