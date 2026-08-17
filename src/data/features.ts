@@ -35,7 +35,6 @@ export const TIER_FEATURES: { label: string; tiers: Tier[] }[] = [
   { label: 'Feedback System', tiers: ['signedIn', 'paid'] },
   { label: 'Wallpaper Settings Sync', tiers: ['paid'] },
   { label: 'Private Wallpapers', tiers: ['paid'] },
-  { label: 'Ad-Free Experience', tiers: ['paid'] },
   { label: 'Performance Settings', tiers: ['paid'] },
   { label: 'Large Wallpaper Files', tiers: ['paid'] },
   { label: 'Priority Support', tiers: ['paid'] },
@@ -69,7 +68,6 @@ export const PLANS = [
     items: [
       'Wallpaper Settings Sync',
       'Private Wallpapers',
-      'Ad-Free Experience',
       'Performance Settings',
       'Large Wallpaper Files',
       'Priority Support',
