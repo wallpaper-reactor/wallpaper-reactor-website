@@ -7,7 +7,7 @@ description: How to request deletion of your Wallpaper Reactor account and what 
 
 To request deletion of your **Wallpaper Reactor** account, please follow these steps:
 
-1. Email kyle@ark.place from the email address associated with your account
+1. Email kyle@skylines.sh from the email address associated with your account
 2. Include "Account Deletion Request" in the subject line
 3. Request deletion of your account in the email body
 

@@ -14,7 +14,7 @@ Marketing website for [Wallpaper Reactor](https://wallpaperreactor.app), a cross
 
 ## 📧 Contact
 
-- Website issues: [kyle@ark.place](mailto:kyle@ark.place)
+- Website issues: [kyle@skylines.sh](mailto:kyle@skylines.sh)
 - App support: [Discord](https://discord.gg/3MTu59zGH8) | [@LikeEich](https://x.com/LikeEich)
 
 ---
