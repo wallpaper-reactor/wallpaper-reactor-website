@@ -33,7 +33,7 @@
   "immutable": false,
   "prerelease": false,
   "created_at": "2026-08-13T16:15:28Z",
-  "updated_at": "2026-09-22T18:56:10Z",
+  "updated_at": "2026-09-28T00:30:18Z",
   "published_at": "2026-08-17T07:18:10Z",
   "assets": [
     {
@@ -67,7 +67,7 @@
       "state": "uploaded",
       "size": 1422,
       "digest": "sha256:13ed75a191fe3d8c7cf051c39c097daf451aaeef2e8e3535851f87e5864249b9",
-      "download_count": 51,
+      "download_count": 62,
       "created_at": "2026-08-17T07:19:31Z",
       "updated_at": "2026-08-17T07:19:31Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/appcast-aarch64.rss"
@@ -103,7 +103,7 @@
       "state": "uploaded",
       "size": 1418,
       "digest": "sha256:56ca98595345c531a970a77d63a624ffddcd2ce181b92c0414f9476f3f91704d",
-      "download_count": 0,
+      "download_count": 1,
       "created_at": "2026-08-17T07:19:34Z",
       "updated_at": "2026-08-17T07:19:34Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/appcast-amd64.rss"
@@ -175,7 +175,7 @@
       "state": "uploaded",
       "size": 1233,
       "digest": "sha256:05c6276f28e52b483a44e7985f0d993d1a4f486861744beb72e5fac1b4aa3ce2",
-      "download_count": 1,
+      "download_count": 2,
       "created_at": "2026-08-17T07:19:32Z",
       "updated_at": "2026-08-17T07:19:32Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/InRelease"
@@ -211,7 +211,7 @@
       "state": "uploaded",
       "size": 1863,
       "digest": "sha256:a874dfbf2b800dfe9c1bb50139da281f16f0693e117b511b01acd0c3e9dc5f6f",
-      "download_count": 0,
+      "download_count": 1,
       "created_at": "2026-08-17T07:19:32Z",
       "updated_at": "2026-08-17T07:19:32Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/install.ps1"
@@ -247,7 +247,7 @@
       "state": "uploaded",
       "size": 757,
       "digest": "sha256:032df09c378c7fe456231a131ab98226f55772c2e87a025db57c418a8369ccf9",
-      "download_count": 3,
+      "download_count": 4,
       "created_at": "2026-08-17T07:19:30Z",
       "updated_at": "2026-08-17T07:19:31Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/metadata.properties"
@@ -283,7 +283,7 @@
       "state": "uploaded",
       "size": 1028,
       "digest": "sha256:9c54841a82294ab1e46f9a01b2d9ac33501344c1f1240871b01311ec8a733395",
-      "download_count": 1,
+      "download_count": 2,
       "created_at": "2026-08-17T07:19:33Z",
       "updated_at": "2026-08-17T07:19:33Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/Packages"
@@ -319,7 +319,7 @@
       "state": "uploaded",
       "size": 640,
       "digest": "sha256:50bf7cd7558dc496b81d9273c60433de8ceea6499a896a4ac76a4ae5306270d7",
-      "download_count": 0,
+      "download_count": 1,
       "created_at": "2026-08-17T07:19:32Z",
       "updated_at": "2026-08-17T07:19:33Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/Packages.xz"
@@ -355,7 +355,7 @@
       "state": "uploaded",
       "size": 966,
       "digest": "sha256:811bddf6287192e02b323e51f76173ba94eba9151cbbdefee577c53adf63e66b",
-      "download_count": 1,
+      "download_count": 3,
       "created_at": "2026-08-17T07:19:31Z",
       "updated_at": "2026-08-17T07:19:31Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/Release"
@@ -427,7 +427,7 @@
       "state": "uploaded",
       "size": 238293686,
       "digest": "sha256:a6fdc4b892233760c84e4907c59e6eb520a79c84ad811f259b12d5e98a204a15",
-      "download_count": 5,
+      "download_count": 15,
       "created_at": "2026-08-17T07:18:27Z",
       "updated_at": "2026-08-17T07:18:33Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/wallpaper-reactor-0.28.1-mac-aarch64.zip"
@@ -463,7 +463,7 @@
       "state": "uploaded",
       "size": 248703995,
       "digest": "sha256:50293a74926ea2de993b26480b40734a643088774e9570677e5bfaacb07c223b",
-      "download_count": 0,
+      "download_count": 2,
       "created_at": "2026-08-17T07:18:34Z",
       "updated_at": "2026-08-17T07:18:40Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/wallpaper-reactor-0.28.1-mac-amd64.zip"
@@ -643,15 +643,15 @@
       "state": "uploaded",
       "size": 4098,
       "digest": "sha256:f9cab999e237004da0e33f574c803ec13dc2e69a21a3e5926e0086e58b65e76a",
-      "download_count": 0,
+      "download_count": 1,
       "created_at": "2026-08-17T07:19:35Z",
       "updated_at": "2026-08-17T07:19:35Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/wallpaper-reactor-arm64.appinstaller"
     },
     {
-      "url": "https://api.github.com/repos/wallpaper-reactor/wallpaper-reactor-website/releases/assets/582034179",
-      "id": 582034179,
-      "node_id": "RA_kwDOPMBXsc4isSMD",
+      "url": "https://api.github.com/repos/wallpaper-reactor/wallpaper-reactor-website/releases/assets/594083104",
+      "id": 594083104,
+      "node_id": "RA_kwDOPMBXsc4jaP0g",
       "name": "wallpaper-reactor-v0.28.1-android.apk",
       "label": "",
       "uploader": {
@@ -680,14 +680,14 @@
       "size": 87625509,
       "digest": "sha256:87181f9cda6853b65512ba1d95f72286bdf80adebe396e0e5f252428e3e4a3d2",
       "download_count": 0,
-      "created_at": "2026-09-22T18:56:01Z",
-      "updated_at": "2026-09-22T18:56:03Z",
+      "created_at": "2026-09-28T00:30:07Z",
+      "updated_at": "2026-09-28T00:30:10Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/wallpaper-reactor-v0.28.1-android.apk"
     },
     {
-      "url": "https://api.github.com/repos/wallpaper-reactor/wallpaper-reactor-website/releases/assets/582034267",
-      "id": 582034267,
-      "node_id": "RA_kwDOPMBXsc4isSNb",
+      "url": "https://api.github.com/repos/wallpaper-reactor/wallpaper-reactor-website/releases/assets/594083255",
+      "id": 594083255,
+      "node_id": "RA_kwDOPMBXsc4jaP23",
       "name": "wallpaper-reactor-v0.28.1-linux-amd64.deb",
       "label": "",
       "uploader": {
@@ -716,8 +716,8 @@
       "size": 198561612,
       "digest": "sha256:16d34ec49dc65fb7571710c88eb58eb871d47e04e3441ab3fb3f79c029f54e24",
       "download_count": 0,
-      "created_at": "2026-09-22T18:56:04Z",
-      "updated_at": "2026-09-22T18:56:10Z",
+      "created_at": "2026-09-28T00:30:11Z",
+      "updated_at": "2026-09-28T00:30:18Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/wallpaper-reactor-v0.28.1-linux-amd64.deb"
     },
     {
@@ -751,7 +751,7 @@
       "state": "uploaded",
       "size": 4098,
       "digest": "sha256:111b1beb384179275816bee714a6ee8ee7e7686adc45fea8955d6b0809db7bbf",
-      "download_count": 1,
+      "download_count": 2,
       "created_at": "2026-08-17T07:19:34Z",
       "updated_at": "2026-08-17T07:19:34Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/wallpaper-reactor.appinstaller"
@@ -787,7 +787,7 @@
       "state": "uploaded",
       "size": 1372,
       "digest": "sha256:1ad678ec303aec430fd922c61e4ac761997f613f1fbdd018bb30b11129052126",
-      "download_count": 1,
+      "download_count": 2,
       "created_at": "2026-08-17T07:19:34Z",
       "updated_at": "2026-08-17T07:19:35Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/wallpaper-reactor.crt"
@@ -823,7 +823,7 @@
       "state": "uploaded",
       "size": 774680,
       "digest": "sha256:61a211a0b5868c340a02ffd4aa72ef5448cd9b14a38080e069f43a93a249bdc7",
-      "download_count": 0,
+      "download_count": 2,
       "created_at": "2026-08-17T07:19:30Z",
       "updated_at": "2026-08-17T07:19:30Z",
       "browser_download_url": "https://github.com/wallpaper-reactor/wallpaper-reactor-website/releases/download/0.28.1/wallpaper-reactor.exe"
