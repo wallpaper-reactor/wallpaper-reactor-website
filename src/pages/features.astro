@@ -45,7 +45,7 @@ const FAQS: FaqItem[] = [
 
 <BaseLayout
   title="Features & Pricing"
-  description="Compare Wallpaper Reactor tiers and platform availability across Android, Windows, and macOS."
+  description="Compare Wallpaper Reactor tiers and platform availability across Android, Windows, macOS, and Linux (KDE Plasma)."
 >
   <div class="prose-wr max-w-none">
     <h1>Features &amp; Pricing</h1>
@@ -154,7 +154,7 @@ const FAQS: FaqItem[] = [
     Versions and limitations by store are sometimes driven by platform policies.
   </p>
 
-  <div class="my-8 grid gap-6 md:grid-cols-3">
+  <div class="my-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
     {
       PLATFORMS.map((p) => (
         <div class="group flex flex-col gap-5 rounded-card border border-white/10 bg-surface-900 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/30">
@@ -196,9 +196,10 @@ const FAQS: FaqItem[] = [
 
   <div class="my-8 rounded-lg border-l-[3px] border-brand-500 bg-brand-500/5 px-6 py-4">
     <p class="m-0 text-[0.9rem] text-ink-400">
-      <strong class="text-ink-100">Full vs Lite:</strong> "Full" includes sign-in, cloud features, performance
-      options, and paid upgrades where supported. Store builds update automatically; direct downloads
-      may require manual updates.
+      <strong class="text-ink-100">Full vs Lite:</strong> "Lite" (the Mac App Store edition) has sign-in and
+      cloud features but cannot sell paid upgrades; "Full" can. Store builds update automatically.
+      Direct downloads on Windows and macOS update in the app; the Android APK and the Linux packages
+      are updated by installing the new file.
     </p>
   </div>
 
@@ -217,7 +218,7 @@ const FAQS: FaqItem[] = [
     name: SITE.title,
     url: `${SITE.url}/features/`,
     applicationCategory: 'PersonalizationApplication',
-    operatingSystem: 'macOS, Windows, Android',
+    operatingSystem: 'macOS, Windows, Android, Linux',
     offers: [
       { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
       {
