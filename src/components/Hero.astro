@@ -3,10 +3,12 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logo.png';
 import { STORES } from '../data/site';
 
-const DOWNLOADS = [
+const DOWNLOADS: { href: string; icon: string; label: string; internal?: boolean }[] = [
   { href: STORES.googlePlay, icon: '/assets/images/android-logo-fill.svg', label: 'Download Android' },
   { href: STORES.microsoft, icon: '/assets/images/windows-logo-fill.svg', label: 'Download Windows' },
   { href: STORES.appStoreLite, icon: '/assets/images/apple-logo-fill.svg', label: 'Download macOS' },
+  // No Linux store listing: a direct download from the releases page, which carries the KDE-only note.
+  { href: '/releases/#linux', icon: '/assets/images/linux-terminal.svg', label: 'Download Linux', internal: true },
 ];
 ---
 
@@ -35,7 +37,7 @@ const DOWNLOADS = [
       <div class="download-buttons">
         {
           DOWNLOADS.map((d) => (
-            <a href={d.href} target="_blank" rel="noopener">
+            <a href={d.href} {...(d.internal ? {} : { target: '_blank', rel: 'noopener' })}>
               <img src={d.icon} alt="" class="block h-5 w-5" />
               {d.label}
             </a>
@@ -44,6 +46,7 @@ const DOWNLOADS = [
       </div>
 
       <p class="hero-subtitle">No account required. Optional sign‑in to sync wallpapers & favorites.</p>
+      <p class="hero-subtitle">Linux: direct download, KDE Plasma 6 on x86_64 only.</p>
     </div>
   </div>
 </section>

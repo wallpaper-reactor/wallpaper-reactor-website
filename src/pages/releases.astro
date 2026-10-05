@@ -17,6 +17,7 @@ interface Row {
   label?: string;
   external?: boolean;
   optional?: boolean;
+  id?: string;
 }
 
 const url = (a?: { browser_download_url: string }) => a?.browser_download_url;
@@ -37,7 +38,7 @@ const ALL_ROWS: Row[] = [
   { os: null, build: 'Direct Install<br />(ARM)', recommended: false, href: url(DOWNLOADS.windowsArm), optional: true },
   { os: '🤖 Android', build: 'Google Play', recommended: true, href: STORES.googlePlay, label: 'Google Play', external: true },
   { os: null, build: 'Universal APK', recommended: false, href: url(DOWNLOADS.androidApk) },
-  { os: '🐧 Linux<br />(KDE Plasma 6 only)', build: '.deb<br />(Debian, Ubuntu)', recommended: true, href: url(DOWNLOADS.linuxDeb) },
+  { id: 'linux', os: '🐧 Linux<br />(KDE Plasma 6 only)', build: '.deb<br />(Debian, Ubuntu)', recommended: true, href: url(DOWNLOADS.linuxDeb) },
   { os: null, build: 'Flatpak<br />(SteamOS, Fedora, others)', recommended: false, href: url(DOWNLOADS.linuxFlatpak) },
 ];
 
@@ -93,7 +94,7 @@ const ROWS = ALL_ROWS.filter((row) => row.href || !row.optional);
       <tbody>
         {
           ROWS.map((row) => (
-            <tr>
+            <tr id={row.id}>
               <td>{row.os ? <strong set:html={row.os} /> : ''}</td>
               <td set:html={row.build} />
               <td>{row.recommended ? '✅' : '❌'}</td>

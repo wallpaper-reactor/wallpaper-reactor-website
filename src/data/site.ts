@@ -3,7 +3,7 @@
 export const SITE = {
   title: 'Wallpaper Reactor',
   description:
-    'Live wallpapers for macOS, Windows and Android — video loops, GLSL shaders, Godot scenes and interactive web wallpapers in one app.',
+    'Live wallpapers for macOS, Windows, Android and Linux (KDE Plasma) — video loops, GLSL shaders, Godot scenes and interactive web wallpapers in one app.',
   url: 'https://wallpaperreactor.app',
   author: 'Kyle Eichlin',
   gaTrackingId: 'G-YYB483JREW',
