@@ -1,66 +1,125 @@
 ---
 layout: ../layouts/ProseLayout.astro
 title: Privacy Policy
-description: Wallpaper Reactor's privacy policy covering data collection, analytics, third-party services, and user rights.
+description: What Wallpaper Reactor collects, why, who processes it for us, and how to delete it.
 ---
 
-**Last updated:** August 17, 2026
+**Last updated:** October 5, 2026
 
-### 1. Information Collection and Use
+This policy covers the Wallpaper Reactor apps for Android, Windows, macOS and Linux, its command-line tool, and this website.
 
-**Anonymous Use**: You may use Wallpaper Reactor without creating an account. In this mode, we do not collect personal information.
+### The short version
 
-**User Accounts**: If you create an account, we collect:
-- Basic profile information from OAuth providers (Google, Apple, Discord): email address, name, username, and profile picture
-- User preferences and settings
-- Account activity and usage analytics
-- Wallpapers you upload, favorite, or create collections of
-- Sync data to maintain your experience across devices
+- You can browse and apply wallpapers **without an account**. Without one, we don't know who you are.
+- With an account, we keep your **email address** and the **profile and wallpapers you choose to share**.
+- The app has **no ads, no advertising ID, no analytics and no crash reporting**. We don't sell your data or use it to track you.
+- The app's **logs stay on your device** unless you export them and send them to us yourself.
+- You can ask us to **delete your account** at any time (see section 10).
 
-### 2. Analytics & Crash Reporting
-We use third-party analytics and crash-reporting services to help improve app performance and stability. These services automatically collect anonymized device and usage information (e.g., device model, OS version, session duration, error logs).
+### 1. Using the app without an account
 
-### 3. User-Submitted Content
-Users with accounts may upload custom wallpapers, create collections, and share content. We collect and store:
-- Uploaded wallpaper files and associated metadata
-- Collection names and organization data
-- Sharing preferences and public/private settings
-- Usage statistics for uploaded content
+You can browse the catalogue and download, apply and customise wallpapers without signing in. We don't collect personal information in this mode. Like any internet service, our servers and the providers in section 8 see your IP address and basic request details when the app fetches the catalogue or a wallpaper.
 
-### 4. Authentication & Third-Party Services
-We use OAuth authentication through Google, Apple, and Discord. These providers handle the authentication process according to their own privacy policies. We only receive basic profile information that you authorize during the OAuth flow.
+### 2. Your account
 
-### 5. Cookies & Local Storage
-We store certain settings and preferences locally on your device (via local storage) so that your experience remains smooth and personalized each time you launch the app. For users with accounts, some preferences are also synced to our servers for cross-device consistency. You can clear local data by uninstalling the app or clearing its storage from your device settings.
+You sign in with **Google, Apple or Discord**; there are no passwords. The provider gives us your **email address**, and usually your **name, profile picture and account ID** with that provider, which our sign-in service stores with your account. We don't show them on your profile. Each provider handles the sign-in under its own privacy policy.
 
-### 6. Data Sharing & Retention
-We do not sell or share personal data with third parties for marketing purposes. We may share data with:
-- OAuth providers (Google, Apple, Discord) as necessary for authentication
-- Analytics and crash reporting services for app improvement
-- Cloud infrastructure providers for data storage and processing
+**Your email address is private.** We use it to run your account and to answer you. We send you occasional emails about new features, updates and promotions **only if you opt in**, and you can turn that off at any time in your profile.
 
-**Data Retention**: 
-- Account data is retained indefinitely while your account is active
-- Uploaded wallpapers remain available unless you delete them individually
-- Analytics and crash data are retained by service providers according to their policies
-- Local storage data remains on your device until you choose to clear or remove it
+**Staying signed in.** Your sign-in session is kept on your device, in your operating system's credential store (Keychain on macOS, Credential Manager on Windows, Secret Service on Linux) or, where there isn't one (such as Android), in a file in the app's private storage that only the app can read. It is only ever sent to our sign-in service.
 
-### 7. User Rights & Controls
-**Account Users**: 
-- You may delete individual wallpapers you've uploaded
-- You can disconnect OAuth providers through their respective platforms
-- Contact us to request account deletion (wallpapers will remain unless individually deleted)
-- Manage your privacy preferences through in-app settings
+### 3. Your public profile
 
-**All Users**: 
-- Clear local data by uninstalling the app or clearing its storage via device settings
-- Contact us with questions about your data
+Every account has a profile that **anyone can see**, including people without an account. It shows:
 
-### 8. Children's Privacy
-Wallpaper Reactor is not intended for children under the age of 13. We do not knowingly collect information from children. Age verification is handled by OAuth providers during account creation.
+- your **display name** (a generated username until you change it),
+- your **avatar image link** and **bio**, if you add them,
+- the **platforms** you use Wallpaper Reactor on,
+- your **account type** (for example Free or Pro),
+- **when you joined**, and the public wallpapers you've uploaded.
 
-### 9. Changes to This Privacy Policy
+Your profile never shows your email address.
+
+### 4. Wallpapers you upload
+
+When you upload a wallpaper, we store its **files, preview image and details** (title, description, author, source link, licence, tags and options). For a Godot wallpaper we also keep its **project source**, which only our moderators can see.
+
+- **Review.** Uploaded files are **scanned automatically** for risky behaviour, and a **person reviews** a wallpaper before it's published. A Scene's scan report is made on your device and uploaded with it.
+- **Public wallpapers** are shown to everyone, with your display name as the creator. Private wallpapers are visible only to you, and to our moderators where needed.
+- **Creator Agreement.** Every upload is made under our [Creator Agreement](/creator-agreement/). With each upload we record **which version of the agreement you accepted, when, for which wallpaper, and whether you used the app or the command-line tool**.
+- **AI descriptions (optional).** If you press the button to generate a description, the wallpaper's **preview image and title are sent to OpenAI**, which writes a suggested description. Nothing is sent unless you press it.
+
+### 5. Favourites and statistics
+
+If you're signed in, we store the wallpapers you **favourite**, so they follow you to your other devices. We count **how many times each wallpaper is applied** and favourited; these counts are shown in the catalogue and are not linked to you. Searches are sent to our servers to find matching wallpapers and are not stored with your account.
+
+### 6. Purchases
+
+Where the app offers Wallpaper Reactor Pro, purchases are handled by **RevenueCat** and its payment processor; we never see your card details. RevenueCat tells us whether your account has Pro, and we store that with your account (it appears on your public profile, see section 3). The Microsoft Store and Mac App Store versions don't sell anything.
+
+### 7. Feedback, logs and diagnostics
+
+- **Feedback** you send from the app contains your message and, **only if you tick "Include device information"**, your platform, operating system version, app version and language. Feedback is **not linked to your account**.
+- **Logs.** The app writes logs **on your device only**, to help troubleshoot problems. They are never uploaded automatically. If you export them from Settings, you decide whether and where to send the file.
+- **No analytics or crash reporting.** Wallpaper Reactor 0.29 and later send no crash reports or usage analytics. **Earlier versions** sent us a crash report when the app crashed, with your account's email and ID (if you were signed in), your operating system details, the app version and the app's log.
+
+### 8. Who processes your data for us
+
+We don't sell your personal information or share it with anyone for their own marketing. We use these service providers to run Wallpaper Reactor, and they process data only on our behalf:
+
+| Provider | What it does for us |
+| --- | --- |
+| **Supabase** | Our database, sign-in, file storage and server functions, hosted in the United States |
+| **Cloudflare** | Storage (R2) and delivery of wallpaper files and previews |
+| **RevenueCat** and its payment processor | Pro subscriptions |
+| **OpenAI** | Suggested wallpaper descriptions, only when you ask for one |
+| **Google, Apple, Discord** | Sign-in, with the provider you choose |
+| **GitHub** | App downloads, and the update check in copies downloaded from our website |
+| **Google Analytics** | Visitor statistics for this website (not the app) |
+
+### 9. Connections the app makes on its own
+
+- **The catalogue and wallpaper files**, from our servers and the providers above.
+- **Update checks.** Copies downloaded from our website check GitHub for a new version. Store copies are updated by their store and don't check.
+- **Link checks.** When you type a source link for a wallpaper, the app checks that the link works.
+- **Wallpapers that use the internet.** Some wallpapers, such as web-page wallpapers and Scenes, load content like fonts, scripts, images or live data from other websites while they run. Those websites see your IP address and the request, just as when you visit them in a browser, and their own privacy policies apply. Our reviewers see which websites a wallpaper connects to before it's published.
+
+### 10. Keeping and deleting your data
+
+We keep your account data while your account exists.
+
+**To delete your account**, use **Delete Account** on your account page in the app, or follow the steps on our [Account Deletion](/docs/account-deletion/) page. Deleting your account deletes your sign-in, email address, profile, favourites, Creator Agreement records and **all of your wallpapers**, as described in the [Creator Agreement](/creator-agreement/). Copies of public wallpapers that other people already downloaded stay on their devices. Backups roll off on their normal schedule, and we may keep a limited record where we need it for safety, fraud prevention, a legal claim or a moderation decision.
+
+Without deleting your account, you can delete or unpublish any of your wallpapers, remove favourites, and change or clear your profile at any time.
+
+**On your device**, the app keeps your settings, downloaded wallpapers, logs and sign-in session. Signing out removes the session. Uninstalling the app, or clearing its storage in your device's settings, removes the rest.
+
+### 11. Permissions
+
+- **Android:** internet access. The app doesn't ask for your location, contacts, camera, microphone or photo library. When you make a wallpaper from a photo, you pick the file, and it stays on your device unless you upload it. Android may also list permissions that the system's Google sign-in uses.
+- **macOS:** the App Store version runs in Apple's sandbox, with network access, access only to files you choose, and Sign in with Apple.
+- **Windows:** the Microsoft Store version runs with full trust and a startup task, so it can draw the wallpaper behind your desktop icons and bring it back when you sign in. You can turn the startup task off in Windows Settings.
+
+### 12. This website
+
+This website uses **Google Analytics** to count visits and see which pages are read. Google Analytics uses cookies and collects information such as your approximate location, browser and the pages you visit. You can block it in your browser's settings or with a content blocker. The website has no accounts.
+
+### 13. Children's privacy
+
+Wallpaper Reactor is not intended for children under the age of 13. We don't ask your age, and we do not knowingly collect information from children under 13. If you believe a child has given us personal information, contact us and we'll delete it.
+
+### 14. Your choices
+
+- See and change your profile in the app at any time.
+- Turn marketing emails on or off in your profile.
+- Delete wallpapers, favourites or your whole account (section 10).
+- Disconnect Wallpaper Reactor from your Google, Apple or Discord account in that provider's settings.
+- Contact us with questions about your data.
+
+### 15. Changes to this policy
+
 We may update this policy from time to time. Any changes will be posted here with a revised **Last updated** date. Please review it periodically.
 
-### 10. Contact Us
-If you have questions or concerns about this Privacy Policy, you can contact us [here](https://x.com/LikeEich).
+### 16. Contact us
+
+Questions or concerns about this policy or your data: email **[kyle@skylines.sh](mailto:kyle@skylines.sh)**, or see [Support](/support/).
