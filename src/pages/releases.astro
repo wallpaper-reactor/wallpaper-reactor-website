@@ -3,22 +3,50 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import StoreButtons from '../components/StoreButtons.astro';
 import { STORES } from '../data/site';
 import { DOWNLOADS, LATEST, formatDate } from '../data/releases';
+import { CURRENT_PATTERNS } from '../data/releaseAssets';
 
-/** Rows of the install table. `href` null means the build isn't in this release. */
-const ROWS = [
-  { os: '🍎 macOS', build: 'Apple Silicon', recommended: true, href: DOWNLOADS.macArm?.browser_download_url },
-  { os: null, build: 'Intel', recommended: true, href: DOWNLOADS.macIntel?.browser_download_url },
+/**
+ * Rows of the install table. `href` null means the build isn't in this release; an `optional` row
+ * with no build is left out rather than shown as missing. Names are matched in `data/releaseAssets.ts`.
+ */
+interface Row {
+  os: string | null;
+  build: string;
+  recommended: boolean;
+  href?: string;
+  label?: string;
+  external?: boolean;
+  optional?: boolean;
+}
+
+const url = (a?: { browser_download_url: string }) => a?.browser_download_url;
+const hasMac = Boolean(DOWNLOADS.macUniversal || DOWNLOADS.macArm || DOWNLOADS.macIntel);
+
+const ALL_ROWS: Row[] = [
+  { os: '🍎 macOS', build: 'Universal<br />(Apple Silicon & Intel)', recommended: true, href: url(DOWNLOADS.macUniversal), optional: hasMac },
+  { os: null, build: 'Apple Silicon', recommended: true, href: url(DOWNLOADS.macArm), optional: true },
+  { os: null, build: 'Intel', recommended: true, href: url(DOWNLOADS.macIntel), optional: true },
   { os: null, build: 'Mac App Store<br />(Apple Silicon)', recommended: false, href: STORES.appStoreLite, label: 'Mac App Store', external: true },
   { os: '🪟 Windows', build: 'Microsoft Store<br />(Intel/AMD)', recommended: true, href: STORES.microsoft, label: 'Microsoft Store', external: true },
-  { os: null, build: 'Direct Install<br />(Intel/AMD & ARM)', recommended: false, href: DOWNLOADS.windowsExe?.browser_download_url },
+  {
+    os: null,
+    build: DOWNLOADS.windowsX64 && !CURRENT_PATTERNS.windowsX64.test(DOWNLOADS.windowsX64.name) ? 'Direct Install<br />(Intel/AMD & ARM)' : 'Direct Install<br />(Intel/AMD)',
+    recommended: false,
+    href: url(DOWNLOADS.windowsX64),
+  },
+  { os: null, build: 'Direct Install<br />(ARM)', recommended: false, href: url(DOWNLOADS.windowsArm), optional: true },
   { os: '🤖 Android', build: 'Google Play', recommended: true, href: STORES.googlePlay, label: 'Google Play', external: true },
-  { os: null, build: 'Universal APK', recommended: false, href: DOWNLOADS.androidApk?.browser_download_url },
+  { os: null, build: 'Universal APK', recommended: false, href: url(DOWNLOADS.androidApk) },
+  { os: '🐧 Linux<br />(KDE Plasma 6 only)', build: '.deb<br />(Debian, Ubuntu)', recommended: true, href: url(DOWNLOADS.linuxDeb) },
+  { os: null, build: 'Flatpak<br />(SteamOS, Fedora, others)', recommended: false, href: url(DOWNLOADS.linuxFlatpak) },
 ];
+
+const ROWS = ALL_ROWS.filter((row) => row.href || !row.optional);
 ---
 
 <BaseLayout
   title="Releases"
-  description="Download the latest Wallpaper Reactor builds for macOS, Windows, and Android."
+  description="Download the latest Wallpaper Reactor builds for macOS, Windows, Android, and Linux (KDE Plasma)."
 >
   <div class="prose-wr max-w-none">
     <h1>Releases</h1>
@@ -83,6 +111,13 @@ const ROWS = [
         }
       </tbody>
     </table>
+  </div>
+
+  <div class="mx-auto mt-6 max-w-3xl rounded-lg border-l-[3px] border-brand-500 bg-brand-500/5 px-6 py-4">
+    <p class="m-0 text-[0.9rem] text-ink-400">
+      <strong class="text-ink-100">Linux:</strong> KDE Plasma 6 on x86_64 only. See
+      <a href="/docs/getting-started/#linux" class="text-brand-500">Getting Started</a> for install steps.
+    </p>
   </div>
 
   <p class="mt-6 text-center text-sm text-ink-400">
