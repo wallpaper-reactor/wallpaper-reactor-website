@@ -70,6 +70,15 @@ export default defineConfig({
       ],
       sidebar: [
         { label: 'Documentation', link: '/docs/' },
+        {
+          label: 'User Guide',
+          items: [
+            { label: 'Getting Started', link: '/docs/getting-started/' },
+            { label: 'Creating a Wallpaper', link: '/docs/creating-a-wallpaper/' },
+            { label: 'Applying and Managing', link: '/docs/applying-and-managing/' },
+            { label: 'Troubleshooting', link: '/docs/troubleshooting/' },
+          ],
+        },
         { label: 'Account Deletion', link: '/docs/account-deletion/' },
         {
           label: 'Wallpaper Creation',
@@ -77,6 +86,7 @@ export default defineConfig({
             { label: 'Overview', link: '/docs/wallpaper-creation/' },
             { label: 'Customizable User Settings', link: '/docs/wallpaper-creation/settings-json-tutorial/' },
             { label: 'Rive Animations', link: '/docs/wallpaper-creation/rive/' },
+            { label: 'Videos Inside a Scene', link: '/docs/wallpaper-creation/scene-video/' },
             { label: 'Wallpaper Upload Guidelines', link: '/docs/wallpaper-creation/wallpaper-guidelines/' },
           ],
         },
