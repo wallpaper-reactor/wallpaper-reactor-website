@@ -57,6 +57,12 @@ The setting is available only when the app sees more than one display, and it do
 
 The direct download installs for all users, so it needs an administrator password, and so do updates to it. On a standard account, the update downloads and then nothing installs. Ask an administrator to run the installer, or use the Microsoft Store version, which updates itself.
 
+### My own desktop picture did not come back after I uninstalled (Microsoft Store version)
+
+Uninstalling the Microsoft Store version cannot run anything of ours, so the wallpaper that was showing stays on your desktop as a still picture. Before you uninstall, open the wallpaper in the app and choose **Stop wallpaper**: that ends it and puts your previous desktop picture back. See [Set, stop and delete](/docs/applying-and-managing/#set-stop-and-delete).
+
+If you already uninstalled, choose your picture again in **Settings → Personalization → Background**. The direct download's uninstaller does this for you.
+
 ## macOS
 
 ### macOS is waiting for permission
