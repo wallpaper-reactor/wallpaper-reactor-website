@@ -88,5 +88,11 @@ const fullTitle = Astro.url.pathname === '/' ? SITE.title : `${title} | ${SITE.t
     </main>
 
     <Footer />
+
+    <!-- Explains OAuth errors Supabase leaves in the URL when it falls back to this site. -->
+    <script>
+      import { showAuthError } from '../scripts/auth-error.js';
+      showAuthError(window);
+    </script>
   </body>
 </html>

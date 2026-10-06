@@ -5,7 +5,7 @@
  *
  * Pages come from the generated sitemap, so new posts are covered automatically and
  * nobody has to remember to add them to a list. /404.html is added by hand because it
- * is deliberately not in the sitemap.
+ * is deliberately not in the sitemap, as is the error-notice variant of the home page.
  *
  * This exists because a text colour shipped at 3.7:1 against its background — below the
  * 4.5:1 AA floor — and sat there unnoticed through several articles. Contrast is the sort
@@ -50,6 +50,9 @@ const paths = [
     [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname)
   ),
   '/404.html',
+  // The sign-in error notice only renders when Supabase's fallback params are present,
+  // so it needs its own pass. The generic variant is the tallest (it has a details line).
+  '/?error=server_error&error_code=unexpected_failure&error_description=Something+went+wrong',
 ];
 
 const server = await serve(DIST, PORT);
