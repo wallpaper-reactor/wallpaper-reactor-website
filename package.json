@@ -11,7 +11,8 @@
     "screenshots": "node _screenshots/compare.mjs",
     "images:clean": "node scripts/clean-image-metadata.mjs",
     "images:check": "node scripts/clean-image-metadata.mjs --check",
-    "a11y": "node scripts/a11y-check.mjs"
+    "a11y": "node scripts/a11y-check.mjs",
+    "test": "node --test 'test/*.test.mjs'"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
