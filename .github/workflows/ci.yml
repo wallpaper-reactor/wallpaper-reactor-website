@@ -20,6 +20,8 @@ jobs:
         run: npm ci
       - name: Check images carry no camera metadata
         run: npm run images:check
+      - name: Release asset names
+        run: npm test
       - name: Type check
         run: npx astro check --minimumSeverity error
       - name: Build

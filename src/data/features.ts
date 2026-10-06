@@ -8,7 +8,7 @@ export const HIGHLIGHTS = [
   },
   {
     title: '☁️ Cloud convenience',
-    body: 'Sign in to sync favorites, create/upload wallpapers, and collect feedback.',
+    body: 'Sign in to sync favorites and to create and upload wallpapers.',
   },
   {
     title: '⚡ Power features',
@@ -26,13 +26,14 @@ export const TIER_LABELS: Record<Tier, string> = {
 
 export const TIER_FEATURES: { label: string; tiers: Tier[] }[] = [
   { label: 'Browse Gallery / Apply Locally', tiers: ['anon', 'signedIn', 'paid'] },
+  { label: 'Quick Wallpaper (apply your own file)', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'Search & Filter', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'Battery Options', tiers: ['anon', 'signedIn', 'paid'] },
+  { label: 'Feedback System', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'All wallpapers < 50 MB', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'User Profile', tiers: ['signedIn', 'paid'] },
   { label: 'Cloud Favorites', tiers: ['signedIn', 'paid'] },
   { label: 'Create / Upload Wallpapers', tiers: ['signedIn', 'paid'] },
-  { label: 'Feedback System', tiers: ['signedIn', 'paid'] },
   { label: 'Wallpaper Settings Sync', tiers: ['paid'] },
   { label: 'Private Wallpapers', tiers: ['paid'] },
   { label: 'Performance Settings', tiers: ['paid'] },
@@ -47,7 +48,15 @@ export const PLANS = [
     price: '$0',
     unit: null as string | null,
     intro: 'Includes',
-    items: ['Browse Gallery', 'Apply Locally', 'Search & Filter', 'Battery Options', 'All wallpapers < 50 MB'],
+    items: [
+      'Browse Gallery',
+      'Apply Locally',
+      'Quick Wallpaper (apply your own file)',
+      'Search & Filter',
+      'Battery Options',
+      'Feedback System',
+      'All wallpapers < 50 MB',
+    ],
     style: 'base' as const,
   },
   {
@@ -56,7 +65,7 @@ export const PLANS = [
     price: '$0',
     unit: null,
     intro: 'Everything in Free (Anonymous), plus',
-    items: ['User Profile', 'Cloud Favorites', 'Wallpaper Creation / Upload', 'Feedback System'],
+    items: ['User Profile', 'Cloud Favorites', 'Wallpaper Creation / Upload'],
     style: 'outline' as const,
   },
   {
@@ -84,18 +93,21 @@ export const PLATFORMS = [
       { title: 'Google Play Store', label: 'Full', tone: 'green' as const, note: 'Auto-updates, full feature set' },
       { title: 'Direct Download', label: 'Full', tone: 'green' as const, note: 'Manual updates required' },
     ],
-    limitation: { lead: 'Note:', text: 'Video upload unavailable (mobile hardware limits)' },
+    limitation: {
+      lead: 'Note:',
+      text: "Android 16 (QPR3) and newer don't show live wallpapers on a connected external display. Android's own policy, not something the app can change.",
+    },
   },
   {
     name: 'Windows',
     icon: '/assets/images/windows-logo-fill.svg',
     options: [
       { title: 'Microsoft Store', label: 'Full', tone: 'green' as const, note: 'Auto-updates, full feature set' },
-      { title: 'Direct Download', label: 'Full', tone: 'green' as const, note: 'Manual updates required' },
+      { title: 'Direct Download', label: 'Full', tone: 'green' as const, note: 'Updates in the app, full feature set' },
     ],
     limitation: {
       lead: 'Note:',
-      text: 'No multi-platform info (no cross-platform branding, suggestions, or links)',
+      text: 'The direct download installs for all users, so installing and updating it needs an administrator.',
     },
   },
   {
@@ -103,11 +115,23 @@ export const PLATFORMS = [
     icon: '/assets/images/apple-logo-fill.svg',
     options: [
       { title: 'Mac App Store', label: 'Lite', tone: 'yellow' as const, note: 'Auto-updates, limited features' },
-      { title: 'Direct Download', label: 'Full', tone: 'green' as const, note: 'Manual updates, full feature set' },
+      { title: 'Direct Download', label: 'Full', tone: 'green' as const, note: 'Updates in the app, full feature set' },
     ],
     limitation: {
       lead: 'Lite version:',
-      text: 'Free only; no sign-in, cloud sync, performance options, cross-platform info, or paid features',
+      text: "Sign-in and cloud favorites work, but Pro can't be bought here and cross-platform branding and links are hidden. A Pro account from another platform keeps Pro when you sign in.",
+    },
+  },
+  {
+    name: 'Linux',
+    icon: '/assets/images/linux-terminal.svg',
+    options: [
+      { title: '.deb (Debian, Ubuntu)', label: 'Full', tone: 'green' as const, note: 'Direct download. Install new versions over the old one' },
+      { title: 'Flatpak (SteamOS, Fedora, others)', label: 'Full', tone: 'green' as const, note: 'Direct download. Install new versions over the old one' },
+    ],
+    limitation: {
+      lead: 'Note:',
+      text: 'KDE Plasma 6 on x86_64 only. Other desktops can browse wallpapers but not set them, and Steam Deck needs Desktop Mode.',
     },
   },
 ];
