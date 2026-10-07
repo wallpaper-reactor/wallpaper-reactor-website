@@ -4,15 +4,15 @@ title: Privacy Policy
 description: What Wallpaper Reactor collects, why, who processes it for us, and how to delete it.
 ---
 
-**Last updated:** October 5, 2026
+**Last updated:** October 7, 2026
 
-This policy covers the Wallpaper Reactor apps for Android, Windows, macOS and Linux, its command-line tool, and this website.
+This policy covers the Wallpaper Reactor apps for Android, Windows, macOS and Linux, the web app at web.wallpaperreactor.app, its command-line tool, and this website.
 
 ### The short version
 
 - You can browse and apply wallpapers **without an account**. Without one, we don't know who you are.
 - With an account, we keep your **email address** and the **profile and wallpapers you choose to share**.
-- The app has **no ads, no advertising ID, no analytics and no crash reporting**. We don't sell your data or use it to track you.
+- The app has **no ads, no advertising ID, no analytics and no crash reporting**. The web app counts visits with **Cloudflare Web Analytics**, which uses no cookies (section 12). We don't sell your data or use it to track you.
 - The app's **logs stay on your device** unless you export them and send them to us yourself, or **tick "Attach logs"** when you send feedback.
 - You can ask us to **delete your account** at any time (see section 10).
 
@@ -26,7 +26,7 @@ You sign in with **Google, Apple or Discord**; there are no passwords. The provi
 
 **Your email address is private.** We use it to run your account and to answer you. We send you occasional emails about new features, updates and promotions **only if you opt in**, and you can turn that off at any time in your profile.
 
-**Staying signed in.** Your sign-in session is kept on your device, in your operating system's credential store (Keychain on macOS, Credential Manager on Windows, Secret Service on Linux) or, where there isn't one (such as Android), in a file in the app's private storage that only the app can read. It is only ever sent to our sign-in service.
+**Staying signed in.** Your sign-in session is kept on your device, in your operating system's credential store (Keychain on macOS, Credential Manager on Windows, Secret Service on Linux) or, where there isn't one (such as Android), in a file in the app's private storage that only the app can read. It is only ever sent to our sign-in service. In the web app, the session is kept in your browser's storage for web.wallpaperreactor.app.
 
 ### 3. Your public profile
 
@@ -62,7 +62,7 @@ Where the app offers Wallpaper Reactor Pro, purchases are handled by **RevenueCa
 - **Feedback** you send from the app contains your message and, **only if you tick "Include device information"**, your platform, operating system version, app version and language. Feedback is **not linked to your account**.
 - **Logs.** The app writes logs **on your device**, to help troubleshoot problems. They are never uploaded automatically. If you export them from Settings, you decide whether and where to send the file.
 - **Attaching logs to feedback (optional).** The feedback form has a separate box, **"Attach logs", off by default**. If you tick it, the form says what it will send: the app's own logs, the wallpaper helper's logs and, on Android, the wallpaper engine's logs (up to 2 MB each). **Logs can contain file paths and wallpaper IDs.** Before they leave your device, the app replaces your home folder's path with `~` and removes email addresses, but it cannot promise to catch everything, so don't tick the box if you'd rather not share them. The logs are sent as one file, stored privately, and only our developers can read them. Like your feedback message, they are **not linked to your account**, even if you are signed in. We use them only to work out what went wrong.
-- **No analytics or crash reporting.** Wallpaper Reactor 0.29 and later send no crash reports or usage analytics. **Earlier versions** sent us a crash report when the app crashed, with your account's email and ID (if you were signed in), your operating system details, the app version and the app's log.
+- **No analytics or crash reporting.** The installed apps, from Wallpaper Reactor 0.29, send no crash reports or usage analytics. The web app counts visits as described in section 12. **Earlier versions** sent us a crash report when the app crashed, with your account's email and ID (if you were signed in), your operating system details, the app version and the app's log.
 
 ### 8. Who processes your data for us
 
@@ -71,7 +71,7 @@ We don't sell your personal information or share it with anyone for their own ma
 | Provider | What it does for us |
 | --- | --- |
 | **Supabase** | Our database, sign-in, file storage and server functions, hosted in the United States |
-| **Cloudflare** | Storage (R2) and delivery of wallpaper files and previews |
+| **Cloudflare** | Storage (R2) and delivery of wallpaper files and previews; hosting the web app, and counting its visits (Cloudflare Web Analytics) |
 | **RevenueCat** and its payment processor | Pro subscriptions |
 | **OpenAI** | Suggested wallpaper descriptions, only when you ask for one |
 | **Google, Apple, Discord** | Sign-in, with the provider you choose |
@@ -93,7 +93,7 @@ We keep your account data while your account exists.
 
 Without deleting your account, you can delete or unpublish any of your wallpapers, remove favourites, and change or clear your profile at any time.
 
-**On your device**, the app keeps your settings, downloaded wallpapers, logs and sign-in session. Signing out removes the session. Uninstalling the app, or clearing its storage in your device's settings, removes the rest.
+**On your device**, the app keeps your settings, downloaded wallpapers, logs and sign-in session. Signing out removes the session. Uninstalling the app, or clearing its storage in your device's settings, removes the rest. **In the web app**, your settings, favourites and sign-in session are kept in your browser's storage for web.wallpaperreactor.app; clearing that site's data in your browser removes them.
 
 ### 11. Permissions
 
@@ -101,7 +101,9 @@ Without deleting your account, you can delete or unpublish any of your wallpaper
 - **macOS:** the App Store version runs in Apple's sandbox, with network access, access only to files you choose, and Sign in with Apple.
 - **Windows:** the Microsoft Store version runs with full trust and a startup task, so it can draw the wallpaper behind your desktop icons and bring it back when you sign in. You can turn the startup task off in Windows Settings.
 
-### 12. This website
+### 12. This website and the web app
+
+The **web app** at web.wallpaperreactor.app uses **Cloudflare Web Analytics** to count visits and see which pages are opened and how fast they load. It uses **no cookies** and doesn't identify or follow you between websites; Cloudflare reports only totals, such as page views, the referring website, country, browser and loading times. The installed apps don't include it.
 
 This website uses **Google Analytics** to count visits and see which pages are read. Google Analytics uses cookies and collects information such as your approximate location, browser and the pages you visit. You can block it in your browser's settings or with a content blocker. The website has no accounts.
 
