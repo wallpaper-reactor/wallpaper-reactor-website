@@ -20,13 +20,14 @@ jobs:
         run: npm ci
       - name: Check images carry no camera metadata
         run: npm run images:check
-      - name: Release asset names
+      # The auth-error tests drive a real Chromium, so the browser goes in before the unit tests.
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Unit tests
         run: npm test
       - name: Type check
         run: npx astro check --minimumSeverity error
       - name: Build
         run: npm run build
-      - name: Install Playwright browser
-        run: npx playwright install --with-deps chromium
       - name: Accessibility check
         run: npm run a11y
