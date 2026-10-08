@@ -1,14 +1,15 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/logo.png';
-import { STORES } from '../data/site';
+import { STORES, WEB_APP } from '../data/site';
 
-const DOWNLOADS: { href: string; icon: string; label: string; internal?: boolean }[] = [
+const ACTIONS: { href: string; icon: string; label: string; internal?: boolean }[] = [
   { href: STORES.googlePlay, icon: '/assets/images/android-logo-fill.svg', label: 'Download Android' },
   { href: STORES.microsoft, icon: '/assets/images/windows-logo-fill.svg', label: 'Download Windows' },
   { href: STORES.appStoreLite, icon: '/assets/images/apple-logo-fill.svg', label: 'Download macOS' },
   // No Linux store listing: a direct download from the releases page, which carries the KDE-only note.
-  { href: '/releases/#linux', icon: '/assets/images/linux-terminal.svg', label: 'Download Linux', internal: true },
+  { href: '/releases/#linux', icon: '🐧', label: 'Download Linux', internal: true },
+  { href: WEB_APP, icon: '🌐', label: 'Open Web App' },
 ];
 ---
 
@@ -36,9 +37,13 @@ const DOWNLOADS: { href: string; icon: string; label: string; internal?: boolean
 
       <div class="download-buttons">
         {
-          DOWNLOADS.map((d) => (
+          ACTIONS.map((d) => (
             <a href={d.href} {...(d.internal ? {} : { target: '_blank', rel: 'noopener' })}>
-              <img src={d.icon} alt="" class="block h-5 w-5" />
+              {d.icon.startsWith('/') ? (
+                <img src={d.icon} alt="" class="block h-5 w-5" />
+              ) : (
+                <span aria-hidden="true" class="inline-flex h-5 w-5 items-center justify-center text-lg">{d.icon}</span>
+              )}
               {d.label}
             </a>
           ))

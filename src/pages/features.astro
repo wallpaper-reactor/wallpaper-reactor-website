@@ -159,11 +159,15 @@ const FAQS: FaqItem[] = [
       PLATFORMS.map((p) => (
         <div class="group flex flex-col gap-5 rounded-card border border-white/10 bg-surface-900 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/30">
           <div class="flex items-center gap-3">
-            <img
-              src={p.icon}
-              alt=""
-              class="h-8 w-8 shrink-0 brightness-90 invert transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
-            />
+            {p.icon.startsWith('/') ? (
+              <img
+                src={p.icon}
+                alt=""
+                class="h-8 w-8 shrink-0 brightness-90 invert transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
+              />
+            ) : (
+              <span aria-hidden="true" class="inline-flex h-8 w-8 shrink-0 items-center justify-center text-3xl transition-transform duration-300 group-hover:scale-105">{p.icon}</span>
+            )}
             <h3 class="m-0 text-xl font-semibold text-ink-100">{p.name}</h3>
           </div>
 

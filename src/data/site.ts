@@ -16,6 +16,8 @@ export const STORES = {
   appStoreLite: 'https://apps.apple.com/us/app/wallpaper-reactor-lite/id6751447022',
 } as const;
 
+export const WEB_APP = 'https://web.wallpaperreactor.app';
+
 export const NAV = [
   { label: 'Home', href: '/' },
   { label: 'Features & Pricing', href: '/features/' },
