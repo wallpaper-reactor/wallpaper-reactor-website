@@ -11,6 +11,7 @@ import { CURRENT_PATTERNS } from '../data/releaseAssets';
  */
 interface Row {
   os: string | null;
+  icon?: string;
   build: string;
   recommended: boolean;
   href?: string;
@@ -24,11 +25,11 @@ const url = (a?: { browser_download_url: string }) => a?.browser_download_url;
 const hasMac = Boolean(DOWNLOADS.macUniversal || DOWNLOADS.macArm || DOWNLOADS.macIntel);
 
 const ALL_ROWS: Row[] = [
-  { os: '🍎 macOS', build: 'Universal<br />(Apple Silicon & Intel)', recommended: true, href: url(DOWNLOADS.macUniversal), optional: hasMac },
+  { os: 'macOS', icon: '/assets/images/apple-logo-fill.svg', build: 'Universal<br />(Apple Silicon & Intel)', recommended: true, href: url(DOWNLOADS.macUniversal), optional: hasMac },
   { os: null, build: 'Apple Silicon', recommended: true, href: url(DOWNLOADS.macArm), optional: true },
   { os: null, build: 'Intel', recommended: true, href: url(DOWNLOADS.macIntel), optional: true },
   { os: null, build: 'Mac App Store<br />(Apple Silicon)', recommended: false, href: STORES.appStoreLite, label: 'Mac App Store', external: true },
-  { os: '🪟 Windows', build: 'Microsoft Store<br />(Intel/AMD)', recommended: true, href: STORES.microsoft, label: 'Microsoft Store', external: true },
+  { os: 'Windows', icon: '/assets/images/windows-logo-fill.svg', build: 'Microsoft Store<br />(Intel/AMD)', recommended: true, href: STORES.microsoft, label: 'Microsoft Store', external: true },
   {
     os: null,
     build: DOWNLOADS.windowsX64 && !CURRENT_PATTERNS.windowsX64.test(DOWNLOADS.windowsX64.name) ? 'Direct Install<br />(Intel/AMD & ARM)' : 'Direct Install<br />(Intel/AMD)',
@@ -36,9 +37,9 @@ const ALL_ROWS: Row[] = [
     href: url(DOWNLOADS.windowsX64),
   },
   { os: null, build: 'Direct Install<br />(ARM)', recommended: false, href: url(DOWNLOADS.windowsArm), optional: true },
-  { os: '🤖 Android', build: 'Google Play', recommended: true, href: STORES.googlePlay, label: 'Google Play', external: true },
+  { os: 'Android', icon: '/assets/images/android-logo-fill.svg', build: 'Google Play', recommended: true, href: STORES.googlePlay, label: 'Google Play', external: true },
   { os: null, build: 'Universal APK', recommended: false, href: url(DOWNLOADS.androidApk) },
-  { id: 'linux', os: '🐧 Linux<br />(KDE Plasma 6 only)', build: '.deb<br />(Debian, Ubuntu)', recommended: true, href: url(DOWNLOADS.linuxDeb) },
+  { id: 'linux', os: 'Linux<br />(KDE Plasma 6 only)', icon: '/assets/images/linux-logo-fill.svg', build: '.deb<br />(Debian, Ubuntu)', recommended: true, href: url(DOWNLOADS.linuxDeb) },
   { os: null, build: 'Flatpak<br />(SteamOS, Fedora, others)', recommended: false, href: url(DOWNLOADS.linuxFlatpak) },
 ];
 
@@ -95,7 +96,16 @@ const ROWS = ALL_ROWS.filter((row) => row.href || !row.optional);
         {
           ROWS.map((row) => (
             <tr id={row.id}>
-              <td>{row.os ? <strong set:html={row.os} /> : ''}</td>
+              <td>
+                {row.os ? (
+                  <strong class="inline-flex items-start gap-2">
+                    {row.icon && <img src={row.icon} alt="" class="mt-0.5 h-5 w-5 shrink-0 invert" />}
+                    <span set:html={row.os} />
+                  </strong>
+                ) : (
+                  ''
+                )}
+              </td>
               <td set:html={row.build} />
               <td>{row.recommended ? '✅' : '❌'}</td>
               <td>
