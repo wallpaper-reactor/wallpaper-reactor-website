@@ -124,7 +124,7 @@ export const PLATFORMS = [
   },
   {
     name: 'Linux',
-    icon: '🐧',
+    icon: '/assets/images/linux-logo-fill.svg',
     options: [
       { title: '.deb (Debian, Ubuntu)', label: 'Full', tone: 'green' as const, note: 'Direct download. Install new versions over the old one' },
       { title: 'Flatpak (SteamOS, Fedora, others)', label: 'Full', tone: 'green' as const, note: 'Direct download. Install new versions over the old one' },
