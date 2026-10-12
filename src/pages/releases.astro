@@ -39,7 +39,7 @@ const ALL_ROWS: Row[] = [
   { os: null, build: 'Direct Install<br />(ARM)', recommended: false, href: url(DOWNLOADS.windowsArm), optional: true },
   { os: 'Android', icon: '/assets/images/android-logo-fill.svg', build: 'Google Play', recommended: true, href: STORES.googlePlay, label: 'Google Play', external: true },
   { os: null, build: 'Universal APK', recommended: false, href: url(DOWNLOADS.androidApk) },
-  { id: 'linux', os: 'Linux<br />(KDE Plasma 6 only)', icon: '/assets/images/linux-logo-fill.svg', build: '.deb<br />(Debian, Ubuntu)', recommended: true, href: url(DOWNLOADS.linuxDeb) },
+  { id: 'linux', os: 'Linux<br />(KDE, GNOME, Sway, Hyprland)', icon: '/assets/images/linux-logo-fill.svg', build: '.deb<br />(Debian, Ubuntu)', recommended: true, href: url(DOWNLOADS.linuxDeb) },
   { os: null, build: 'Flatpak<br />(SteamOS, Fedora, others)', recommended: false, href: url(DOWNLOADS.linuxFlatpak) },
 ];
 
@@ -48,7 +48,7 @@ const ROWS = ALL_ROWS.filter((row) => row.href || !row.optional);
 
 <BaseLayout
   title="Releases"
-  description="Download the latest Wallpaper Reactor builds for macOS, Windows, Android, and Linux (KDE Plasma)."
+  description="Download the latest Wallpaper Reactor builds for macOS, Windows, Android, and Linux (KDE Plasma, GNOME, Sway, Hyprland)."
 >
   <div class="prose-wr max-w-none">
     <h1>Releases</h1>
@@ -126,7 +126,7 @@ const ROWS = ALL_ROWS.filter((row) => row.href || !row.optional);
 
   <div class="mx-auto mt-6 max-w-3xl rounded-lg border-l-[3px] border-brand-500 bg-brand-500/5 px-6 py-4">
     <p class="m-0 text-[0.9rem] text-ink-400">
-      <strong class="text-ink-100">Linux:</strong> KDE Plasma 6 on x86_64 only. See
+      <strong class="text-ink-100">Linux:</strong> KDE Plasma 5 and 6, GNOME 46+ on Wayland, Sway and Hyprland, on x86_64. See
       <a href="/docs/getting-started/#linux" class="text-brand-500">Getting Started</a> for install steps.
     </p>
   </div>

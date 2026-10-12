@@ -131,7 +131,7 @@ export const PLATFORMS = [
     ],
     limitation: {
       lead: 'Note:',
-      text: 'KDE Plasma 6 on x86_64 only. Other desktops can browse wallpapers but not set them, and Steam Deck needs Desktop Mode.',
+      text: 'KDE Plasma 5 and 6, GNOME 46+ on Wayland, Sway and Hyprland, on x86_64. Other desktops can browse wallpapers but not set them, and Steam Deck needs Desktop Mode.',
     },
   },
 ];

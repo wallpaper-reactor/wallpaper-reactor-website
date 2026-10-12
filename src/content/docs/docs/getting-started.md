@@ -1,9 +1,9 @@
 ---
 title: Getting Started
-description: Install Wallpaper Reactor on Android, Windows, macOS or Linux (KDE Plasma), and set your first wallpaper.
+description: Install Wallpaper Reactor on Android, Windows, macOS or Linux (KDE Plasma, GNOME, Sway, Hyprland), and set your first wallpaper.
 ---
 
-Wallpaper Reactor runs live wallpapers on **Android**, **Windows**, **macOS** and **Linux (KDE Plasma 6)**. This page covers installing it and setting your first wallpaper. For the other pages in this guide, see [Documentation](/docs/).
+Wallpaper Reactor runs live wallpapers on **Android**, **Windows**, **macOS** and **Linux (KDE Plasma, GNOME, Sway, Hyprland)**. This page covers installing it and setting your first wallpaper. For the other pages in this guide, see [Documentation](/docs/).
 
 For the builds, version numbers and checksums, see [Releases](/releases/). For what each edition includes, see [Features & Pricing](/features/).
 
@@ -32,7 +32,9 @@ Requires macOS 14 (Sonoma) or newer. The first time you set a wallpaper, macOS m
 
 ### Linux
 
-Linux is supported on **KDE Plasma 6 only** (Wayland or X11), on x86_64. On any other desktop the app opens, but **Set wallpaper** is refused with a message naming your desktop. See [Troubleshooting](/docs/troubleshooting/#linux-wallpaper-control-isnt-supported-yet).
+Linux is supported on **KDE Plasma 5 and 6**, **GNOME 46 or newer on Wayland**, **Sway** and **Hyprland**, on x86_64. On any other desktop the app opens, but **Set wallpaper** is refused with a message naming your desktop. See [Troubleshooting](/docs/troubleshooting/#linux-wallpaper-control-isnt-supported-yet).
+
+On GNOME, log out and back in once after the first **Set wallpaper** (Apply).
 
 Download one of these from the GitHub release page linked at the bottom of [Releases](/releases/):
 
