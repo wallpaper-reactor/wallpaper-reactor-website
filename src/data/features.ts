@@ -12,7 +12,7 @@ export const HIGHLIGHTS = [
   },
   {
     title: '⚡ Power features',
-    body: 'Paid unlocks settings sync, private wallpapers, large files, performance tuning, and priority support.',
+    body: 'Paid unlocks settings sync, private wallpapers, large files, and priority support.',
   },
 ] as const;
 
@@ -29,6 +29,7 @@ export const TIER_FEATURES: { label: string; tiers: Tier[] }[] = [
   { label: 'Quick Wallpaper (apply your own file)', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'Search & Filter', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'Battery Options', tiers: ['anon', 'signedIn', 'paid'] },
+  { label: 'Performance Settings', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'Feedback System', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'All wallpapers < 50 MB', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'User Profile', tiers: ['signedIn', 'paid'] },
@@ -36,7 +37,6 @@ export const TIER_FEATURES: { label: string; tiers: Tier[] }[] = [
   { label: 'Create / Upload Wallpapers', tiers: ['signedIn', 'paid'] },
   { label: 'Wallpaper Settings Sync', tiers: ['paid'] },
   { label: 'Private Wallpapers', tiers: ['paid'] },
-  { label: 'Performance Settings', tiers: ['paid'] },
   { label: 'Large Wallpaper Files', tiers: ['paid'] },
   { label: 'Priority Support', tiers: ['paid'] },
 ];
@@ -54,6 +54,7 @@ export const PLANS = [
       'Quick Wallpaper (apply your own file)',
       'Search & Filter',
       'Battery Options',
+      'Performance Settings',
       'Feedback System',
       'All wallpapers < 50 MB',
     ],
@@ -77,7 +78,6 @@ export const PLANS = [
     items: [
       'Wallpaper Settings Sync',
       'Private Wallpapers',
-      'Performance Settings',
       'Large Wallpaper Files',
       'Priority Support',
     ],
