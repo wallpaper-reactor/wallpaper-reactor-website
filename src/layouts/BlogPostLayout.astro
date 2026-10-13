@@ -6,9 +6,11 @@ interface Props {
   description: string;
   publishDate: Date;
   updatedDate?: Date;
+  /** Related posts, from the post's `related` front matter. */
+  related?: { href: string; title: string; description: string }[];
 }
 
-const { title, description, publishDate, updatedDate } = Astro.props;
+const { title, description, publishDate, updatedDate, related = [] } = Astro.props;
 
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
 const shown = updatedDate ?? publishDate;
@@ -21,6 +23,18 @@ const shown = updatedDate ?? publishDate;
       {updatedDate ? 'Last updated' : 'Published'}: {fmt(shown)}
     </p>
     <slot />
+    {related.length > 0 && (
+      <nav aria-labelledby="related-guides">
+        <h2 id="related-guides">Related guides</h2>
+        <ul>
+          {related.map((r) => (
+            <li>
+              <a href={r.href}>{r.title}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
   </article>
 </BaseLayout>
 
