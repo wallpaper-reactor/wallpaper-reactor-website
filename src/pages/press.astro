@@ -40,13 +40,14 @@ const ANGLES = [
   },
 ];
 
+/** Screenshots of the app itself, no mockups (Kyle, 2026-10-13). */
 const IMAGES = [
-  { src: '/assets/images/rg-ds-dual-screen-live-wallpaper.webp', alt: 'A live wallpaper on both screens of a dual-screen Android handheld' },
-  { src: '/assets/images/live-wallpaper-desktop-top.webp', alt: 'A live wallpaper behind a desktop' },
-  { src: '/assets/images/mockup.webp', alt: 'Wallpaper Reactor on a phone' },
-  { src: '/assets/images/mockup3.webp', alt: 'Wallpaper Reactor on several devices' },
-  { src: '/assets/images/preview-grid.png', alt: 'The wallpaper catalogue' },
-  { src: '/assets/images/wr-mockup.png', alt: 'The Wallpaper Reactor app' },
+  { src: '/assets/press/screenshots/phone-details-nova.png', alt: 'A wallpaper\'s page on a phone' },
+  { src: '/assets/press/screenshots/phone-details-astra-field.png', alt: 'An interactive shader wallpaper\'s page on a phone' },
+  { src: '/assets/press/screenshots/phone-browse.png', alt: 'Browsing the catalogue on a phone' },
+  { src: '/assets/press/screenshots/phone-create.png', alt: 'Creating a wallpaper on a phone' },
+  { src: '/assets/press/screenshots/desktop-details-nova.png', alt: 'A wallpaper\'s page on the desktop' },
+  { src: '/assets/press/screenshots/desktop-browse.png', alt: 'Browsing the catalogue on the desktop' },
 ];
 
 const FACTS: [string, string][] = [
@@ -111,11 +112,11 @@ const FACTS: [string, string][] = [
 
     <h2>Images</h2>
     <p>Click an image for the full-size file.</p>
-    <div class="not-prose grid gap-4 sm:grid-cols-2">
+    <div class="not-prose grid grid-cols-2 gap-4 sm:grid-cols-4">
       {
         IMAGES.map((image) => (
-          <a href={image.src} class="block overflow-hidden rounded-card border border-white/10">
-            <img src={image.src} alt={image.alt} loading="lazy" class="h-full w-full object-cover" />
+          <a href={image.src} class:list={['block overflow-hidden rounded-card border border-white/10', image.src.includes('/desktop-') && 'col-span-2']}>
+            <img src={image.src} alt={image.alt} loading="lazy" class="h-full w-full object-contain" />
           </a>
         ))
       }
