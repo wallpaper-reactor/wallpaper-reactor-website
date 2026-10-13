@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, STORES, WEB_APP } from '../data/site';
+import { PLANS, PLATFORMS } from '../data/features';
+
+/** Facts come from the site's own data (`site.ts`, `features.ts`), so the press page can never
+    quote a price or a platform the rest of the site has moved past. */
+const pro = PLANS.find((plan) => plan.style === 'primary')!;
+const PRO = `Pro (${pro.price}${pro.unit ?? ''})`;
+const CONTACT = 'kyle@skylines.sh';
+
+const ONE_LINER =
+  'Wallpaper Reactor is a live-wallpaper app for Android, Windows, macOS and Linux: one catalogue of animated wallpapers, applied in a click on every device you own.';
+
+const SHORT = `${ONE_LINER} It plays video loops, GLSL shaders, Godot scenes and interactive web wallpapers, and it is free to use, with an optional Pro plan.`;
+
+const LONG = [
+  `Wallpaper Reactor turns the desktop, the phone home screen and the handheld into something alive. The same catalogue of wallpapers runs on Android, Windows, macOS and Linux (KDE Plasma, GNOME, Sway and Hyprland), and once you sign in, your favourites follow you from device to device.`,
+  `Wallpapers can be video loops, GLSL shaders, Godot scenes or interactive web pages, and anyone can make and upload their own. It pauses a wallpaper while it's hidden behind windows, has battery and performance settings, and runs on both screens of a dual-screen handheld.`,
+  `The whole app can be driven with a game controller, with no mouse or keyboard, so it works the same on a Steam Deck in Desktop Mode or an Android handheld.`,
+  `Wallpaper Reactor is free. ${PRO} adds ${pro.items.map((item) => item.toLowerCase()).join(', ')}.`,
+];
+
+const ANGLES = [
+  {
+    title: 'Dual-screen handhelds',
+    body: 'Live wallpapers on both screens of a dual-screen Android handheld.',
+  },
+  {
+    title: 'One app, every device',
+    body: 'Android, Windows, macOS and Linux from the same catalogue, with favourites that follow your account.',
+  },
+  {
+    title: 'Controller-first',
+    body: 'Browse, preview and apply wallpapers with just a gamepad, on handhelds and the Steam Deck.',
+  },
+  {
+    title: 'Made by its users',
+    body: 'Creators upload video loops, shaders, Godot scenes and web wallpapers; every public upload is reviewed first.',
+  },
+];
+
+const IMAGES = [
+  { src: '/assets/images/rg-ds-dual-screen-live-wallpaper.webp', alt: 'A live wallpaper on both screens of a dual-screen Android handheld' },
+  { src: '/assets/images/live-wallpaper-desktop-top.webp', alt: 'A live wallpaper behind a desktop' },
+  { src: '/assets/images/mockup.webp', alt: 'Wallpaper Reactor on a phone' },
+  { src: '/assets/images/mockup3.webp', alt: 'Wallpaper Reactor on several devices' },
+  { src: '/assets/images/preview-grid.png', alt: 'The wallpaper catalogue' },
+  { src: '/assets/images/wr-mockup.png', alt: 'The Wallpaper Reactor app' },
+];
+
+const FACTS: [string, string][] = [
+  ['Developer', SITE.author],
+  ['Platforms', PLATFORMS.map((platform) => platform.name).join(', ')],
+  ['Price', `Free; ${PRO}`],
+  ['Website', SITE.url],
+  ['Web app', WEB_APP],
+  ['Press contact', CONTACT],
+];
+---
+
+<BaseLayout
+  title="Press kit"
+  description="Facts, descriptions, images and a contact for writing or making videos about Wallpaper Reactor."
+>
+  <article class="prose-wr mx-auto max-w-4xl">
+    <h1>Press kit</h1>
+    <p>
+      Everything you need to write about Wallpaper Reactor or feature it in a video. The images and
+      text on this page are free to use in coverage of the app.
+    </p>
+
+    <h2>At a glance</h2>
+    <table>
+      <tbody>
+        {
+          FACTS.map(([label, value]) => (
+            <tr>
+              <th scope="row">{label}</th>
+              <td>
+                {value.startsWith('http') ? <a href={value}>{value}</a> : value.includes('@') ? <a href={`mailto:${value}`}>{value}</a> : value}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    <p>
+      Get it: <a href={STORES.googlePlay}>Google Play</a> · <a href={STORES.microsoft}>Microsoft Store</a> ·{' '}
+      <a href="/releases/">direct downloads for Windows, macOS and Linux</a>
+    </p>
+
+    <h2>Descriptions</h2>
+    <h3>One line</h3>
+    <blockquote>{ONE_LINER}</blockquote>
+    <h3>Short</h3>
+    <blockquote>{SHORT}</blockquote>
+    <h3>Long</h3>
+    <blockquote>{LONG.map((paragraph) => <p>{paragraph}</p>)}</blockquote>
+
+    <h2>Story angles</h2>
+    <ul>
+      {
+        ANGLES.map((angle) => (
+          <li>
+            <strong>{angle.title}.</strong> {angle.body}
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2>Images</h2>
+    <p>Click an image for the full-size file.</p>
+    <div class="not-prose grid gap-4 sm:grid-cols-2">
+      {
+        IMAGES.map((image) => (
+          <a href={image.src} class="block overflow-hidden rounded-card border border-white/10">
+            <img src={image.src} alt={image.alt} loading="lazy" class="h-full w-full object-cover" />
+          </a>
+        ))
+      }
+    </div>
+
+    <h2>Logo</h2>
+    <p>
+      <a href="/assets/press/wallpaper-reactor-icon.png">App icon, 512 × 512 PNG</a>. Please don't
+      recolour or distort it.
+    </p>
+
+    <h2>Making a video?</h2>
+    <p>
+      Email <a href={`mailto:${CONTACT}?subject=Press`}>{CONTACT}</a> with "Press" in the subject. We'll
+      give you Pro for free and can send clips of wallpapers running on your kind of device.
+    </p>
+  </article>
+</BaseLayout>
