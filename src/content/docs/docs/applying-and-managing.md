@@ -73,7 +73,7 @@ Performance Mode sets the **frame rate cap** and the **render resolution**. Ther
 | **High Quality** | 60 fps | 90% |
 | **Max Quality** | Uncapped | 100% |
 
-Performance Mode is a **Pro** feature. Without Pro, choosing a mode opens the Pro page instead. See [Features & Pricing](/features/). The Mac App Store edition cannot sell Pro, but a Pro account from another platform keeps Pro when you sign in there.
+Performance Mode is free for everyone.
 
 A mode change takes effect on the running wallpaper. A change to the render resolution can reload a web-based wallpaper (Scene, Shader and so on) for a moment. A wallpaper can opt out of the frame-rate cap with `disableFpsCap` in its [settings](/docs/wallpaper-creation/settings-json-tutorial/), but that uses much more power.
 

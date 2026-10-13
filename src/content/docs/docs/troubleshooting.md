@@ -97,9 +97,9 @@ The `.deb` and the Flatpak cannot update themselves. The app tells you when a ne
 
 On desktop a wallpaper pauses when the session is locked, the display is off, a maximized or fullscreen window covers it, or Low Power Mode or battery settings say so. See [When a desktop wallpaper pauses](/docs/applying-and-managing/#when-a-desktop-wallpaper-pauses). **Close wallpaper** in the tray ends the wallpaper until your next login. Use **Set wallpaper** again to bring it back.
 
-## Performance Mode opens the Pro page
+## Performance Mode
 
-Performance Mode is a Pro feature. Without Pro, choosing a mode opens the Pro page, and the mode does not change. See [Features & Pricing](/features/). The default is **Balanced**.
+Performance Mode is free for everyone, so choosing a mode never opens the Pro page. If a mode seems not to apply, see [Performance Mode](/docs/applying-and-managing/#performance-mode). The default is **Balanced**.
 
 ## Creating
 

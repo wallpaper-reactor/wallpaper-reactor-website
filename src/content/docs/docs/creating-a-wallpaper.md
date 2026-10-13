@@ -10,7 +10,7 @@ The **Create** tab has two ways to make a wallpaper.
 | What it does | Applies a file from your device right away | Publishes a wallpaper that can be shared and synced across devices |
 | Account | Not needed | Sign in when you upload |
 | Published | Nothing is published | Goes **in review**, then appears in the catalogue |
-| Source types | Image, Video, Shader, Rive, Scene (one file), Godot | Image, Video, Shader, Rive |
+| Source types | Image, Video, Shader, Rive, Scene (one file), Godot | Image, Video, Shader, Rive, Scene, Godot, Website |
 
 Choose **Import file** under Quick Wallpaper, pick a file, and it is applied. Quick Wallpaper accepts these extensions: `png`, `jpg`, `jpeg`, `webp`, `gif`, `mp4`, `webm`, `mov`, `avi`, `mkv`, `m4v`, `wmv`, `glsl`, `frag`, `riv`, `html`, `htm`, `pck`. With several screens in **Custom** [Multi-Screen Mode](/docs/applying-and-managing/#several-screens-on-desktop), it asks which screen to use first. A file that is not what its extension says is refused with "isn't a valid wallpaper file of that type".
 
@@ -28,7 +28,7 @@ If you choose **Write a shader**, you start in the editor, and **Save** checks t
 After **Upload** the wallpaper shows **Uploaded — now in review**. A moderator reviews every public wallpaper before anyone else sees it. Read the [Wallpaper Upload Guidelines](/docs/wallpaper-creation/wallpaper-guidelines/) first.
 
 :::note
-In this release, the type picker offers **Image**, **Video**, **Shader** and **Rive**. **Scene** and **Application** (Godot) tiles show **Coming Soon**, and **Website** is not offered at all. Scene and Godot files still work through Quick Wallpaper.
+You can upload Scenes, interactive 3D (Godot, listed as **Application**) and Website wallpapers as well as images, videos, shaders and Rive animations. A Godot upload includes its project source, which is kept privately for review. Scenes are scanned automatically, and the scan report goes to the reviewer with the upload.
 :::
 
 ## Size limits
@@ -110,11 +110,12 @@ Godot projects are listed as **Application** in the app. Accepted: `pck`, an exp
 - The project must be built on the **Wallpaper Reactor Godot template**, with Godot **4.7.2** exactly. A pack without the template's signature is refused: "This Godot wallpaper wasn't built on the Wallpaper Reactor template."
 - **No networking.** A Godot wallpaper cannot connect to the internet or the local network, and a pack that uses networking is refused.
 - **No native code.** A pack that carries native code is refused.
+- **Upload the project source with the pack.** It is stored privately and used for review and for re-exporting the wallpaper later.
 - Declare options in the template's `settings.json`. See [Customizable User Settings](/docs/wallpaper-creation/settings-json-tutorial/).
 
 ## Website
 
-The app does not offer **Website** wallpapers (a link to an `https://` page) for creation. To make a web wallpaper, build a [Scene](#scene).
+A **Website** wallpaper is a link to an `https://` page. If you want your page to run from files you ship with the wallpaper, build a [Scene](#scene) instead.
 
 ## Next
 
