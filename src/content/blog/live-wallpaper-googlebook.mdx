@@ -1,0 +1,146 @@
+---
+title: Live and animated wallpapers on a Googlebook
+description: "Googlebook runs Android apps, so Wallpaper Reactor installs from Google Play. Here's how to set it up, what it can run, and the one thing we haven't been able to confirm on real hardware."
+publishDate: 2026-10-13
+updatedDate: 2026-10-13
+---
+
+import Faq from '../../components/Faq.astro';
+import CtaButton from '../../components/CtaButton.astro';
+
+Googlebook is Google's new laptop line, built on the Android stack with ChromeOS desktop foundations. Because it runs Android, apps don't need a separate build — **Wallpaper Reactor is the same Android app you'd put on a phone**, and you get it from Google Play.
+
+Before anything else, a straight account of where we stand. **We haven't tested Wallpaper Reactor on a real Googlebook.** What we have run is an Android desktop-mode emulator. Wallpaper Reactor isn't certified by Google for Googlebook and doesn't carry a Google Play desktop badge. We'll say which parts below come from that emulator, and which we couldn't check.
+
+<figure>
+  <img
+    src="/assets/images/live-wallpaper-desktop-top.webp"
+    alt="The top of a laptop desktop: a slim status bar and two window edges over a bright, swirling rainbow plasma wallpaper."
+    width="1920"
+    height="560"
+    decoding="async"
+  />
+  <figcaption>A Wallpaper Reactor live wallpaper (the built-in Plasma shader) behind a desktop. This is an illustration with a generic mock desktop, not a Googlebook.</figcaption>
+</figure>
+
+## Install it
+
+1. Open **Google Play** on your Googlebook.
+2. Search for **Wallpaper Reactor**, or go straight to the [Play listing](https://play.google.com/store/apps/details?id=app.wallpaperreactor).
+3. Install, then open it.
+
+It's free, and browsing, downloading and setting wallpapers need no account. If you'd rather not use Play, the Android APK is on the [releases page](/releases/).
+
+## Set a wallpaper
+
+It's the same flow as on any Android device, and the [Android walkthrough](/blog/how-to-set-live-wallpaper-android/) has screenshots of each step.
+
+1. Open **Browse** and pick a wallpaper. **Search**, **Sort** and the **Type**, **Colors** and **Tags** filters narrow the list.
+2. Open it and choose **Download**. The files stay on your device.
+3. Choose **Set wallpaper**.
+4. Android opens its own live wallpaper screen for Wallpaper Reactor. **Confirm it there** — Android only runs a live wallpaper that you confirm yourself. It may ask whether it's for the home screen, the lock screen or both.
+
+After Wallpaper Reactor is your live wallpaper, setting another one in the app switches it without the Android screen. If you back out of the Android screen without confirming, nothing is set and the app shows no error — just choose **Set wallpaper** again.
+
+### The part we couldn't confirm
+
+Here is the honest caveat. On Android 16 (QPR3) and newer, and on Android 17, **Android blocks third-party live wallpapers on a connected external display** — a monitor, or desktop mode. That's an Android platform policy, not something the app controls, and we explain it in [Do live wallpapers work on Android Desktop Mode?](/blog/android-desktop-mode-live-wallpapers/).
+
+A Googlebook is a laptop with its own screen, not a phone plugged into a monitor, so that case may not apply to it. But we don't know. In our emulator pass we confirmed the system reports live wallpaper support and that Wallpaper Reactor's wallpaper service is registered, and **we did not apply a wallpaper**, so we have not seen one render on a desktop display. If you try it on a Googlebook, whether the animated wallpaper shows behind your windows is exactly the thing we'd like to hear about.
+
+## What it can run
+
+Wallpaper Reactor isn't just video loops. The wallpapers it runs include:
+
+- **Video**: MP4 and WebM.
+- **Shaders**: GLSL, drawn live.
+- **Rive animations**: vector animations, drawn from shapes rather than stored as pixels.
+- **Scenes** and **interactive 3D** built in Godot.
+- **Websites**: HTML pages as wallpapers.
+
+As of 0.30.0 you can upload scenes, interactive 3D (Godot) and website wallpapers. You can also use your own file without an account through **Quick Wallpaper** on the **Create** tab: pick a file and it's applied. There's more on that in [setting any video as a live wallpaper](/blog/set-any-video-as-live-wallpaper/).
+
+Interactive wallpapers (Scenes and Godot) respond to touch and mouse input. **Touch Interaction** in **Settings → Wallpaper Settings** turns that off.
+
+## Using the app in a desktop window
+
+Wallpaper Reactor on Android desktop mode runs in a window you can resize and maximize. In our emulator pass:
+
+- **Resizing and maximizing** worked. The layout adjusts live as the window changes size, with no letterboxing and no compatibility mode.
+- **A sensible first window.** The app opens at 1100 × 720 dp rather than phone-sized.
+- **Mouse**: hovering a card shows its "…" button, right-clicking a card opens a menu (Favorite, Preview, Set as wallpaper, Copy link), and the carousels have arrow buttons.
+- **Keyboard**: Tab and the arrow keys move focus, with a visible focus ring.
+- **Drag and drop**: in 0.30.0 you can drop a file on the window in desktop mode, and files you open with or share to Wallpaper Reactor are picked up directly.
+- **Full screen**: F11 toggles fullscreen on Android 15 and later.
+
+There are keyboard shortcuts for the whole app too. On Android and ChromeOS, the modifier is Ctrl:
+
+| Keys | Does |
+|---|---|
+| Ctrl+F, `/` | Focus the Browse search field |
+| Ctrl+1 … Ctrl+9 | Switch between the tabs, in order |
+| Ctrl+, | Settings |
+| Alt+Left, Ctrl+[ | Back |
+| F11 | Full screen |
+| `?` | Show the shortcuts sheet |
+
+Press **?** in the app for the full list.
+
+Two caveats on that emulator pass. Hover, right-click, wheel and Tab/arrow-key events were injected into the app's web view rather than sent through Android's own input system, so they test the app's handling and not the operating system's. And the shortcuts and drag-and-drop landed in 0.30.0, after that pass. Several are covered by automated tests; none has been tried on a Googlebook.
+
+## Battery and performance
+
+A laptop is a battery you carry around, so this matters more here than on a desktop PC. **Performance modes are free for everyone as of 0.30.0.** They set the frame rate cap and the resolution a wallpaper renders at, under **Settings → Wallpaper Settings**:
+
+| Mode | Frame rate | Resolution |
+|---|---|---|
+| Battery Saver | 15 fps | 50% |
+| Balanced (default) | 30 fps | 75% |
+| High FPS | Uncapped | 75% |
+| High Resolution | 30 fps | 100% |
+| High Quality | 60 fps | 90% |
+| Max Quality | Uncapped | 100% |
+
+Battery Saver asks for far less work than Max Quality, so it's the one to reach for when you're away from a charger. Changes take effect on the running wallpaper.
+
+**Pause on Low Power Mode** is on by default: the wallpaper pauses while the system's low power or battery saver mode is on. We haven't checked how that interacts with Googlebook's own power settings.
+
+For the old-phone version of this advice, see [live wallpapers on an old or cheap Android phone](/blog/live-wallpapers-old-android-phone/).
+
+<Faq
+  items={[
+    {
+      question: 'Does Wallpaper Reactor work on a Googlebook?',
+      answer:
+        "It's an Android app, and Googlebook runs Android apps without a separate build, so you install it from Google Play. We haven't tested on a real Googlebook; our checks ran on an Android desktop-mode emulator, where the app launched, resized, maximized and took mouse and keyboard input.",
+    },
+    {
+      question: 'Is Wallpaper Reactor certified or optimized for Googlebook?',
+      answer:
+        "No. It doesn't carry Google's desktop badge on Google Play, and we haven't tested it on Googlebook hardware.",
+    },
+    {
+      question: 'Will a live wallpaper show behind my windows on a Googlebook?',
+      answer:
+        "We don't know yet. Android 16 (QPR3) and newer, and Android 17, block third-party live wallpapers on a connected external display, and we haven't confirmed whether that applies to a Googlebook's own screen. We haven't seen one render on a desktop display.",
+    },
+    {
+      question: 'Do I need an account?',
+      answer:
+        'No. Browsing, downloading and setting wallpapers all work signed out. An account is for syncing favorites and publishing your own wallpapers.',
+    },
+    {
+      question: 'Are performance modes free?',
+      answer:
+        'Yes, as of 0.30.0 performance modes are free for everyone.',
+    },
+  ]}
+/>
+
+<div class="my-10 rounded-card border border-brand-500/30 bg-brand-500/[0.06] p-8 text-center">
+  <div class="mb-3 text-2xl font-semibold leading-tight text-ink-100">Try it on your Googlebook</div>
+  <p class="mx-auto mb-6 max-w-lg text-ink-400">
+    Free from Google Play, with no account needed. Tell us what you see.
+  </p>
+  <CtaButton href="/releases/" icon="android">Download Wallpaper Reactor</CtaButton>
+</div>
