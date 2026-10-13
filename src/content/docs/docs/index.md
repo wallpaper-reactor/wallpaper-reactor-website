@@ -7,7 +7,7 @@ Find detailed information about Wallpaper Reactor features, user types, and func
 
 ## User guide
 
-- [Getting Started](/docs/getting-started/): install on Android, Windows, macOS or Linux (KDE Plasma), and set your first wallpaper.
+- [Getting Started](/docs/getting-started/): install on Android, Windows, macOS or Linux (KDE Plasma, GNOME, Sway, Hyprland), and set your first wallpaper.
 - [Creating a Wallpaper](/docs/creating-a-wallpaper/): make a wallpaper from an image, video, shader, Rive animation, Scene or Godot project.
 - [Applying and Managing Wallpapers](/docs/applying-and-managing/): several screens, performance mode, audio, battery, and the Android picker.
 - [Troubleshooting](/docs/troubleshooting/): fixes for the problems people hit most.

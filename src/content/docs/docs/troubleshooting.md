@@ -73,13 +73,13 @@ If wallpapers cannot be applied, you may see: "Wallpaper Reactor is waiting for 
 
 ### Linux: wallpaper control isn't supported yet
 
-Wallpaper Reactor sets wallpapers on **KDE Plasma 6** only. On every other desktop you can browse and preview, but **Set wallpaper** is refused with a message such as:
+Wallpaper Reactor sets wallpapers on **KDE Plasma 5 and 6**, **GNOME 46 or newer on Wayland**, **Sway** and **Hyprland**. On other desktops (Cinnamon, XFCE, niri, river, COSMIC, and GNOME on Xorg) you can browse and preview, but **Set wallpaper** is refused with a message such as:
 
-- "Wallpaper control on GNOME isn't supported yet."
-- "Wallpaper control on KDE Plasma 5 isn't supported yet."
+- "Wallpaper control on Cinnamon isn't supported yet."
+- "Wallpaper control on GNOME isn't supported yet." (GNOME on Xorg)
 - "Wallpaper control on this desktop isn't supported yet." (the app could not read the desktop's name)
 
-To use it, log in to a Plasma 6 session. Plasma 6 on Wayland and on X11 are both supported.
+To use it, log in to a supported desktop session.
 
 ### Steam Deck: "Switch to Desktop Mode"
 
@@ -87,11 +87,7 @@ In **Gaming Mode** the app says: "Switch to Desktop Mode to set a wallpaper. Gam
 
 ### Do not install both the .deb and the Flatpak
 
-Both installs write their wallpaper plugin into the same Plasma folder, and setting a wallpaper from one removes the other's. Install one of them on a machine.
-
-### Scene previews do not load on Ubuntu 24.04 with the .deb
-
-The app's web view needs unprivileged user namespaces, and Ubuntu 24.04 restricts them by default, so a Scene preview inside the app may be refused. The Flatpak is not affected.
+Both installs write their wallpaper plugin into the same folder, on GNOME and Plasma 5 as well as Plasma 6, and setting a wallpaper from one removes the other's. Install one of them on a machine.
 
 ### There is no update button
 
