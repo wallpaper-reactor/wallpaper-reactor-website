@@ -8,11 +8,11 @@ export const HIGHLIGHTS = [
   },
   {
     title: '☁️ Cloud convenience',
-    body: 'Sign in to sync favorites and to create and upload wallpapers.',
+    body: 'Sign in to sync favorites and wallpaper settings across devices, and to create and upload wallpapers.',
   },
   {
-    title: '⚡ Power features',
-    body: 'Paid unlocks settings sync, private wallpapers, large files, and priority support.',
+    title: '💎 Pro',
+    body: 'Pro adds private wallpapers and supports the project and its development.',
   },
 ] as const;
 
@@ -31,14 +31,13 @@ export const TIER_FEATURES: { label: string; tiers: Tier[] }[] = [
   { label: 'Battery Options', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'Performance Settings', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'Feedback System', tiers: ['anon', 'signedIn', 'paid'] },
-  { label: 'All wallpapers < 50 MB', tiers: ['anon', 'signedIn', 'paid'] },
+  { label: 'All wallpapers, any size', tiers: ['anon', 'signedIn', 'paid'] },
   { label: 'User Profile', tiers: ['signedIn', 'paid'] },
   { label: 'Cloud Favorites', tiers: ['signedIn', 'paid'] },
+  { label: 'Wallpaper Settings Sync', tiers: ['signedIn', 'paid'] },
   { label: 'Create / Upload Wallpapers', tiers: ['signedIn', 'paid'] },
-  { label: 'Wallpaper Settings Sync', tiers: ['paid'] },
   { label: 'Private Wallpapers', tiers: ['paid'] },
-  { label: 'Large Wallpaper Files', tiers: ['paid'] },
-  { label: 'Priority Support', tiers: ['paid'] },
+  { label: 'Supporting the Project and Its Development', tiers: ['paid'] },
 ];
 
 export const PLANS = [
@@ -56,7 +55,7 @@ export const PLANS = [
       'Battery Options',
       'Performance Settings',
       'Feedback System',
-      'All wallpapers < 50 MB',
+      'All wallpapers, any size',
     ],
     style: 'base' as const,
   },
@@ -66,7 +65,7 @@ export const PLANS = [
     price: '$0',
     unit: null,
     intro: 'Everything in Free (Anonymous), plus',
-    items: ['User Profile', 'Cloud Favorites', 'Wallpaper Creation / Upload'],
+    items: ['User Profile', 'Cloud Favorites', 'Wallpaper Settings Sync', 'Wallpaper Creation / Upload'],
     style: 'outline' as const,
   },
   {
@@ -75,12 +74,7 @@ export const PLANS = [
     price: '$3',
     unit: '/month or $10/year',
     intro: 'Everything in Free (Signed In), plus',
-    items: [
-      'Wallpaper Settings Sync',
-      'Private Wallpapers',
-      'Large Wallpaper Files',
-      'Priority Support',
-    ],
+    items: ['Private Wallpapers', 'Supporting the project and its development'],
     style: 'primary' as const,
   },
 ];
