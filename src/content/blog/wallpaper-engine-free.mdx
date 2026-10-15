@@ -1,0 +1,121 @@
+---
+title: Wallpaper Engine Free? The Free Alternative
+description: Wallpaper Engine is a paid Steam app with no official free version. Wallpaper Reactor is a free alternative for Windows, macOS, Linux and Android.
+publishDate: 2026-10-15
+updatedDate: 2026-10-15
+related:
+  - wallpaper-engine-for-mac
+  - how-to-set-live-wallpaper-windows-11
+  - set-any-video-as-live-wallpaper
+---
+
+import { Image } from 'astro:assets';
+import Faq from '../../components/Faq.astro';
+import CtaButton from '../../components/CtaButton.astro';
+import appScreenshot from '../../assets/main-app-screenshot.webp';
+import browseStep from '../../assets/set-wallpaper-desktop-1-browse.png';
+
+**Wallpaper Engine is not free.** It's a paid app: at the time of writing, Steam sells it as a one-time purchase for US$4.99, and there is no official free version or trial. If you want live wallpapers without paying, Wallpaper Reactor is a free alternative.
+
+The main Wallpaper Engine app runs on Windows only; a separate companion app exists for Android. Prices change and Steam runs sales, so check the [Steam listing](https://store.steampowered.com/app/431960/Wallpaper_Engine/) for today's price in your region.
+
+## Is there a free version of Wallpaper Engine?
+
+No. The only official way to get it is to buy it on Steam. Sites that offer a "free download" of a paid app are unofficial copies, and those are a common way to pick up malware. If the price is the problem, a free app built for the job is the safer route.
+
+## Wallpaper Reactor is free to use
+
+Wallpaper Reactor creates, manages and applies animated wallpapers. These are free:
+
+- **The app** on Windows, macOS, Linux and Android
+- **The whole wallpaper catalogue.** Browse it, search it and apply anything in it, with no account.
+- **Your own files.** Any video you already have can be [set as a wallpaper in seconds](/blog/set-any-video-as-live-wallpaper/).
+- **Creating and uploading your own wallpapers** once you sign in with a free account. The [creation docs](/docs/wallpaper-creation/) cover shaders, video, web scenes and more.
+- **Cloud favorites**, so your favorites follow you between devices
+- **Battery and performance settings**
+
+<figure>
+  <Image
+    src={appScreenshot}
+    alt="The Wallpaper Reactor library showing video, web, shader and Rive wallpapers side by side with the details panel open."
+    widths={[640, 896, 1280, 1792]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption>The Wallpaper Reactor library: video, web, shader, Godot and Rive wallpapers in one place.</figcaption>
+</figure>
+
+The catalogue covers more than video loops. Web wallpapers respond to your input, shaders render live on your GPU, and Godot scenes run as wallpapers.
+
+### What Pro adds
+
+There is an optional paid plan, Pro. It adds private wallpapers, larger wallpaper files, settings sync and priority support, and it helps fund development. Nothing above needs it. The [features page](/features/) lists exactly what each tier includes.
+
+## Wallpaper Engine and Wallpaper Reactor side by side
+
+Both are real options, so here is the short version. Wallpaper Engine is a separate product from a separate company, and this site has no affiliation with it.
+
+| | Wallpaper Engine | Wallpaper Reactor |
+| --- | --- | --- |
+| Price | One-time purchase on Steam (US$4.99 at the time of writing) | Free, with an optional Pro plan |
+| Desktop platforms | Windows | Windows, macOS, Linux |
+| Android | Separate companion app | Same app and catalogue |
+| Account to browse and apply | Steam | None needed |
+
+## Getting started
+
+1. **Download the app** from the [releases page](/releases/). Windows, macOS, Linux and Android builds are all there.
+2. **Open Browse** and pick a wallpaper. No account is needed.
+3. **Press Set.** The wallpaper starts running behind your icons.
+
+<figure>
+  <Image
+    src={browseStep}
+    alt="The Browse tab of Wallpaper Reactor with a wallpaper selected, ready to apply."
+    widths={[640, 896, 1280]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption>Browse, pick one, set it. The library works signed out.</figcaption>
+</figure>
+
+On Windows, the [step-by-step Windows 11 guide](/blog/how-to-set-live-wallpaper-windows-11/) walks through it with screenshots. On a Mac, see [why Wallpaper Engine has no macOS version](/blog/wallpaper-engine-for-mac/) and what to use instead. Linux is supported on KDE Plasma, GNOME 46+ on Wayland, Sway and Hyprland; the [getting started docs](/docs/getting-started/) list the details.
+
+## FAQ
+
+<Faq
+  items={[
+    {
+      question: 'Is Wallpaper Engine free?',
+      answer:
+        "No. Wallpaper Engine is a paid app sold on Steam as a one-time purchase, US$4.99 at the time of writing. There is no official free version.",
+    },
+    {
+      question: 'Is there a free alternative to Wallpaper Engine?',
+      answer:
+        "Yes. Wallpaper Reactor is free to download and use on Windows, macOS, Linux and Android. The whole catalogue is free to browse and apply, and an account is only needed to upload your own wallpapers or sync favorites.",
+    },
+    {
+      question: 'Is it safe to download Wallpaper Engine for free from other sites?',
+      answer:
+        "Unofficial free downloads of paid apps are often bundled with malware. Get paid software from its official store, or use a free app that is distributed legitimately.",
+    },
+    {
+      question: 'Does Wallpaper Reactor cost anything?',
+      answer:
+        "No. The app, the catalogue and uploading your own wallpapers are free. Pro is an optional paid plan for private wallpapers, larger files, settings sync and priority support.",
+    },
+  ]}
+/>
+
+<div class="my-10 rounded-card border border-brand-500/30 bg-brand-500/[0.06] p-8 text-center">
+  <div class="mb-3 text-2xl font-semibold leading-tight text-ink-100">
+    Download Wallpaper Reactor for free
+  </div>
+  <p class="mx-auto mb-6 max-w-lg text-ink-400">
+    Live wallpapers on Windows, macOS, Linux and Android, from one library.
+  </p>
+  <CtaButton href="/releases/">Download</CtaButton>
+</div>
