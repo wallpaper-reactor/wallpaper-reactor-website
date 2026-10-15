@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaButton from '../components/CtaButton.astro';
+import { WEB_APP } from '../data/site';
+---
+
+<BaseLayout
+  title="Sign in a device"
+  description="Approve a Wallpaper Reactor command-line sign-in."
+  noindex
+>
+  <div class="flex flex-col items-center justify-center px-4 py-24 text-center" data-web-app={WEB_APP}>
+    <h1 class="m-0 text-3xl font-semibold text-ink-100">Sign in a device</h1>
+    <p class="my-6 text-lg text-ink-400">Opening the Wallpaper Reactor web app…</p>
+    <CtaButton href={`${WEB_APP}/device`}>Open the web app</CtaButton>
+  </div>
+  <script>
+    import { deviceTarget } from '../scripts/device-redirect.js';
+    const webApp = document.querySelector('[data-web-app]').dataset.webApp;
+    window.location.replace(deviceTarget(window.location.search, webApp));
+  </script>
+</BaseLayout>
