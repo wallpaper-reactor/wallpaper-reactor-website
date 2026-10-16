@@ -95,7 +95,8 @@ export default defineConfig({
     mdx(),
     sitemap({
       // /search/ is a Pagefind shell with no server-rendered content — nothing to index.
-      filter: (page) => !page.endsWith('/search/'),
+      // /device/ only forwards a CLI sign-in to the web app (src/pages/device.astro); it is not a page to find.
+      filter: (page) => !page.endsWith('/search/') && !page.endsWith('/device/'),
       serialize(item) {
         const path = new URL(item.url).pathname;
         if (BLOG_DATES[path]) item.lastmod = new Date(BLOG_DATES[path]).toISOString();
