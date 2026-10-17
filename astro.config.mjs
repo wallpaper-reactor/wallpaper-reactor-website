@@ -60,10 +60,11 @@ export default defineConfig({
       expressiveCode: {
         themes: ['github-dark'],
       },
-      // The site is dark-only, so the theme picker is removed and the theme pinned.
+      // The site is dark-only, so the theme picker is removed and the theme pinned. Head adds GA4 + analytics.
       components: {
         ThemeSelect: './src/components/starlight/ThemeSelect.astro',
         ThemeProvider: './src/components/starlight/ThemeProvider.astro',
+        Head: './src/components/starlight/Head.astro',
       },
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/wallpaper-reactor' },

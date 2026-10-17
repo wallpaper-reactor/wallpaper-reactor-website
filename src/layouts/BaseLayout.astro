@@ -6,7 +6,7 @@ import AnimatedBackground from '../components/AnimatedBackground.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
-import DownloadTracking from '../components/DownloadTracking.astro';
+import Analytics from '../components/Analytics.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -72,7 +72,7 @@ const fullTitle = Astro.url.pathname === '/' ? SITE.title : `${title} | ${SITE.t
     />
 
     <GoogleAnalytics />
-    <DownloadTracking />
+    <Analytics />
   </head>
 
   <body class="min-h-screen">

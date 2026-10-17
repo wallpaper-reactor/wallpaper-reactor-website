@@ -1,5 +1,5 @@
 /** Single source of truth for site-wide constants and external store links. */
-import { downloadAttrs } from '../scripts/download-tracking.js';
+import { WEB_APP_HOST, downloadAttrs, storeDownload } from '../scripts/analytics.js';
 
 export const SITE = {
   title: 'Wallpaper Reactor',
@@ -17,15 +17,10 @@ export const STORES = {
   appStoreLite: 'https://apps.apple.com/us/app/wallpaper-reactor-lite/id6751447022',
 } as const;
 
-/** The `data-download-*` attributes for a store link; spread them onto the `<a>`. */
-export const storeAttrs = (store: keyof typeof STORES) =>
-  ({
-    googlePlay: downloadAttrs('android', 'play'),
-    microsoft: downloadAttrs('windows', 'microsoft-store'),
-    appStoreLite: downloadAttrs('macos', 'app-store'),
-  })[store];
+/** The `data-download-*` attributes for a store link; spread them onto the `<a>`. The store -> platform table lives in `analytics.js`. */
+export const storeAttrs = (store: keyof typeof STORES) => downloadAttrs(...storeDownload(STORES[store])!);
 
-export const WEB_APP = 'https://web.wallpaperreactor.app';
+export const WEB_APP = `https://${WEB_APP_HOST}`;
 
 export const NAV = [
   { label: 'Home', href: '/' },

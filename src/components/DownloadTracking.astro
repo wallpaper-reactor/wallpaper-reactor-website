@@ -1,9 +1,0 @@
----
-// One delegated click listener for every link tagged with `data-download-*` (see scripts/download-tracking.js).
-// Sends through the existing gtag from GoogleAnalytics.astro: no new script, cookie or consent surface.
----
-
-<script>
-  import { trackDownloads } from '../scripts/download-tracking.js';
-  trackDownloads(document);
-</script>

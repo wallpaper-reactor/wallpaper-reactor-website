@@ -1,0 +1,10 @@
+---
+// Loads the delegated GA4 listeners (see scripts/analytics.js): link clicks classified by `data-download-*`
+// or URL pattern, site search, plus the page-level markers `[data-page-not-found]` and `[data-read-end]`.
+// Sends through the existing gtag from GoogleAnalytics.astro: no new script, cookie or consent surface.
+---
+
+<script>
+  import { initAnalytics } from '../scripts/analytics.js';
+  initAnalytics(document);
+</script>

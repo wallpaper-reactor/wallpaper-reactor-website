@@ -1,0 +1,14 @@
+---
+/**
+ * Starlight's <head> plus the site's GA4 snippet and listeners. The marketing pages get these from
+ * BaseLayout; /docs/ doesn't use it, so without this the docs' store and release links went untracked
+ * (and docs page views unrecorded).
+ */
+import Default from '@astrojs/starlight/components/Head.astro';
+import GoogleAnalytics from '../GoogleAnalytics.astro';
+import Analytics from '../Analytics.astro';
+---
+
+<Default {...Astro.props}><slot /></Default>
+<GoogleAnalytics />
+<Analytics />

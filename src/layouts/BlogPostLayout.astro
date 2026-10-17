@@ -23,6 +23,8 @@ const shown = updatedDate ?? publishDate;
       {updatedDate ? 'Last updated' : 'Published'}: {fmt(shown)}
     </p>
     <slot />
+    <!-- Analytics.astro sends `read_post` when this end-of-article marker is reached. -->
+    <div data-read-end data-post-slug={Astro.url.pathname}></div>
     {related.length > 0 && (
       <nav aria-labelledby="related-guides">
         <h2 id="related-guides">Related guides</h2>
