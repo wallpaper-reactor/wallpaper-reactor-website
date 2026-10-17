@@ -1,4 +1,5 @@
 /** Single source of truth for site-wide constants and external store links. */
+import { downloadAttrs } from '../scripts/download-tracking.js';
 
 export const SITE = {
   title: 'Wallpaper Reactor',
@@ -15,6 +16,14 @@ export const STORES = {
   /** Mac App Store build is the limited "Lite" version — never the primary CTA. */
   appStoreLite: 'https://apps.apple.com/us/app/wallpaper-reactor-lite/id6751447022',
 } as const;
+
+/** The `data-download-*` attributes for a store link; spread them onto the `<a>`. */
+export const storeAttrs = (store: keyof typeof STORES) =>
+  ({
+    googlePlay: downloadAttrs('android', 'play'),
+    microsoft: downloadAttrs('windows', 'microsoft-store'),
+    appStoreLite: downloadAttrs('macos', 'app-store'),
+  })[store];
 
 export const WEB_APP = 'https://web.wallpaperreactor.app';
 

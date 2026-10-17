@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StoreButtons from '../components/StoreButtons.astro';
-import { STORES } from '../data/site';
+import { STORES, storeAttrs } from '../data/site';
 import { DOWNLOADS, LATEST, formatDate } from '../data/releases';
+import { downloadAttrs } from '../scripts/download-tracking.js';
 import { CURRENT_PATTERNS } from '../data/releaseAssets';
 
 /**
@@ -19,28 +20,32 @@ interface Row {
   external?: boolean;
   optional?: boolean;
   id?: string;
+  /** Platform for `data-download-platform`; store rows also name their store. */
+  platform: 'android' | 'windows' | 'macos' | 'linux';
+  store?: keyof typeof STORES;
 }
 
 const url = (a?: { browser_download_url: string }) => a?.browser_download_url;
 const hasMac = Boolean(DOWNLOADS.macUniversal || DOWNLOADS.macArm || DOWNLOADS.macIntel);
 
 const ALL_ROWS: Row[] = [
-  { os: 'macOS', icon: '/assets/images/apple-logo-fill.svg', build: 'Universal<br />(Apple Silicon & Intel)', recommended: true, href: url(DOWNLOADS.macUniversal), optional: hasMac },
-  { os: null, build: 'Apple Silicon', recommended: true, href: url(DOWNLOADS.macArm), optional: true },
-  { os: null, build: 'Intel', recommended: true, href: url(DOWNLOADS.macIntel), optional: true },
-  { os: null, build: 'Mac App Store<br />(Apple Silicon)', recommended: false, href: STORES.appStoreLite, label: 'Mac App Store', external: true },
-  { os: 'Windows', icon: '/assets/images/windows-logo-fill.svg', build: 'Microsoft Store<br />(Intel/AMD)', recommended: true, href: STORES.microsoft, label: 'Microsoft Store', external: true },
+  { platform: 'macos', os: 'macOS', icon: '/assets/images/apple-logo-fill.svg', build: 'Universal<br />(Apple Silicon & Intel)', recommended: true, href: url(DOWNLOADS.macUniversal), optional: hasMac },
+  { platform: 'macos', os: null, build: 'Apple Silicon', recommended: true, href: url(DOWNLOADS.macArm), optional: true },
+  { platform: 'macos', os: null, build: 'Intel', recommended: true, href: url(DOWNLOADS.macIntel), optional: true },
+  { platform: 'macos', os: null, build: 'Mac App Store<br />(Apple Silicon)', recommended: false, href: STORES.appStoreLite, store: 'appStoreLite', label: 'Mac App Store', external: true },
+  { platform: 'windows', os: 'Windows', icon: '/assets/images/windows-logo-fill.svg', build: 'Microsoft Store<br />(Intel/AMD)', recommended: true, href: STORES.microsoft, store: 'microsoft', label: 'Microsoft Store', external: true },
   {
+    platform: 'windows',
     os: null,
     build: DOWNLOADS.windowsX64 && !CURRENT_PATTERNS.windowsX64.test(DOWNLOADS.windowsX64.name) ? 'Direct Install<br />(Intel/AMD & ARM)' : 'Direct Install<br />(Intel/AMD)',
     recommended: false,
     href: url(DOWNLOADS.windowsX64),
   },
-  { os: null, build: 'Direct Install<br />(ARM)', recommended: false, href: url(DOWNLOADS.windowsArm), optional: true },
-  { os: 'Android', icon: '/assets/images/android-logo-fill.svg', build: 'Google Play', recommended: true, href: STORES.googlePlay, label: 'Google Play', external: true },
-  { os: null, build: 'Universal APK', recommended: false, href: url(DOWNLOADS.androidApk) },
-  { id: 'linux', os: 'Linux<br />(KDE, GNOME, Sway, Hyprland)', icon: '/assets/images/linux-logo-fill.svg', build: '.deb<br />(Debian, Ubuntu)', recommended: true, href: url(DOWNLOADS.linuxDeb) },
-  { os: null, build: 'Flatpak<br />(SteamOS, Fedora, others)', recommended: false, href: url(DOWNLOADS.linuxFlatpak) },
+  { platform: 'windows', os: null, build: 'Direct Install<br />(ARM)', recommended: false, href: url(DOWNLOADS.windowsArm), optional: true },
+  { platform: 'android', os: 'Android', icon: '/assets/images/android-logo-fill.svg', build: 'Google Play', recommended: true, href: STORES.googlePlay, store: 'googlePlay', label: 'Google Play', external: true },
+  { platform: 'android', os: null, build: 'Universal APK', recommended: false, href: url(DOWNLOADS.androidApk) },
+  { platform: 'linux', id: 'linux', os: 'Linux<br />(KDE, GNOME, Sway, Hyprland)', icon: '/assets/images/linux-logo-fill.svg', build: '.deb<br />(Debian, Ubuntu)', recommended: true, href: url(DOWNLOADS.linuxDeb) },
+  { platform: 'linux', os: null, build: 'Flatpak<br />(SteamOS, Fedora, others)', recommended: false, href: url(DOWNLOADS.linuxFlatpak) },
 ];
 
 const ROWS = ALL_ROWS.filter((row) => row.href || !row.optional);
@@ -110,7 +115,11 @@ const ROWS = ALL_ROWS.filter((row) => row.href || !row.optional);
               <td>{row.recommended ? '✅' : '❌'}</td>
               <td>
                 {row.href ? (
-                  <a href={row.href} {...(row.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  <a
+                    href={row.href}
+                    {...(row.external ? { target: '_blank', rel: 'noopener' } : {})}
+                    {...(row.store ? storeAttrs(row.store) : downloadAttrs(row.platform))}
+                  >
                     {row.label ?? 'Download'}
                   </a>
                 ) : (

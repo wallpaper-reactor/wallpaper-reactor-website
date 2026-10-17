@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE, STORES, WEB_APP } from '../data/site';
+import { SITE, STORES, WEB_APP, storeAttrs } from '../data/site';
 import { PLANS, PLATFORMS } from '../data/features';
 
 /** Facts come from the site's own data (`site.ts`, `features.ts`), so the press page can never
@@ -87,7 +87,7 @@ const FACTS: [string, string][] = [
       </tbody>
     </table>
     <p>
-      Get it: <a href={STORES.googlePlay}>Google Play</a> · <a href={STORES.microsoft}>Microsoft Store</a> ·{' '}
+      Get it: <a href={STORES.googlePlay} {...storeAttrs('googlePlay')}>Google Play</a> · <a href={STORES.microsoft} {...storeAttrs('microsoft')}>Microsoft Store</a> ·{' '}
       <a href="/releases/">direct downloads for Windows, macOS and Linux</a>
     </p>
 
