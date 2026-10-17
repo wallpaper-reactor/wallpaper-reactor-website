@@ -16,7 +16,7 @@ import { WEB_APP } from '../data/site';
   </div>
   <script>
     import { deviceTarget } from '../scripts/device-redirect.js';
-    const webApp = document.querySelector('[data-web-app]').dataset.webApp;
-    window.location.replace(deviceTarget(window.location.search, webApp));
+    const webApp = document.querySelector<HTMLElement>('[data-web-app]')?.dataset.webApp;
+    if (webApp) window.location.replace(deviceTarget(window.location.search, webApp));
   </script>
 </BaseLayout>
