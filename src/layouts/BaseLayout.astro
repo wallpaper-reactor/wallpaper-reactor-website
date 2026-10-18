@@ -2,6 +2,7 @@
 import { SEO } from 'astro-seo';
 import ogImage from '../assets/logo.png';
 import { SITE } from '../data/site';
+import { softwareApplicationSchema } from '../data/softwareApplication.js';
 import AnimatedBackground from '../components/AnimatedBackground.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -18,6 +19,8 @@ interface Props {
   type?: 'website' | 'article';
   /** Keep a page out of search results. Used for /search/, which is an empty shell until Pagefind runs. */
   noindex?: boolean;
+  /** Replaces the default free offer in the SoftwareApplication schema, for pages that show pricing. */
+  offers?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -26,6 +29,7 @@ const {
   wide = false,
   type = 'website',
   noindex = false,
+  offers,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
@@ -69,6 +73,14 @@ const fullTitle = Astro.url.pathname === '/' ? SITE.title : `${title} | ${SITE.t
         logo: new URL(ogImage.src, SITE.url).href,
         founder: { '@type': 'Person', name: SITE.author },
       })}
+    />
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(
+        softwareApplicationSchema({ siteUrl: SITE.url, imageUrl: new URL(ogImage.src, SITE.url).href, offers })
+      )}
     />
 
     <GoogleAnalytics />

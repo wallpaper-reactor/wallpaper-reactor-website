@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Faq, { type FaqItem } from '../components/Faq.astro';
-import { SITE } from '../data/site';
 import {
   HIGHLIGHTS,
   PLANS,
@@ -41,9 +40,29 @@ const FAQS: FaqItem[] = [
       'Store policies and platform capabilities sometimes require adjusted feature sets. Direct downloads usually provide the most complete experience.',
   },
 ];
+
+// The pricing page's offers replace the layout's default free offer, so there is one SoftwareApplication entity.
+const OFFERS = [
+  { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
+  {
+    '@type': 'Offer',
+    name: 'Paid',
+    price: '3',
+    priceCurrency: 'USD',
+    billingIncrement: 1,
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price: '3',
+      priceCurrency: 'USD',
+      billingDuration: 1,
+      unitCode: 'MON',
+    },
+  },
+];
 ---
 
 <BaseLayout
+  offers={OFFERS}
   title="Features & Pricing"
   description="Compare Wallpaper Reactor tiers and platform availability across Android, Windows, macOS, and Linux (KDE Plasma, GNOME, Sway, Hyprland)."
 >
@@ -211,34 +230,3 @@ const FAQS: FaqItem[] = [
 
   <Faq items={FAQS} heading="FAQ" />
 </BaseLayout>
-
-{/* The strongest rich-result candidate on the site: a downloadable app with platforms and tiers. */}
-<script
-  type="application/ld+json"
-  is:inline
-  set:html={JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: SITE.title,
-    url: `${SITE.url}/features/`,
-    applicationCategory: 'PersonalizationApplication',
-    operatingSystem: 'macOS, Windows, Android, Linux',
-    offers: [
-      { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
-      {
-        '@type': 'Offer',
-        name: 'Paid',
-        price: '3',
-        priceCurrency: 'USD',
-        billingIncrement: 1,
-        priceSpecification: {
-          '@type': 'UnitPriceSpecification',
-          price: '3',
-          priceCurrency: 'USD',
-          billingDuration: 1,
-          unitCode: 'MON',
-        },
-      },
-    ],
-  })}
-/>
