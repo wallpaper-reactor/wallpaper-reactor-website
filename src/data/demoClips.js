@@ -24,22 +24,22 @@ export const DEMO_CLIPS = {
   'googlebook-browse': {
     name: 'Browsing wallpapers and applying one in Wallpaper Reactor on a Googlebook',
     description:
-      'Browsing popular wallpapers in Wallpaper Reactor on Googlebook OS in a virtual machine: the details sidebar follows each selection, then a wallpaper is applied from a local file with Quick Wallpaper and the desktop changes.',
+      'Browsing popular wallpapers in Wallpaper Reactor on Googlebook OS in a virtual machine: the details sidebar follows each selection, then a wallpaper applied from a local file with Quick Wallpaper is shown full screen.',
     caption:
-      'Googlebook OS in a VM on a Mac: browsing popular wallpapers, with the details sidebar following each one. At the cut, a wallpaper is applied from a local file with Quick Wallpaper, and the desktop changes.',
+      'Googlebook OS in a VM on a Mac: browsing popular wallpapers, with the details sidebar following each selection. At the cut, Super Mario 64, applied from a local file with Quick Wallpaper, is shown full screen.',
     uploadDate: '2026-10-18',
-    durationSeconds: 20.4,
+    durationSeconds: 11.8,
     width: 1280,
     height: 800,
   },
   'googlebook-switching': {
     name: 'Switching between a shader, Rive, video and web wallpaper on a Googlebook',
     description:
-      'Four wallpaper types applied one after another with Quick Wallpaper on Googlebook OS in a virtual machine: a shader, a Rive animation, a video loop and a web page Scene, each animating behind the app window.',
+      'Four wallpaper types on Googlebook OS in a virtual machine, each animating full screen: a shader, a Rive animation, a video loop and a web page Scene.',
     caption:
-      'Googlebook OS in a VM on a Mac: four wallpapers applied in a row from local files with Quick Wallpaper. A shader (PSP Wallpaper), a Rive animation (Super Mario 64), a video loop (a Zelda scene) and a Scene (a web page whose colours follow the time of day).',
+      'Googlebook OS in a VM on a Mac: four live wallpapers, each shown full screen after being applied from a local file with Quick Wallpaper. A shader (PSP Wallpaper), a Rive animation (Super Mario 64), a video loop (a Zelda scene) and a Scene (animated web-page balls). The app is minimised and the clips are cut together.',
     uploadDate: '2026-10-18',
-    durationSeconds: 21.83,
+    durationSeconds: 14.4,
     width: 1280,
     height: 800,
   },
