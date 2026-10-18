@@ -8,6 +8,7 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaButton from './CtaButton.astro';
+import DemoVideo from './DemoVideo.astro';
 import Faq, { type FaqItem } from './Faq.astro';
 import SectionTitle from './SectionTitle.astro';
 
@@ -21,7 +22,8 @@ interface Props {
   image?: ImageMetadata;
   /** Alt text for the social image. */
   imageAlt?: string;
-  hero: { src: ImageMetadata; alt: string; caption: string };
+  /** The hero is a still, or a screen recording (`clip`, an id in `src/data/demoClips.js`; its caption comes from there). */
+  hero: { src: ImageMetadata; alt: string; caption: string } | { clip: string };
   cta: { label: string; href: string; icon: 'apple' | 'windows' | 'android'; external?: boolean };
   /** A plain text link under the button, e.g. the releases page. */
   secondary?: { label: string; href: string };
@@ -46,17 +48,25 @@ const { title, description, image, imageAlt, h1, intro, hero, cta, secondary, wo
       </div>
     </header>
 
-    <figure class="my-12">
-      <Image
-        src={hero.src}
-        alt={hero.alt}
-        widths={[640, 896, 1280, 1792]}
-        sizes="(max-width: 896px) 100vw, 896px"
-        loading="eager"
-        class="block h-auto w-full rounded-card border border-white/10"
-      />
-      <figcaption class="mt-3 text-center text-sm text-ink-400">{hero.caption}</figcaption>
-    </figure>
+    {
+      'clip' in hero ? (
+        <div class="my-12">
+          <DemoVideo id={hero.clip} eager />
+        </div>
+      ) : (
+        <figure class="my-12">
+          <Image
+            src={hero.src}
+            alt={hero.alt}
+            widths={[640, 896, 1280, 1792]}
+            sizes="(max-width: 896px) 100vw, 896px"
+            loading="eager"
+            class="block h-auto w-full rounded-card border border-white/10"
+          />
+          <figcaption class="mt-3 text-center text-sm text-ink-400">{hero.caption}</figcaption>
+        </figure>
+      )
+    }
 
     <section>
       <SectionTitle>What works</SectionTitle>

@@ -5,6 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import VideoShowcase from '../components/VideoShowcase.astro';
+import DemoVideo from '../components/DemoVideo.astro';
 import MediaExpand from '../components/MediaExpand.astro';
 import Faq, { type FaqItem } from '../components/Faq.astro';
 
@@ -53,6 +54,9 @@ const FAQS: FaqItem[] = [
           sizes="(max-width: 768px) 100vw, 1400px"
           class="app-screenshot block h-auto max-w-full cursor-pointer transition-all duration-200 hover:scale-[1.01] hover:opacity-95"
         />
+      </div>
+      <div class="mx-auto max-w-5xl">
+        <DemoVideo id="googlebook-browse" />
       </div>
     </div>
   </section>

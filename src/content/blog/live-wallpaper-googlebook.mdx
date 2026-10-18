@@ -15,13 +15,12 @@ related:
 import { Image } from 'astro:assets';
 import Faq from '../../components/Faq.astro';
 import CtaButton from '../../components/CtaButton.astro';
+import DemoVideo from '../../components/DemoVideo.astro';
 import behindWindow1 from '../../assets/googlebook-live-wallpaper-behind-window-1.webp';
-import behindWindow2 from '../../assets/googlebook-live-wallpaper-behind-window-2.webp';
 import browseWindow from '../../assets/googlebook-browse-desktop-window.webp';
 import detailsPanel from '../../assets/googlebook-wallpaper-details-panel.webp';
 import chooser from '../../assets/googlebook-system-live-wallpaper-chooser.webp';
 import picker from '../../assets/googlebook-system-live-wallpaper-picker.webp';
-import lockScreen from '../../assets/googlebook-lock-screen-live-wallpaper.webp';
 
 Googlebook is Google's new laptop line, built on the Android stack with ChromeOS desktop foundations. Because it runs Android, apps don't need a separate build — **Wallpaper Reactor is the same Android app you'd put on a phone**, and live wallpapers work on it: the wallpaper animates behind your windows and on the lock screen.
 
@@ -38,16 +37,7 @@ Here is exactly what we've done. **We ran Google's own Googlebook OS image (the 
   <figcaption>Googlebook OS running in a VM on a Mac, with the PSP Wallpaper live wallpaper behind the Wallpaper Reactor window.</figcaption>
 </figure>
 
-<figure>
-  <Image
-    src={behindWindow2}
-    alt="The same desktop about ten seconds later: the waves of the PSP Wallpaper live wallpaper around the window have shifted, while the window's contents are the same."
-    widths={[800, 1200, 1600]}
-    sizes="(max-width: 896px) 100vw, 896px"
-    loading="lazy"
-  />
-  <figcaption>The same desktop about ten seconds later. The wallpaper has moved; the window hasn't.</figcaption>
-</figure>
+<DemoVideo id="googlebook-hero" />
 
 ## Install it
 
@@ -77,6 +67,10 @@ It's the same flow as on any Android device, and the [Android walkthrough](/blog
   <figcaption>A wallpaper's details open beside the grid. <strong>Download</strong> is the first step.</figcaption>
 </figure>
 
+Browsing and applying looks like this:
+
+<DemoVideo id="googlebook-browse" />
+
 <figure>
   <Image
     src={chooser}
@@ -101,16 +95,7 @@ It's the same flow as on any Android device, and the [Android walkthrough](/blog
 
 After Wallpaper Reactor is your live wallpaper, setting another one in the app switches it without the Android screen. If you back out of the Android screen without confirming, nothing is set and the app shows no error — just choose **Set wallpaper** again.
 
-<figure>
-  <Image
-    src={lockScreen}
-    alt="The Googlebook OS lock screen: a large 07 06 clock and the date over the blue waves of the PSP Wallpaper live wallpaper."
-    widths={[800, 1200, 1600]}
-    sizes="(max-width: 896px) 100vw, 896px"
-    loading="lazy"
-  />
-  <figcaption>Set for the home screen and the lock screen, the wallpaper animates on the lock screen too.</figcaption>
-</figure>
+<DemoVideo id="googlebook-lock" />
 
 ### What we haven't confirmed
 
@@ -129,6 +114,10 @@ Wallpaper Reactor isn't just video loops. On Googlebook OS in the VM, every wall
 - **Scenes** and **interactive 3D** built in Godot.
 - **Websites**: HTML pages as wallpapers.
 - **Compositions**.
+
+Setting one after another switches the wallpaper in place:
+
+<DemoVideo id="googlebook-switching" />
 
 Some of the fixes that made this work land in **the next update**: the video and Rive fallbacks, catalogue shader conversion and composition routing. Until it ships, a few wallpaper types may not draw on Googlebook OS yet.
 
@@ -150,6 +139,8 @@ Wallpaper Reactor on Googlebook OS runs in a window you can resize and maximize,
   />
   <figcaption>Browse maximized on Googlebook OS in a VM, with the selected wallpaper's details open beside the grid.</figcaption>
 </figure>
+
+<DemoVideo id="googlebook-resize" />
 
 In the VM:
 

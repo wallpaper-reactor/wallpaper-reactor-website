@@ -235,6 +235,22 @@ the app in its two-column compact layout, which is what a phone actually shows.
     public/assets/videos/<name>-poster.jpg
   ```
 
+### Recordings of the app (demo clips)
+
+A real screen recording of the app goes in as a **demo clip**, not a hand-written `<video>`:
+
+1. Encode it: `wr-heavy scripts/encode-demo-clip.sh RAW ID [POSTER_SECONDS] [FPS]` makes
+   `public/assets/videos/<id>/<id>.{mp4,webm,webp}` (1280 px wide, no audio, each video under 3 MB) and
+   prints the duration.
+2. Add an entry to `src/data/demoClips.js`: name, description, caption, upload date, duration. The caption
+   says where it was recorded ("Googlebook OS in a VM on a Mac") and, if a wallpaper is applied on screen,
+   how (Quick Wallpaper from a local file, so no catalogue install counts move).
+3. Place it with `<DemoVideo id="..." />`. It emits the `VideoObject` JSON-LD from the same entry, loads only
+   when it scrolls near (no download at page load), and shows the poster with controls under
+   `prefers-reduced-motion`.
+
+`test/built/demo-videos.test.mjs` fails a build whose clip lacks a poster, `muted`, `playsinline` or its `VideoObject`.
+
 ## After publishing
 
 The sitemap picks up new posts automatically, but submitting the URL in Search Console
