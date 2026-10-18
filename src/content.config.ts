@@ -14,8 +14,6 @@ export const collections = {
       description: z.string(),
       publishDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
-      /** Social-share image (og:image); falls back to the logo. */
-      image: image().optional(),
       draft: z.boolean().default(false),
       /** Other posts' ids, rendered as "Related guides" under the post (test/blog-related.test.mjs). */
       related: z.array(z.string()).default([]),
