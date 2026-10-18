@@ -12,7 +12,7 @@ This policy covers the Wallpaper Reactor apps for Android, Windows, macOS and Li
 
 - You can browse and apply wallpapers **without an account**. Without one, we don't know who you are.
 - With an account, we keep your **email address** and the **profile and wallpapers you choose to share**.
-- The app has **no ads, no advertising ID and no analytics**. **Crash reports are optional**: after a crash, the app shows you the report and sends it only if you tap Send (section 7). The web app counts visits with **Cloudflare Web Analytics**, which uses no cookies (section 12). We don't sell your data or use it to track you.
+- The app has **no ads and no advertising ID**. It sends **anonymous usage events** to us, never linked to your account, and you can turn them off in Settings (section 7). **Crash reports are optional**: after a crash, the app shows you the report and sends it only if you tap Send (section 7). The web app counts visits with **Cloudflare Web Analytics**, which uses no cookies (section 12). We don't sell your data or use it to track you.
 - The app's **logs stay on your device** unless you export them and send them to us yourself, or **tick "Attach logs"** when you send feedback.
 - You can ask us to **delete your account** at any time (see section 10).
 
@@ -63,7 +63,7 @@ Where the app offers Wallpaper Reactor Pro, purchases are handled by **RevenueCa
 - **Logs.** The app writes logs **on your device**, to help troubleshoot problems. They are never uploaded automatically. If you export them from Settings, you decide whether and where to send the file.
 - **Attaching logs to feedback (optional).** The feedback form has a separate box, **"Attach logs", off by default**. If you tick it, the form says what it will send: the app's own logs, the wallpaper helper's logs and, on Android, the wallpaper engine's logs (up to 2 MB each). **Logs can contain file paths and wallpaper IDs.** Before they leave your device, the app replaces your home folder's path with `~` and removes email addresses, but it cannot promise to catch everything, so don't tick the box if you'd rather not share them. The logs are sent as one file, stored privately, and only our developers can read them. Like your feedback message, they are **not linked to your account**, even if you are signed in. We use them only to work out what went wrong.
 - **Crash reports (optional).** If the app crashes, the next time you open it we show you the report that would be sent: what went wrong, where in the app's code, the app and system version, your device's processor type, and the app's last log lines. We remove your home folder and email addresses from it first. Nothing is sent unless you tap Send, and only while you are signed in. A report does not include your account, user id, email or device model, so we cannot connect it to you, and for the same reason we cannot find or delete one at your request. We use your account only to limit how many reports can be sent in a day; that count is kept apart from the reports and deleted within two days. Reports are stored by us (Supabase, our database provider), read only by our developers to fix crashes, and deleted after 90 days. They are not shared with anyone else.
-- **No analytics.** The installed apps send no usage analytics. The web app counts visits as described in section 12. **Earlier versions** sent us a crash report when the app crashed, with your account's email and ID (if you were signed in), your operating system details, the app version and the app's log.
+- **Usage data.** The app sends us anonymous usage events: which screens are opened, which wallpapers are previewed and set (their type, which tab they came from, and for catalogue wallpapers their id), how many results a search found (never what was searched), how far the create, upload, sign-in and purchase steps get, whether a controller or multi-screen mode is used, and the kind of device, app language, platform and app version. They are stored by us (Supabase, our database provider) under a random number made for this installation, never with your account, email or any device identifier, and are not shared with anyone else or used for advertising. We keep them for 13 months, then only as daily totals. You can turn them off in Settings → Legal → Share Anonymous Usage Data; turning them off deletes what is waiting to be sent and the random number, so turning them on again starts a new one. Development and test builds never send them. The web app counts visits as described in section 12. **Earlier versions** sent us a crash report when the app crashed, with your account's email and ID (if you were signed in), your operating system details, the app version and the app's log.
 
 ### 8. Who processes your data for us
 
@@ -92,6 +92,8 @@ We keep your account data while your account exists.
 
 **To delete your account**, use **Delete Account** on your account page in the app, which deletes it straight away, or email us as described on our [Account Deletion](/docs/account-deletion/) page. Deleting your account deletes your sign-in, email address, profile, favourites, Creator Agreement records and **all of your wallpapers**, as described in the [Creator Agreement](/creator-agreement/). Copies of public wallpapers that other people already downloaded stay on their devices. Backups roll off on their normal schedule, and we may keep a limited record where we need it for safety, fraud prevention, a legal claim or a moderation decision.
 
+**Usage events** are kept for 13 months, then only as daily totals. Because they are not linked to your account, we cannot find or delete them on request; turning them off in Settings stops them (section 7).
+
 **Crash reports** you choose to send are deleted after 90 days. Because a report is not linked to your account, we cannot find or delete one on request (section 7).
 
 Without deleting your account, you can delete or unpublish any of your wallpapers, remove favourites, and change or clear your profile at any time.
@@ -108,7 +110,7 @@ Without deleting your account, you can delete or unpublish any of your wallpaper
 
 The **web app** at web.wallpaperreactor.app uses **Cloudflare Web Analytics** to count visits and see which pages are opened and how fast they load. It uses **no cookies** and doesn't identify or follow you between websites; Cloudflare reports only totals, such as page views, the referring website, country, browser and loading times. The installed apps don't include it.
 
-This website uses **Google Analytics** to count visits and see which pages are read. Google Analytics uses cookies and collects information such as your approximate location, browser and the pages you visit. You can block it in your browser's settings or with a content blocker. The website has no accounts.
+This website uses **Google Analytics** to count visits, see which pages are read, and count clicks on download, store and web-app links. Google Analytics uses cookies and collects information such as your approximate location, browser and the pages you visit. You can block it in your browser's settings or with a content blocker. The website has no accounts.
 
 ### 13. Children's privacy
 
@@ -118,6 +120,7 @@ Wallpaper Reactor is not intended for children under the age of 13. We don't ask
 
 - See and change your profile in the app at any time.
 - Turn marketing emails on or off in your profile.
+- Turn anonymous usage events off in Settings → Legal → Share Anonymous Usage Data (section 7).
 - Delete wallpapers, favourites or your whole account (section 10).
 - Disconnect Wallpaper Reactor from your Google, Apple or Discord account in that provider's settings.
 - Contact us with questions about your data.
