@@ -26,3 +26,10 @@ test('/googlebook/ is in the sitemap and linked from the footer of the home page
 	assert.match(read('sitemap-0.xml'), /<loc>https:\/\/wallpaperreactor\.app\/googlebook\/<\/loc>/);
 	assert.match(read('index.html'), /<footer[\s\S]*href="\/googlebook\/"/);
 });
+
+test('the page and the post share the Googlebook social image; other pages keep the logo', opts, () => {
+	const og = (p) => read(p).match(/property="og:image" content="([^"]+)"/)[1];
+	assert.match(og('googlebook/index.html'), /googlebook-live-wallpaper-og/);
+	assert.match(og('blog/wallpaper-engine-for-googlebook/index.html'), /googlebook-live-wallpaper-og/);
+	assert.match(og('index.html'), /logo/);
+});

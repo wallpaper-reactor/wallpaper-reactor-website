@@ -1,7 +1,8 @@
 ---
 import PlatformPage from '../components/PlatformPage.astro';
 import { STORES } from '../data/site';
-import heroShot from '../assets/main-app-screenshot.webp';
+import heroShot from '../assets/googlebook-live-wallpaper-behind-window-1.webp';
+import ogShot from '../assets/googlebook-live-wallpaper-og.jpg';
 
 const FAQS = [
   {
@@ -36,10 +37,11 @@ const FAQS = [
   description="Live wallpaper and animated wallpaper for Googlebook: video, shaders, Godot, Rive and web wallpapers behind your windows and on the lock screen. Tested in a VM."
   h1="Live and animated wallpaper for Googlebook"
   intro="Wallpaper Reactor is an Android app, so it runs on Googlebook OS. It animates your desktop behind your windows and your lock screen with video, shaders, Godot scenes, Rive animations and web wallpapers."
+  ogImage={ogShot}
   hero={{
     src: heroShot,
-    alt: 'The Wallpaper Reactor library with video, web, shader and Rive wallpapers and the details panel open.',
-    caption: 'The Wallpaper Reactor library. PLACEHOLDER: swap for the real Googlebook OS screenshot.',
+    alt: 'A Googlebook desktop with the Wallpaper Reactor Browse window open over a swirling rainbow live wallpaper, with the shelf of app icons along the bottom.',
+    caption: 'Googlebook OS running in a VM on a Mac: a Wallpaper Reactor live wallpaper behind the app window.',
   }}
   cta={{ label: 'Get it on Google Play', href: STORES.googlePlay, icon: 'android', external: true }}
   secondary={{ label: 'Or download the Android build from the releases page', href: '/releases/' }}

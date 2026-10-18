@@ -17,6 +17,8 @@ interface Props {
   description: string;
   h1: string;
   intro: string;
+  /** og:image for the page. */
+  ogImage?: ImageMetadata;
   hero: { src: ImageMetadata; alt: string; caption: string };
   cta: { label: string; href: string; icon: 'apple' | 'windows' | 'android'; external?: boolean };
   /** A plain text link under the button, e.g. the releases page. */
@@ -28,10 +30,10 @@ interface Props {
   links: { href: string; title: string; blurb: string }[];
 }
 
-const { title, description, h1, intro, hero, cta, secondary, works, caveat, faqs, links } = Astro.props;
+const { title, description, ogImage, h1, intro, hero, cta, secondary, works, caveat, faqs, links } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <div class="mx-auto max-w-4xl">
     <header class="text-center">
       <h1 class="mb-4 text-4xl font-semibold leading-tight text-ink-100 max-sm:text-3xl">{h1}</h1>

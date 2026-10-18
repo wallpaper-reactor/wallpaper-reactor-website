@@ -1,6 +1,7 @@
 ---
 import { SEO } from 'astro-seo';
-import ogImage from '../assets/logo.png';
+import type { ImageMetadata } from 'astro';
+import logo from '../assets/logo.png';
 import { SITE } from '../data/site';
 import { softwareApplicationSchema } from '../data/softwareApplication.js';
 import AnimatedBackground from '../components/AnimatedBackground.astro';
@@ -20,6 +21,8 @@ interface Props {
   /** Keep a page out of search results. Used for /search/, which is an empty shell until Pagefind runs. */
   noindex?: boolean;
   /** Replaces the default free offer in the SoftwareApplication schema, for pages that show pricing. */
+  /** Social-share image for this page; defaults to the logo. */
+  ogImage?: ImageMetadata;
   offers?: Record<string, unknown> | Record<string, unknown>[];
 }
 
@@ -30,6 +33,7 @@ const {
   type = 'website',
   noindex = false,
   offers,
+  ogImage,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
@@ -56,7 +60,7 @@ const fullTitle = Astro.url.pathname === '/' ? SITE.title : `${title} | ${SITE.t
         // Share cards must use the composed title. Passing the bare `title` prop here
         // meant the homepage shared as "Home".
         // og:image must be absolute; ogImage.src is the hashed build path.
-        basic: { title: fullTitle, type, url: canonical, image: new URL(ogImage.src, SITE.url).href },
+        basic: { title: fullTitle, type, url: canonical, image: new URL((ogImage ?? logo).src, SITE.url).href },
         optional: { description, siteName: SITE.title, locale: 'en_US' },
       }}
       twitter={{ card: 'summary', title: fullTitle, description }}
@@ -70,7 +74,7 @@ const fullTitle = Astro.url.pathname === '/' ? SITE.title : `${title} | ${SITE.t
         '@type': 'Organization',
         name: SITE.title,
         url: SITE.url,
-        logo: new URL(ogImage.src, SITE.url).href,
+        logo: new URL(logo.src, SITE.url).href,
         founder: { '@type': 'Person', name: SITE.author },
       })}
     />
@@ -79,7 +83,7 @@ const fullTitle = Astro.url.pathname === '/' ? SITE.title : `${title} | ${SITE.t
       type="application/ld+json"
       is:inline
       set:html={JSON.stringify(
-        softwareApplicationSchema({ siteUrl: SITE.url, imageUrl: new URL(ogImage.src, SITE.url).href, offers })
+        softwareApplicationSchema({ siteUrl: SITE.url, imageUrl: new URL(logo.src, SITE.url).href, offers })
       )}
     />
 

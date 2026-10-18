@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from 'astro';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
@@ -6,17 +7,19 @@ interface Props {
   description: string;
   publishDate: Date;
   updatedDate?: Date;
+  /** Social-share image, from the post's `image` front matter. */
+  image?: ImageMetadata;
   /** Related posts, from the post's `related` front matter. */
   related?: { href: string; title: string; description: string }[];
 }
 
-const { title, description, publishDate, updatedDate, related = [] } = Astro.props;
+const { title, description, publishDate, updatedDate, image, related = [] } = Astro.props;
 
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
 const shown = updatedDate ?? publishDate;
 ---
 
-<BaseLayout title={title} description={description} type="article">
+<BaseLayout title={title} description={description} type="article" ogImage={image}>
   <article class="prose-wr mx-auto max-w-4xl">
     <h1>{title}</h1>
     <p class="text-[1.05rem] leading-relaxed text-ink-400">

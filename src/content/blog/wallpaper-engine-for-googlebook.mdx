@@ -1,6 +1,7 @@
 ---
 title: Wallpaper Engine for Googlebook
 description: Wallpaper Engine is a Windows app, so it can't run on a Googlebook. Wallpaper Reactor is an Android app with live wallpapers behind your windows and on the lock screen, and it runs on Googlebook OS.
+image: ../../assets/googlebook-live-wallpaper-og.jpg
 publishDate: 2026-10-18
 updatedDate: 2026-10-18
 related:
@@ -13,7 +14,8 @@ related:
 import { Image } from 'astro:assets';
 import Faq from '../../components/Faq.astro';
 import CtaButton from '../../components/CtaButton.astro';
-import googlebookShot from '../../assets/main-app-screenshot.webp';
+import behindWindow from '../../assets/googlebook-live-wallpaper-behind-window-1.webp';
+import lockScreen from '../../assets/googlebook-lock-screen-live-wallpaper.webp';
 
 Wallpaper Engine can't run on a Googlebook. It's a Windows application sold on Steam, and a Googlebook runs Android apps, so there's nothing to install. The Android app that does the same job on a Googlebook is Wallpaper Reactor.
 
@@ -25,14 +27,28 @@ Wallpaper Reactor is an Android app, so it runs on Googlebook OS. It sets a live
 
 <figure>
   <Image
-    src={googlebookShot}
-    alt="The Wallpaper Reactor library with video, web, shader and Rive wallpapers and the details panel open."
+    src={behindWindow}
+    alt="A Googlebook desktop with the Wallpaper Reactor Browse window open over a swirling rainbow live wallpaper, with the shelf of app icons along the bottom."
     widths={[640, 896, 1280, 1792]}
     sizes="(max-width: 896px) 100vw, 896px"
     loading="lazy"
     decoding="async"
   />
-  <figcaption>The Wallpaper Reactor library. PLACEHOLDER: swap for the real Googlebook OS screenshot.</figcaption>
+  <figcaption>Googlebook OS running in a VM on a Mac: a Wallpaper Reactor live wallpaper behind the app window.</figcaption>
+</figure>
+
+The same wallpaper animates on the lock screen.
+
+<figure>
+  <Image
+    src={lockScreen}
+    alt="The Googlebook lock screen showing a large clock and date over the same swirling rainbow live wallpaper."
+    widths={[640, 896, 1280, 1792]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption>Googlebook OS running in a VM on a Mac: the lock screen with the live wallpaper.</figcaption>
 </figure>
 
 Every wallpaper type renders:
