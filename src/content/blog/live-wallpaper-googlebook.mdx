@@ -1,30 +1,51 @@
 ---
 title: Live and animated wallpapers on a Googlebook
-description: "Googlebook runs Android apps, so Wallpaper Reactor installs from Google Play. Here's how to set it up, what it can run, and the one thing we haven't been able to confirm on real hardware."
+description: "Wallpaper Reactor's live wallpapers run on Googlebook OS: we watched one animate behind our windows and on the lock screen, in a VM on a Mac. Here's how to set it up, what it can run, and the one thing we haven't confirmed on real hardware."
 publishDate: 2026-10-13
-updatedDate: 2026-10-13
+updatedDate: 2026-10-18
+image: ../../assets/googlebook-live-wallpaper-og.jpg
+imageAlt: The Googlebook OS lock screen with a large clock over the animated blue waves of the PSP Wallpaper live wallpaper.
 related:
   - android-desktop-mode-live-wallpapers
   - how-to-set-live-wallpaper-android
   - live-wallpaper-ayn-thor-anbernic-rg-ds
 ---
 
+import { Image } from 'astro:assets';
 import Faq from '../../components/Faq.astro';
 import CtaButton from '../../components/CtaButton.astro';
+import behindWindow1 from '../../assets/googlebook-live-wallpaper-behind-window-1.webp';
+import behindWindow2 from '../../assets/googlebook-live-wallpaper-behind-window-2.webp';
+import browseWindow from '../../assets/googlebook-browse-desktop-window.webp';
+import detailsPanel from '../../assets/googlebook-wallpaper-details-panel.webp';
+import chooser from '../../assets/googlebook-system-live-wallpaper-chooser.webp';
+import picker from '../../assets/googlebook-system-live-wallpaper-picker.webp';
+import lockScreen from '../../assets/googlebook-lock-screen-live-wallpaper.webp';
 
-Googlebook is Google's new laptop line, built on the Android stack with ChromeOS desktop foundations. Because it runs Android, apps don't need a separate build — **Wallpaper Reactor is the same Android app you'd put on a phone**, and you get it from Google Play.
+Googlebook is Google's new laptop line, built on the Android stack with ChromeOS desktop foundations. Because it runs Android, apps don't need a separate build — **Wallpaper Reactor is the same Android app you'd put on a phone**, and live wallpapers work on it: the wallpaper animates behind your windows and on the lock screen.
 
-Before anything else, a straight account of where we stand. **We haven't tested Wallpaper Reactor on a real Googlebook.** What we have run is an Android desktop-mode emulator. Wallpaper Reactor isn't certified by Google for Googlebook and doesn't carry a Google Play desktop badge. We'll say which parts below come from that emulator, and which we couldn't check.
+Here is exactly what we've done. **We ran Google's own Googlebook OS image (the Dell Googlebook's ARM64 recovery image, Android 17) in a virtual machine on an Apple Silicon Mac**, using the open-source gbos-vm project. Every screenshot below comes from that VM. **We have not run it on physical Googlebook hardware**, and we haven't installed it from Google Play on a real Googlebook. Wallpaper Reactor isn't certified by Google for Googlebook and doesn't carry a Google Play desktop badge.
 
 <figure>
-  <img
-    src="/assets/images/live-wallpaper-desktop-top.webp"
-    alt="The top of a laptop desktop: a slim status bar and two window edges over a bright, swirling rainbow plasma wallpaper."
-    width="1920"
-    height="560"
-    decoding="async"
+  <Image
+    src={behindWindow1}
+    alt="The Googlebook OS desktop with the Wallpaper Reactor window open and deep-blue wave shapes of the PSP Wallpaper live wallpaper showing around it. The window shows Browse with PSP Wallpaper selected and its details panel open on the right."
+    widths={[800, 1200, 1600]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="eager"
   />
-  <figcaption>A Wallpaper Reactor live wallpaper (the built-in Plasma shader) behind a desktop. This is an illustration with a generic mock desktop, not a Googlebook.</figcaption>
+  <figcaption>Googlebook OS running in a VM on a Mac, with the PSP Wallpaper live wallpaper behind the Wallpaper Reactor window.</figcaption>
+</figure>
+
+<figure>
+  <Image
+    src={behindWindow2}
+    alt="The same desktop about ten seconds later: the waves of the PSP Wallpaper live wallpaper around the window have shifted, while the window's contents are the same."
+    widths={[800, 1200, 1600]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>The same desktop about ten seconds later. The wallpaper has moved; the window hasn't.</figcaption>
 </figure>
 
 ## Install it
@@ -33,7 +54,7 @@ Before anything else, a straight account of where we stand. **We haven't tested 
 2. Search for **Wallpaper Reactor**, or go straight to the [Play listing](https://play.google.com/store/apps/details?id=app.wallpaperreactor).
 3. Install, then open it.
 
-It's free, and browsing, downloading and setting wallpapers need no account. If you'd rather not use Play, the Android APK is on the [releases page](/releases/).
+It's free, and browsing, downloading and setting wallpapers need no account. Our VM can't sign in to Google, so the Play step itself is the part we haven't seen on a Googlebook. The Play listing has also been hidden from keyboard-and-mouse PCs because it required a touchscreen; **the next update drops that requirement**. Until then, or if you'd rather not use Play, the Android APK is on the [releases page](/releases/). We installed the APK in the VM.
 
 ## Set a wallpaper
 
@@ -42,25 +63,73 @@ It's the same flow as on any Android device, and the [Android walkthrough](/blog
 1. Open **Browse** and pick a wallpaper. **Search**, **Sort** and the **Type**, **Colors** and **Tags** filters narrow the list.
 2. Open it and choose **Download**. The files stay on your device.
 3. Choose **Set wallpaper**.
-4. Android opens its own live wallpaper screen for Wallpaper Reactor. **Confirm it there** — Android only runs a live wallpaper that you confirm yourself. It may ask whether it's for the home screen, the lock screen or both.
+4. Android opens its own live wallpaper screen for Wallpaper Reactor. **Confirm it there** — Android only runs a live wallpaper that you confirm yourself. It asks whether it's for the home screen, the lock screen or both.
+
+<figure>
+  <Image
+    src={detailsPanel}
+    alt="The details panel for PSP Wallpaper in Wallpaper Reactor on Googlebook OS: its name and author, a Download button, an Options row, tags, 495 favorites and 3553 installs, beside the Browse grid."
+    widths={[800, 1200, 1600]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>A wallpaper's details open beside the grid. <strong>Download</strong> is the first step.</figcaption>
+</figure>
+
+<figure>
+  <Image
+    src={chooser}
+    alt="Googlebook OS's Live Wallpapers list with three entries: Cinematic Wallpaper, Dark Light Wallpaper and Wallpaper Reactor."
+    widths={[800, 1200, 1600]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>Wallpaper Reactor in Googlebook OS's list of live wallpapers.</figcaption>
+</figure>
+
+<figure>
+  <Image
+    src={picker}
+    alt="Googlebook OS's Live Wallpapers preview showing the PSP Wallpaper blue waves full screen, with Wallpaper Reactor named at the bottom above a Set wallpaper button."
+    widths={[800, 1200, 1600]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>Googlebook OS's own live wallpaper screen, previewing PSP Wallpaper from Wallpaper Reactor. We applied it from a local copy of the file with Quick Wallpaper.</figcaption>
+</figure>
 
 After Wallpaper Reactor is your live wallpaper, setting another one in the app switches it without the Android screen. If you back out of the Android screen without confirming, nothing is set and the app shows no error — just choose **Set wallpaper** again.
 
-### The part we couldn't confirm
+<figure>
+  <Image
+    src={lockScreen}
+    alt="The Googlebook OS lock screen: a large 07 06 clock and the date over the blue waves of the PSP Wallpaper live wallpaper."
+    widths={[800, 1200, 1600]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>Set for the home screen and the lock screen, the wallpaper animates on the lock screen too.</figcaption>
+</figure>
 
-Here is the honest caveat. On Android 16 (QPR3) and newer, and on Android 17, **Android blocks third-party live wallpapers on a connected external display** — a monitor, or desktop mode. That's an Android platform policy, not something the app controls, and we explain it in [Do live wallpapers work on Android Desktop Mode?](/blog/android-desktop-mode-live-wallpapers/).
+### What we haven't confirmed
 
-A Googlebook is a laptop with its own screen, not a phone plugged into a monitor, so that case may not apply to it. But we don't know. In our emulator pass we confirmed the system reports live wallpaper support and that Wallpaper Reactor's wallpaper service is registered, and **we did not apply a wallpaper**, so we have not seen one render on a desktop display. If you try it on a Googlebook, whether the animated wallpaper shows behind your windows is exactly the thing we'd like to hear about.
+On Android 16 (QPR3) and newer, and on Android 17, **Android blocks third-party live wallpapers on a connected external display** — a monitor, or desktop mode. That's an Android platform policy, and we explain it in [Do live wallpapers work on Android Desktop Mode?](/blog/android-desktop-mode-live-wallpapers/).
+
+A Googlebook is a laptop with its own screen, and that policy didn't apply to it in our VM: the wallpaper showed behind windows and on the lock screen. What we haven't done is run any of this on physical Googlebook hardware, or install from Google Play on one. If you try it on a Googlebook, we'd like to hear what you see.
 
 ## What it can run
 
-Wallpaper Reactor isn't just video loops. The wallpapers it runs include:
+Wallpaper Reactor isn't just video loops. On Googlebook OS in the VM, every wallpaper type rendered as the live wallpaper:
 
+- **Image**, including animated WebP and GIF.
 - **Video**: MP4 and WebM.
 - **Shaders**: GLSL, drawn live.
 - **Rive animations**: vector animations, drawn from shapes rather than stored as pixels.
 - **Scenes** and **interactive 3D** built in Godot.
 - **Websites**: HTML pages as wallpapers.
+- **Compositions**.
+
+Some of the fixes that made this work land in **the next update**: the video and Rive fallbacks, catalogue shader conversion and composition routing. Until it ships, a few wallpaper types may not draw on Googlebook OS yet.
 
 As of 0.30.0 you can upload scenes, interactive 3D (Godot) and website wallpapers. You can also use your own file without an account through **Quick Wallpaper** on the **Create** tab: pick a file and it's applied. There's more on that in [setting any video as a live wallpaper](/blog/set-any-video-as-live-wallpaper/).
 
@@ -68,12 +137,25 @@ Interactive wallpapers (Scenes and Godot) respond to touch and mouse input. **To
 
 ## Using the app in a desktop window
 
-Wallpaper Reactor on Android desktop mode runs in a window you can resize and maximize. In our emulator pass:
+Wallpaper Reactor on Googlebook OS runs in a window you can resize and maximize, and the layout follows the window. Wide, it shows the library with a details panel beside it; narrow, it switches to a bottom tab bar.
 
-- **Resizing and maximizing** worked. The layout adjusts live as the window changes size, with no letterboxing and no compatibility mode.
-- **A sensible first window.** The app opens at 1100 × 720 dp rather than phone-sized.
-- **Mouse**: hovering a card shows its "…" button, right-clicking a card opens a menu (Favorite, Preview, Set as wallpaper, Copy link), and the carousels have arrow buttons.
+<figure>
+  <Image
+    src={browseWindow}
+    alt="Wallpaper Reactor's Browse tab maximized on Googlebook OS. Rows of popular wallpapers (PSP Wallpaper, Super Mario 64, Weather, Fluid, WARP) fill the grid on the left, and the details panel for Super Mario 64 is open on the right with its preview, author, Download button and description."
+    widths={[800, 1200, 1600]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+  />
+  <figcaption>Browse maximized on Googlebook OS in a VM, with the selected wallpaper's details open beside the grid.</figcaption>
+</figure>
+
+In the VM:
+
+- **Resizing and maximizing** worked. The layout reflows live as the window changes size.
+- **Mouse**: clicks, hover, wheel scrolling, right-clicking a card for a menu, and typing in fields all work.
 - **Keyboard**: Tab and the arrow keys move focus, with a visible focus ring.
+- **Gamepad**: a controller moves focus and steps through Browse, details and back.
 - **Drag and drop**: in 0.30.0 you can drop a file on the window in desktop mode, and files you open with or share to Wallpaper Reactor are picked up directly.
 - **Full screen**: F11 toggles fullscreen on Android 15 and later.
 
@@ -90,7 +172,7 @@ There are keyboard shortcuts for the whole app too. On Android and ChromeOS, the
 
 Press **?** in the app for the full list.
 
-Two caveats on that emulator pass. Hover, right-click, wheel and Tab/arrow-key events were injected into the app's web view rather than sent through Android's own input system, so they test the app's handling and not the operating system's. And the shortcuts and drag-and-drop landed in 0.30.0, after that pass. Several are covered by automated tests; none has been tried on a Googlebook.
+The VM has no battery, no real touchscreen and a virtual GPU, so frame rates and power behaviour on a real Googlebook may differ.
 
 ## Battery and performance
 
@@ -116,7 +198,7 @@ For the old-phone version of this advice, see [live wallpapers on an old or chea
     {
       question: 'Does Wallpaper Reactor work on a Googlebook?',
       answer:
-        "It's an Android app, and Googlebook runs Android apps without a separate build, so you install it from Google Play. We haven't tested on a real Googlebook; our checks ran on an Android desktop-mode emulator, where the app launched, resized, maximized and took mouse and keyboard input.",
+        "Yes, in the Googlebook OS VM we tested. It's an Android app, and Googlebook runs Android apps without a separate build. We ran Google's own Googlebook OS image in a virtual machine on a Mac: the app launched, resized, took mouse, keyboard and gamepad input, and set live wallpapers. We haven't tested on physical Googlebook hardware.",
     },
     {
       question: 'Is Wallpaper Reactor certified or optimized for Googlebook?',
@@ -126,7 +208,12 @@ For the old-phone version of this advice, see [live wallpapers on an old or chea
     {
       question: 'Will a live wallpaper show behind my windows on a Googlebook?',
       answer:
-        "We don't know yet. Android 16 (QPR3) and newer, and Android 17, block third-party live wallpapers on a connected external display, and we haven't confirmed whether that applies to a Googlebook's own screen. We haven't seen one render on a desktop display.",
+        "It did in our VM: the wallpaper animated behind windows and on the lock screen. Android 16 (QPR3) and newer, and Android 17, block third-party live wallpapers on a connected external display, but that didn't apply to the Googlebook OS laptop screen. We haven't seen it on real hardware.",
+    },
+    {
+      question: 'Can I install it from Google Play on a Googlebook?',
+      answer:
+        "That's the one thing we haven't confirmed. The next update removes the touchscreen requirement that hid the Play listing from keyboard-and-mouse PCs. The Android APK on the releases page installs today, and it's what we installed in the VM.",
     },
     {
       question: 'Do I need an account?',
@@ -144,7 +231,7 @@ For the old-phone version of this advice, see [live wallpapers on an old or chea
 <div class="my-10 rounded-card border border-brand-500/30 bg-brand-500/[0.06] p-8 text-center">
   <div class="mb-3 text-2xl font-semibold leading-tight text-ink-100">Try it on your Googlebook</div>
   <p class="mx-auto mb-6 max-w-lg text-ink-400">
-    Free from Google Play, with no account needed. Tell us what you see.
+    Free, with no account needed. Tell us what you see on real hardware.
   </p>
   <CtaButton href="/releases/" icon="android">Download Wallpaper Reactor</CtaButton>
 </div>

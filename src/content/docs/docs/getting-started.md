@@ -67,6 +67,16 @@ On a Steam Deck, use **Desktop Mode**. Gaming Mode has no desktop to put a wallp
 
 Browsing, downloading and setting wallpapers need no account. Sign in to sync favorites and to publish your own wallpapers.
 
+## Googlebook
+
+Wallpaper Reactor is the same Android app on a Googlebook, and live wallpapers work there. We tested on Google's Googlebook OS image running in a VM on a Mac, not on physical Googlebook hardware.
+
+1. Install **Wallpaper Reactor** from the [Play Store](https://play.google.com/store/apps/details?id=app.wallpaperreactor), or use the Android APK on [Releases](/releases/).
+2. Open **Browse**, pick a wallpaper and choose **Download**, then **Set wallpaper**.
+3. Confirm Wallpaper Reactor on Android's live wallpaper screen, and choose the home screen, the lock screen or both.
+
+See [Live and animated wallpapers on a Googlebook](/blog/live-wallpaper-googlebook/) for what we tested and what we haven't.
+
 ## Use your own file
 
 Open **Create** and use **Quick Wallpaper** to apply a file from your device right away, with no account and nothing published. See [Creating a wallpaper](/docs/creating-a-wallpaper/).
