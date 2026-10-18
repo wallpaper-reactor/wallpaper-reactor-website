@@ -1,0 +1,90 @@
+---
+title: Wallpaper Engine for Googlebook
+description: Wallpaper Engine is a Windows app, so it can't run on a Googlebook. Wallpaper Reactor is an Android app with live wallpapers behind your windows and on the lock screen, and it runs on Googlebook OS.
+publishDate: 2026-10-18
+updatedDate: 2026-10-18
+related:
+  - live-wallpaper-googlebook
+  - android-desktop-mode-live-wallpapers
+  - wallpaper-engine-for-mac
+  - wallpaper-engine-free
+---
+
+import { Image } from 'astro:assets';
+import Faq from '../../components/Faq.astro';
+import CtaButton from '../../components/CtaButton.astro';
+import googlebookShot from '../../assets/main-app-screenshot.webp';
+
+Wallpaper Engine can't run on a Googlebook. It's a Windows application sold on Steam, and a Googlebook runs Android apps, so there's nothing to install. The Android app that does the same job on a Googlebook is Wallpaper Reactor.
+
+Wallpaper Engine is a good fit for a Windows PC, with a big Steam Workshop behind it. A Googlebook is a different kind of machine, and it needs an app built for Android.
+
+## What you can do instead
+
+Wallpaper Reactor is an Android app, so it runs on Googlebook OS. It sets a live wallpaper that animates behind your windows and on your lock screen, the same way a live wallpaper does on an Android phone.
+
+<figure>
+  <Image
+    src={googlebookShot}
+    alt="Wallpaper Reactor running on Googlebook OS."
+    widths={[640, 896, 1280, 1792]}
+    sizes="(max-width: 896px) 100vw, 896px"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption>Wallpaper Reactor on Googlebook OS, running in a virtual machine.</figcaption>
+</figure>
+
+Every wallpaper type renders:
+
+- **Video loops** in MP4 and WebM
+- **GLSL shaders** drawn live
+- **Godot scenes**
+- **Rive animations**
+- **Web wallpapers** that respond to your input
+
+You can use it with a mouse, a keyboard or a gamepad. For the walkthrough, see [live and animated wallpapers on a Googlebook](/blog/live-wallpaper-googlebook/), and the [Googlebook page](/googlebook/) has the short version.
+
+## What's different from Wallpaper Engine
+
+You're choosing from Wallpaper Reactor's own library instead of the Steam Workshop, and the app is installed from Google Play or the Android build on the [releases page](/releases/) instead of Steam. Wallpapers are made for Wallpaper Reactor, and you can [build and publish your own](/docs/wallpaper-creation/).
+
+If you want the same wallpapers on a PC or a Mac later, it's one library across Android, Windows and macOS. The same question comes up on other platforms: see [Wallpaper Engine for Mac](/blog/wallpaper-engine-for-mac/) and [a free alternative to Wallpaper Engine](/blog/wallpaper-engine-free/).
+
+## What we have and haven't tested
+
+We run Google's own Googlebook OS image in a virtual machine on a Mac. We haven't run Wallpaper Reactor on a physical Googlebook, and a Google Play install on a real Googlebook is unconfirmed. Some fixes from that testing arrive in the next update after 0.31.0.
+
+## FAQ
+
+<Faq
+  items={[
+    {
+      question: 'Can I run Wallpaper Engine on a Googlebook?',
+      answer:
+        "No. Wallpaper Engine is a Windows application sold on Steam. A Googlebook runs Android apps, so it can't install it.",
+    },
+    {
+      question: 'What is the closest thing to Wallpaper Engine on a Googlebook?',
+      answer:
+        'Wallpaper Reactor. It is an Android app that runs on Googlebook OS and sets live wallpapers for video, shaders, Godot scenes, Rive animations and web content.',
+    },
+    {
+      question: 'Do the live wallpapers show behind my windows?',
+      answer:
+        'Yes, in our testing on Googlebook OS in a virtual machine. They also animate on the lock screen. We have not tested on a physical Googlebook.',
+    },
+    {
+      question: 'Does it work with a mouse, keyboard and gamepad?',
+      answer: 'Yes. All three work in our testing.',
+    },
+  ]}
+/>
+
+<div class="my-10 rounded-card border border-brand-500/30 bg-brand-500/[0.06] p-8 text-center">
+  <div class="mb-3 text-2xl font-semibold leading-tight text-ink-100">Live wallpapers for your Googlebook</div>
+  <p class="mx-auto mb-6 max-w-lg text-ink-400">
+    Video, shaders, Godot and web wallpapers behind your windows and on the lock screen.
+  </p>
+  <CtaButton href="/releases/" icon="android">Download Wallpaper Reactor</CtaButton>
+</div>

@@ -1,0 +1,92 @@
+---
+/**
+ * Template for a per-platform landing page (/googlebook/ first; /mac/, /windows/, /linux/ and /android/
+ * follow by supplying the same props). Content lives in the page, layout lives here, so the pages stay alike.
+ * The FAQ goes through Faq.astro, which emits the FAQPage JSON-LD from the same array.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaButton from './CtaButton.astro';
+import Faq, { type FaqItem } from './Faq.astro';
+import SectionTitle from './SectionTitle.astro';
+
+interface Props {
+  /** `<title>` before the " | Wallpaper Reactor" suffix. */
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+  hero: { src: ImageMetadata; alt: string; caption: string };
+  cta: { label: string; href: string; icon: 'apple' | 'windows' | 'android'; external?: boolean };
+  /** A plain text link under the button, e.g. the releases page. */
+  secondary?: { label: string; href: string };
+  works: { title: string; body: string }[];
+  caveat: { heading: string; body: string };
+  faqs: FaqItem[];
+  /** Further reading: the articles about this platform. */
+  links: { href: string; title: string; blurb: string }[];
+}
+
+const { title, description, h1, intro, hero, cta, secondary, works, caveat, faqs, links } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="mx-auto max-w-4xl">
+    <header class="text-center">
+      <h1 class="mb-4 text-4xl font-semibold leading-tight text-ink-100 max-sm:text-3xl">{h1}</h1>
+      <p class="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-ink-400">{intro}</p>
+      <div class="flex flex-col items-center gap-4">
+        <CtaButton href={cta.href} icon={cta.icon} external={cta.external}>{cta.label}</CtaButton>
+        {secondary && <a href={secondary.href} class="text-brand-400 underline hover:text-brand-hover">{secondary.label}</a>}
+      </div>
+    </header>
+
+    <figure class="my-12">
+      <Image
+        src={hero.src}
+        alt={hero.alt}
+        widths={[640, 896, 1280, 1792]}
+        sizes="(max-width: 896px) 100vw, 896px"
+        loading="eager"
+        class="block h-auto w-full rounded-card border border-white/10"
+      />
+      <figcaption class="mt-3 text-center text-sm text-ink-400">{hero.caption}</figcaption>
+    </figure>
+
+    <section>
+      <SectionTitle>What works</SectionTitle>
+      <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-6">
+        {
+          works.map((w) => (
+            <article class="rounded-card border border-white/10 bg-surface-900 p-6">
+              <h3 class="mb-1 text-base font-semibold text-ink-100">{w.title}</h3>
+              <p class="m-0 text-sm leading-relaxed text-ink-400">{w.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="my-12 rounded-card border border-brand-500/30 bg-brand-500/[0.06] p-8">
+      <h2 class="mb-3 text-2xl font-semibold text-ink-100">{caveat.heading}</h2>
+      <p class="m-0 leading-relaxed text-ink-300">{caveat.body}</p>
+    </section>
+
+    <Faq items={faqs} heading="Frequently asked questions" />
+
+    <section class="my-12">
+      <h2 class="mb-4 text-2xl font-semibold text-ink-100">Read more</h2>
+      <ul class="m-0 list-none space-y-3 p-0">
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.href} class="text-brand-400 underline hover:text-brand-hover">{l.title}</a>
+              <span class="text-ink-400"> — {l.blurb}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</BaseLayout>

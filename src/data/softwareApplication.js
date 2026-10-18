@@ -11,6 +11,7 @@
  */
 const FREE_OFFER = { '@type': 'Offer', price: '0', priceCurrency: 'USD' };
 
+/** @param {{ siteUrl: string, imageUrl: string, offers?: object | object[] }} args */
 export function softwareApplicationSchema({ siteUrl, imageUrl, offers = FREE_OFFER }) {
   return {
     '@context': 'https://schema.org',

@@ -1,11 +1,14 @@
 ---
-import { SITE } from '../data/site';
+import { PLATFORM_PAGES, SITE } from '../data/site';
 
 // Jekyll rendered this from `site.time` (build time). Same behaviour here.
 const year = new Date().getFullYear();
 ---
 
 <footer class="mt-16 border-t border-white/10 py-6 text-center">
+  <nav aria-label="Platforms" class="mb-3 flex justify-center gap-6 text-sm">
+    {PLATFORM_PAGES.map((p) => <a href={p.href} class="text-brand-400 underline hover:text-brand-hover">Wallpaper Reactor for {p.label}</a>)}
+  </nav>
   <p class="m-0 text-sm text-ink-400">
     &copy; {year} {SITE.title} by{' '}
     <a href={SITE.url} class="text-brand-400 hover:text-brand-hover">{SITE.author}</a>

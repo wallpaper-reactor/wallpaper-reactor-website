@@ -1,0 +1,70 @@
+---
+import PlatformPage from '../components/PlatformPage.astro';
+import { STORES } from '../data/site';
+import heroShot from '../assets/main-app-screenshot.webp';
+
+const FAQS = [
+  {
+    question: 'Do live wallpapers work on a Googlebook?',
+    answer:
+      'Yes, in our testing. Wallpaper Reactor runs as the live wallpaper behind windows and on the lock screen, and every wallpaper type renders. We tested on Google’s own Googlebook OS image running in a virtual machine, not on a physical Googlebook.',
+  },
+  {
+    question: 'Have you tested on real Googlebook hardware?',
+    answer:
+      'No. We run Google’s Googlebook OS image in a virtual machine on a Mac. Behaviour on physical hardware may differ, and we will say so here once we have tested it.',
+  },
+  {
+    question: 'Can I install it from Google Play on a Googlebook?',
+    answer:
+      'Wallpaper Reactor is on Google Play, but we have not confirmed a Play install on a real Googlebook. Sideloading the Android build works in our VM, and the APK is on the releases page.',
+  },
+  {
+    question: 'Does it work with a mouse, keyboard and gamepad?',
+    answer: 'Yes. The app is usable at desktop window sizes with a mouse and keyboard, and gamepad input works.',
+  },
+  {
+    question: 'Is it free?',
+    answer:
+      'Browsing, downloading and setting wallpapers are free and need no account. The features page lists what each tier includes.',
+  },
+];
+---
+
+<PlatformPage
+  title="Live Wallpaper for Googlebook"
+  description="Live wallpaper and animated wallpaper for Googlebook: video, shaders, Godot, Rive and web wallpapers behind your windows and on the lock screen. Tested in a VM."
+  h1="Live and animated wallpaper for Googlebook"
+  intro="Wallpaper Reactor is an Android app, so it runs on Googlebook OS. It animates your desktop behind your windows and your lock screen with video, shaders, Godot scenes, Rive animations and web wallpapers."
+  hero={{
+    src: heroShot,
+    alt: 'Wallpaper Reactor on Googlebook OS.',
+    caption: 'Wallpaper Reactor on Googlebook OS, running in a virtual machine.',
+  }}
+  cta={{ label: 'Get it on Google Play', href: STORES.googlePlay, icon: 'android', external: true }}
+  secondary={{ label: 'Or download the Android build from the releases page', href: '/releases/' }}
+  works={[
+    { title: 'Every wallpaper type', body: 'Video, GLSL shaders, Godot scenes, Rive animations and web wallpapers all render.' },
+    { title: 'Behind your windows', body: 'The wallpaper animates on the desktop behind your open windows.' },
+    { title: 'On the lock screen', body: 'Set it for the home screen and lock screen, and it animates on both.' },
+    { title: 'Mouse and keyboard', body: 'The app resizes to desktop window sizes and works with a mouse and keyboard.' },
+    { title: 'Gamepad', body: 'Gamepad input works alongside the mouse and keyboard.' },
+  ]}
+  caveat={{
+    heading: 'What we have and have not tested',
+    body: 'We run Google’s own Googlebook OS image in a virtual machine on a Mac. We have not run it on a physical Googlebook, and a Play install on a real Googlebook is unconfirmed. Some fixes from that testing arrive in the next update after 0.31.0.',
+  }}
+  faqs={FAQS}
+  links={[
+    {
+      href: '/blog/live-wallpaper-googlebook/',
+      title: 'Live and animated wallpapers on a Googlebook',
+      blurb: 'install, set a wallpaper, and what we could and could not confirm.',
+    },
+    {
+      href: '/blog/wallpaper-engine-for-googlebook/',
+      title: 'Wallpaper Engine for Googlebook',
+      blurb: 'what to use on a Googlebook, since Wallpaper Engine is a Windows app.',
+    },
+  ]}
+/>

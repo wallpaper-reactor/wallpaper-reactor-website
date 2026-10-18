@@ -30,3 +30,6 @@ export const NAV = [
   { label: 'Blog', href: '/blog/' },
   { label: 'Support', href: '/support/' },
 ] as const;
+
+/** Platform landing pages (`PlatformPage.astro`), linked from the footer. Add /mac/, /windows/ etc. here as they ship. */
+export const PLATFORM_PAGES = [{ label: 'Googlebook', href: '/googlebook/' }] as const;
