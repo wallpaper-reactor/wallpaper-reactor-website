@@ -7,6 +7,8 @@ interface Props {
   description: string;
   publishDate: Date;
   updatedDate?: Date;
+  /** Social-share image, from the post's `image` front matter. */
+  image?: ImageMetadata;
   /** Related posts, from the post's `related` front matter. */
   related?: { href: string; title: string; description: string }[];
   /** Social share image, from the post's `image` front matter. */
